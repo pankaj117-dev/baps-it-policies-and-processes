@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAPS IT Stage Gate Process</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --primary-light: #2d5986;
+    --accent: #f0a500;
+    --accent-light: #ffd166;
+    --green: #2a9d5c;
+    --green-light: #e8f7ee;
+    --red: #c0392b;
+    --red-light: #fdecea;
+    --yellow: #e67e22;
+    --yellow-light: #fef3e2;
+    --blue-light: #eaf2ff;
+    --gray: #6b7280;
+    --gray-light: #f3f4f6;
+    --border: #e5e7eb;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --white: #ffffff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f0f4f8;
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .header-title { display: flex; align-items: center; gap: 14px; }
+  .header-logo {
+    width: 44px; height: 44px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800; color: var(--primary);
+    flex-shrink: 0;
+  }
+  header h1 { font-size: 1.25rem; font-weight: 700; line-height: 1.2; }
+  header p { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; }
+  .header-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav-btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .nav-btn:hover, .nav-btn.active { background: var(--accent); border-color: var(--accent); color: var(--primary); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  /* ── PANELS ── */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* ── HERO STRIP ── */
+  .hero {
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--accent);
+  }
+  .hero h2 { font-size: 1.3rem; color: var(--primary); margin-bottom: 8px; }
+  .hero p { color: var(--text-light); max-width: 780px; }
+
+  /* ── OVERVIEW PIPELINE ── */
+  .pipeline {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 28px;
+    align-items: stretch;
+  }
+  .pipeline-stage {
+    flex: 1;
+    min-width: 105px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .pipeline-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 18px;
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 700;
+    z-index: 2;
+  }
+  .pipeline-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .pipeline-stage:hover .pipeline-num { background: var(--accent); color: var(--primary); transform: scale(1.1); }
+  .pipeline-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .pipeline-gate {
+    font-size: 0.65rem;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 4px;
+    line-height: 1.2;
+  }
+
+  /* ── STAT CARDS ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .stat-num { font-size: 2rem; font-weight: 800; }
+  .stat-label { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
+  .stat-card.critical .stat-num { color: var(--red); }
+  .stat-card.high .stat-num { color: var(--yellow); }
+  .stat-card.total .stat-num { color: var(--primary); }
+  .stat-card.fixed .stat-num { color: var(--green); }
+
+  /* ── STAGE CARDS ── */
+  .stage-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .stage-card:hover { box-shadow: var(--shadow-lg); }
+  .stage-header {
+    padding: 20px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    user-select: none;
+    background: white;
+    transition: background 0.15s;
+  }
+  .stage-header:hover { background: #fafbfc; }
+  .stage-badge {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.1rem;
+    color: white;
+    flex-shrink: 0;
+  }
+  .stage-meta { flex: 1; }
+  .stage-name { font-size: 1.05rem; font-weight: 700; color: var(--primary); }
+  .stage-tagline { font-size: 0.82rem; color: var(--text-light); margin-top: 2px; }
+  .stage-pills { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+  .pill {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .pill-blue { background: var(--blue-light); color: var(--primary-light); }
+  .pill-green { background: var(--green-light); color: var(--green); }
+  .pill-yellow { background: var(--yellow-light); color: var(--yellow); }
+  .pill-red { background: var(--red-light); color: var(--red); }
+  .stage-toggle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .stage-card.open .stage-toggle { transform: rotate(180deg); }
+
+  .stage-body {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 0;
+  }
+  .stage-card.open .stage-body { display: block; }
+
+  /* ── SECTIONS INSIDE STAGE ── */
+  .section-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    background: var(--gray-light);
+  }
+  .section-tab {
+    padding: 12px 18px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    color: var(--text-light);
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .section-tab:hover { color: var(--primary); }
+  .section-tab.active { color: var(--primary); border-bottom-color: var(--accent); }
+
+  .section-content { padding: 24px; }
+  .section-pane { display: none; }
+  .section-pane.active { display: block; }
+
+  /* ── CHECKLIST ── */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    background: var(--gray-light);
+  }
+  .checklist li .icon { flex-shrink: 0; margin-top: 1px; }
+  .checklist li .detail { flex: 1; }
+  .checklist li .detail strong { font-size: 0.9rem; display: block; color: var(--text); }
+  .checklist li .detail span { font-size: 0.82rem; color: var(--text-light); }
+  .checklist li .raci {
+    font-size: 0.7rem;
+    background: white;
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: var(--text-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .checklist li.gate { background: #fff8e6; border: 1px solid #f0c040; }
+  .checklist li.gate .detail strong { color: #7a4f00; }
+
+  /* ── GAP CALLOUTS ── */
+  .gap-section { margin-top: 0; }
+  .gap-card {
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border-left: 4px solid;
+  }
+  .gap-card.critical { background: var(--red-light); border-color: var(--red); }
+  .gap-card.high { background: #fff3e0; border-color: var(--yellow); }
+  .gap-card.medium { background: #e8f4fd; border-color: #3498db; }
+  .gap-card.low { background: var(--green-light); border-color: var(--green); }
+  .gap-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .gap-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .gap-badge.critical { background: var(--red); color: white; }
+  .gap-badge.high { background: var(--yellow); color: white; }
+  .gap-badge.medium { background: #3498db; color: white; }
+  .gap-badge.low { background: var(--green); color: white; }
+  .gap-title { font-weight: 700; font-size: 0.9rem; }
+  .gap-problem { font-size: 0.82rem; color: var(--text-light); margin-bottom: 8px; }
+  .gap-fix {
+    font-size: 0.82rem;
+    background: rgba(255,255,255,0.7);
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .gap-fix strong { color: var(--green); white-space: nowrap; font-size: 0.78rem; }
+
+  /* ── GATE OUTCOME CARDS ── */
+  .gate-outcomes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .gate-outcome {
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    border: 2px solid;
+  }
+  .gate-outcome.go { border-color: var(--green); background: var(--green-light); }
+  .gate-outcome.hold { border-color: var(--yellow); background: var(--yellow-light); }
+  .gate-outcome.kill { border-color: var(--red); background: var(--red-light); }
+  .gate-outcome.conditional { border-color: #3498db; background: #e8f4fd; }
+  .gate-outcome-label { font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; }
+  .gate-outcome.go .gate-outcome-label { color: var(--green); }
+  .gate-outcome.hold .gate-outcome-label { color: var(--yellow); }
+  .gate-outcome.kill .gate-outcome-label { color: var(--red); }
+  .gate-outcome.conditional .gate-outcome-label { color: #2980b9; }
+  .gate-outcome p { font-size: 0.78rem; color: var(--text-light); }
+
+  /* ── DECISION BOARD ── */
+  .decision-board {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .decision-board h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 18px; }
+
+  /* ── EXIT POINTS ── */
+  .exit-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+  .exit-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--accent);
+  }
+  .exit-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: 6px; }
+  .exit-card .exit-when { font-size: 0.78rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+  .exit-card p { font-size: 0.83rem; color: var(--text-light); }
+
+  /* ── GLOSSARY TAB ── */
+  .glossary-search {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .glossary-search:focus { border-color: var(--primary-light); }
+  .glossary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .glossary-card {
+    background: white;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    box-shadow: var(--shadow);
+    border-left: 3px solid var(--primary-light);
+  }
+  .glossary-abbr { font-weight: 800; font-size: 1rem; color: var(--primary); }
+  .glossary-full { font-size: 0.82rem; font-weight: 600; color: var(--text); margin: 2px 0 6px; }
+  .glossary-desc { font-size: 0.79rem; color: var(--text-light); line-height: 1.5; }
+
+  /* ── GAP SUMMARY TABLE ── */
+  .gap-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  .gap-table th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .gap-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  .gap-table tr:hover td { background: var(--gray-light); }
+  .gap-table tr:last-child td { border-bottom: none; }
+
+  /* ── INDUSTRY COMPARE ── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .compare-col {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+  .compare-col h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; color: var(--primary); }
+  .compare-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    margin-bottom: 12px;
+  }
+  .compare-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .compare-col.cooper .compare-num { background: #e8f0fe; color: #3c5fa0; }
+  .compare-col.baps .compare-num { background: var(--blue-light); color: var(--primary); }
+  .compare-item-text { flex: 1; }
+  .compare-item-text strong { display: block; font-size: 0.88rem; }
+  .compare-item-text span { font-size: 0.78rem; color: var(--text-light); }
+
+  /* ── PRINT ── */
+  @media print {
+    header { position: static; }
+    .nav-btn, .header-nav { display: none; }
+    .stage-body { display: block !important; }
+    .section-pane { display: block !important; }
+    .section-tabs { display: none; }
+    .panel { display: block !important; }
+    body { background: white; font-size: 12px; }
+    .stage-card { box-shadow: none; border: 1px solid var(--border); }
+    .pipeline { display: none; }
+    .stats-row { display: none; }
+  }
+
+  @media (max-width: 700px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .gate-outcomes { grid-template-columns: 1fr; }
+    .exit-points { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .pipeline-stage { min-width: 80px; }
+    .pipeline-stage:not(:last-child)::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-title">
+      <div class="header-logo">SG</div>
+      <div>
+        <h1>BAPS IT Stage Gate Process</h1>
+        <p>8-stage software delivery lifecycle for volunteer IT teams</p>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <button class="nav-btn active" onclick="showPanel('stages')">Stages</button>
+      <button class="nav-btn" onclick="showPanel('gaps')">Gap Analysis</button>
+      <button class="nav-btn" onclick="showPanel('industry')">Industry Context</button>
+      <button class="nav-btn" onclick="showPanel('glossary')">Glossary</button>
+      <button class="nav-btn" onclick="window.print()">Print</button>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ═══════════════════════ STAGES PANEL ═══════════════════════ -->
+  <div id="panel-stages" class="panel active">
+
+    <div class="hero">
+      <h2>What is the Stage Gate Process?</h2>
+      <p>A structured sequence of stages and decision points that every IT project must pass through — from the initial idea to production closure. Each gate is a formal review where evidence is assessed and a <strong>Go / Kill / Hold / Recycle</strong> decision is made. No stage can begin until the previous gate has formally passed.</p>
+    </div>
+
+    <!-- Pipeline Overview -->
+    <div class="pipeline" id="pipeline-overview">
+      <div class="pipeline-stage" onclick="jumpToStage(1)">
+        <div class="pipeline-num">1</div>
+        <div class="pipeline-label">Project Proposal</div>
+        <div class="pipeline-gate">ITC/BOD approval</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(2)">
+        <div class="pipeline-num">2</div>
+        <div class="pipeline-label">Initiation</div>
+        <div class="pipeline-gate">Charter & kickoff</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(3)">
+        <div class="pipeline-num">3</div>
+        <div class="pipeline-label">Requirements</div>
+        <div class="pipeline-gate">BRD+FRD sign-off</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(4)">
+        <div class="pipeline-num">4</div>
+        <div class="pipeline-label">Technical Design</div>
+        <div class="pipeline-gate">TDD sign-off</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(5)">
+        <div class="pipeline-num">5</div>
+        <div class="pipeline-label">Estimate & Planning</div>
+        <div class="pipeline-gate">BT scope sign-off</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(6)">
+        <div class="pipeline-num">6</div>
+        <div class="pipeline-label">Development</div>
+        <div class="pipeline-gate">QA tests + VAPT</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(7)">
+        <div class="pipeline-num">7</div>
+        <div class="pipeline-label">UAT</div>
+        <div class="pipeline-gate">FPO sign-off</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(8)">
+        <div class="pipeline-num">8</div>
+        <div class="pipeline-label">Launch & Hypercare</div>
+        <div class="pipeline-gate">Hypercare exit</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToStage(9)">
+        <div class="pipeline-num">9</div>
+        <div class="pipeline-label">Project Closure</div>
+        <div class="pipeline-gate">Closure report</div>
+      </div>
+    </div>
+
+    <!-- Exit Points -->
+    <div class="exit-points">
+      <div class="exit-card">
+        <h4>Exit Point A</h4>
+        <div class="exit-when">Before Stage 1</div>
+        <p>Department has its own capable team. They self-manage the project but must still follow central governance: security policies and architecture standards.</p>
+      </div>
+      <div class="exit-card">
+        <h4>Exit Point B</h4>
+        <div class="exit-when">After Stage 3 — Requirements done</div>
+        <p>BAPS BAs help the department define requirements, then the department exits to issue an RFP to an external vendor for the build phase.</p>
+      </div>
+      <div class="exit-card">
+        <h4>Exit Point C</h4>
+        <div class="exit-when">After Stage 5 — Estimate done</div>
+        <p>IT's estimate exceeds the department's timeline or budget. The department finds an external solution. IT is never pressured to rush and compromise quality.</p>
+      </div>
+    </div>
+
+    <!-- Stage 1 -->
+    <div class="stage-card" id="stage-1">
+      <div class="stage-header" onclick="toggleStage(1)">
+        <div class="stage-badge" style="background:#1a3a5c">1</div>
+        <div class="stage-meta">
+          <div class="stage-name">Project Proposal</div>
+          <div class="stage-tagline">Evaluate whether the idea is important, practical, feasible, and can be prioritized</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Stage Owner: RGC</span>
+            <span class="pill pill-blue">Gate: ITC / BOD Approval</span>
+            <span class="pill pill-red">2 Critical gaps found</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-1">
+          <div class="section-tab active" onclick="showTab(1,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(1,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(1,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(1,'gaps')">Gaps (4)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-1-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">📋</div><div class="detail"><strong>Business Need Identified</strong><span>A department lead has a documented business problem (email, verbal brief, or existing pain point). The formal proposal is the Stage 1 output — not the prerequisite.</span></div><div class="raci">R: Dept Lead · A: Dept Lead</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-1-activities">
+            <ul class="checklist">
+              <li><div class="icon">📝</div><div class="detail"><strong>Project Proposal (SG0101T)</strong><span>Department lead completes the proposal form: project description, type (New/Redevelop/Enhance/SaaS), objectives, scope, business impact, risks, budget estimate, and key stakeholders.</span></div><div class="raci">R+A: Dept Lead · C: RGC · I: IT NDC Leads</div></li>
+              <li><div class="icon">🔍</div><div class="detail"><strong>Proposal Refinement (SG0102G)</strong><span>RGC reviews proposal for completeness. Works with proposer until sufficient details are provided for ITC to make an informed decision.</span></div><div class="raci">R+A: RGC · C: Dev Leads</div></li>
+              <li><div class="icon">💡</div><div class="detail"><strong>RGC Recommendations</strong><span>RGC appends their inputs to the proposal: risks, available capacity, ROI, duplicate systems, enterprise architecture alignment, and product roadmap fit.</span></div><div class="raci">R+A: RGC · C: Dev Leads</div></li>
+              <li><div class="icon">📅</div><div class="detail"><strong>ITC Review</strong><span>Proposal submitted to ITC. ITC must respond within 15 business days. RGC coordinates meetings with project stakeholders as needed. If no decision after 30 business days, RGC escalates to BOD.</span></div><div class="raci">R: ITC · A: RGC</div></li>
+              <li><div class="icon">📢</div><div class="detail"><strong>Communications</strong><span>RGC provides written status updates within 2 business days of each ITC session. If ITC has not met, a holding update is sent every 10 business days via the MS Teams project channel.</span></div><div class="raci">R+A: RGC</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-1-gate">
+            <div class="gate-outcomes">
+              <div class="gate-outcome go"><div class="gate-outcome-label">✅ Approved</div><p>Proceed to Stage 2. Resources allocated. Stage up to which the project may proceed is documented.</p></div>
+              <div class="gate-outcome conditional"><div class="gate-outcome-label">🔵 Conditionally Approved</div><p>Proceed with named conditions that must be resolved by Gate 2. Conditions listed explicitly.</p></div>
+              <div class="gate-outcome hold"><div class="gate-outcome-label">⏸ On Hold</div><p>Deferred. Mandatory re-consideration date set. Proposer notified within 2 business days.</p></div>
+              <div class="gate-outcome kill"><div class="gate-outcome-label">❌ Rejected</div><p>Project will not proceed. Rationale documented. Proposer notified within 2 business days.</p></div>
+            </div>
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Project Proposal Approval (SG0103G)</strong><span>ITC decision documented in the proposal form with one of four outcomes. Decision includes: project type classification, authorized stages, and resource allocation for next stage.</span></div><div class="raci">R: BOD/ITC · A: ITC · I: NDC Leads, Stakeholders</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Next Steps Meeting (SG0104G)</strong><span>Meeting held within 5 business days of ITC decision. Agreed next steps documented in meeting minutes and uploaded to project folder. Decision communicated with email confirmation.</span></div><div class="raci">R+A: RGC · I: NDC Leads</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-1-gaps">
+            <div class="gap-card critical">
+              <div class="gap-header"><span class="gap-badge critical">CRITICAL</span><span class="gap-title">Gap 1 — Circular prerequisite</span></div>
+              <div class="gap-problem">The original process lists "Project Proposal" as both the stage name AND its prerequisite — a logical impossibility.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Renamed prerequisite to "Business Need Identified." The proposal document is the Stage 1 output, not its input.</div>
+            </div>
+            <div class="gap-card critical">
+              <div class="gap-header"><span class="gap-badge critical">CRITICAL</span><span class="gap-title">Gap 3 — Gate decision states undefined</span></div>
+              <div class="gap-problem">"A decision is given" — no enumerated outcomes, no tracking possible.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> 4 formal outcomes defined: Approved / Conditionally Approved / On Hold / Rejected. Each requires documented rationale and logged in Jira.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 2 — No ITC review SLA</span></div>
+              <div class="gap-problem">ITC could sit on a proposal indefinitely with no escalation trigger.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> 15 business day SLA. If no decision after 2 ITC cycles (~30 days), RGC escalates to BOD representative with a written memo.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 4 — Vague communication cadence</span></div>
+              <div class="gap-problem">"Regular intervals" is unenforceable — no frequency, channel, or format.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Written update within 2 business days of each ITC session. Holding update every 10 business days if ITC hasn't met. Channel: MS Teams.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage-card" id="stage-2">
+      <div class="stage-header" onclick="toggleStage(2)">
+        <div class="stage-badge" style="background:#2d5986">2</div>
+        <div class="stage-meta">
+          <div class="stage-name">Project Initiation</div>
+          <div class="stage-tagline">Formally authorize the project and establish team structure, objectives, and governance</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Stage Owner: RGC</span>
+            <span class="pill pill-blue">Gate: Charter signed · Kickoff held</span>
+            <span class="pill pill-yellow">2 High gaps found</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-2">
+          <div class="section-tab active" onclick="showTab(2,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(2,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(2,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(2,'gaps')">Gaps (4)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-2-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">✅</div><div class="detail"><strong>Stage 1 Gate Decision = Approved or Conditionally Approved</strong><span>Project must have a formal ITC/BOD decision before Initiation begins. Conditional approvals must have conditions documented and tracked.</span></div><div class="raci">R: RGC · A: ITC</div></li>
+              <li><div class="icon">👤</div><div class="detail"><strong>Identify Initial Roles — Named Individuals (SG0201G)</strong><span>FPO, SMEs, RGC point of contact, and EAB point of contact must be confirmed with named individuals (not just titles) before Stage 2 begins.</span></div><div class="raci">R+A: RGC · I: NDC Leads</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-2-activities">
+            <ul class="checklist">
+              <li><div class="icon">📄</div><div class="detail"><strong>Project Charter (SG0202T + SG0202G)</strong><span>Establishes objectives, scope, constraints, success criteria, escalation paths, and team RACI. Derived from the approved proposal. Reviewed and approved by RGC.</span></div><div class="raci">R: RGC PoC / PM · A: RGC · C: PM Leads</div></li>
+              <li><div class="icon">⚠️</div><div class="detail"><strong>Dependency Risks</strong><span>EAB identifies internal/external systems and infrastructure dependencies. Risks raised in the project Risk Register in ALM/HawkEye.</span></div><div class="raci">R: EAB · A: RGC · C: Dev Leads</div></li>
+              <li><div class="icon">📅</div><div class="detail"><strong>Initial Project Plan</strong><span>High-level stage timeline with indicative dates for all 9 stages. Key dependencies and resource constraints flagged. Reviewed by RGC before kickoff.</span></div><div class="raci">R: PM · A: RGC · C: SA/TL</div></li>
+              <li><div class="icon">📊</div><div class="detail"><strong>Executive Summary Deck (SG0204T)</strong><span>5-slide deck: (1) overview & justification, (2) approved scope, (3) stage timeline, (4) team RACI, (5) BT time commitment. Reviewed by RGC before kickoff.</span></div><div class="raci">R: PM · A: RGC</div></li>
+              <li><div class="icon">💻</div><div class="detail"><strong>MS Teams & ALM Setup (SG0203G)</strong><span>MS Teams created per naming convention: [ORG]-[ProjectCode]-[Year] e.g. BAPS-GMS-2026. ALM project configured. All members assigned with correct access levels confirmed.</span></div><div class="raci">R: PM · A: PM-Admin · C: DevOps Support</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-2-gate">
+            <div class="gate-outcomes">
+              <div class="gate-outcome go"><div class="gate-outcome-label">✅ Gate Passed</div><p>All criteria below completed. RGC formally opens Stage 3 in ALM/Jira.</p></div>
+              <div class="gate-outcome hold"><div class="gate-outcome-label">⏸ Gate Blocked</div><p>Any incomplete criterion blocks Stage 3 from opening. PM Admin documents blockers.</p></div>
+            </div>
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Project Kickoff Meeting (SG0204T)</strong><span>Formal kickoff with Business Team. Agreement on charter, RACI, and project lifecycle walkthrough. BT acknowledges time commitment required throughout the project.</span></div><div class="raci">R: RGC Admin · A: RGC · I: PM + NDC Leads</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Meeting Cadence Agreed</strong><span>Weekly cadence until requirements complete; bi-weekly during development. Next 4 meetings (minimum) scheduled with all required attendees confirmed.</span></div><div class="raci">R: PM · A: RGC · I: PM-Admins</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>MS Teams & ALM Access Confirmed</strong><span>All team members (business and delivery) logged into MS Teams and ALM with correct access levels before Gate 2 closes.</span></div><div class="raci">R: PM · A: PM-Admin</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Role Assignment Register Signed</strong><span>Named individuals confirmed for all roles (not just titles). Register signed by RGC and stored in project folder.</span></div><div class="raci">R+A: RGC</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-2-gaps">
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 5 — Roles by title only, no named confirmation</span></div>
+              <div class="gap-problem">"Identify Initial Roles" could be satisfied by writing job titles with no actual person assigned.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Gate 2 criterion requires a signed Role Assignment Register with named individuals. Jira sub-task requires a Document Link before it can be marked Done.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 6 — EAB never defined</span></div>
+              <div class="gap-problem">EAB appears in multiple RACI rows but is never explained. New PMs don't know who to contact or when.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> EAB defined in Glossary: "Enterprise Architecture Board — technical standards and architecture sign-offs. Engage via RGC at the start of Stage 2. Mandatory before Gate 4."</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 7 — No MS Teams naming convention</span></div>
+              <div class="gap-problem">Projects are created ad hoc — impossible to find or filter consistently.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Standard: [ORG]-[ProjectCode]-[Year] e.g. BAPS-GMS-2026. Verified by PM Admin as a mandatory Stage 2 sub-task.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 8 — Executive Summary deck template missing</span></div>
+              <div class="gap-problem">Every kickoff re-invents the format — quality varies widely.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Standard 5-slide template (SG0204T) created: overview, scope, timeline, RACI, BT time commitment ask.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="stage-card" id="stage-3">
+      <div class="stage-header" onclick="toggleStage(3)">
+        <div class="stage-badge" style="background:#1e5c8c">3</div>
+        <div class="stage-meta">
+          <div class="stage-name">Requirements</div>
+          <div class="stage-tagline">Define all functional and non-functional requirements and UI/UX before any design begins</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: BRD+LFD sign-off → FRD+HFD sign-off</span>
+            <span class="pill pill-red">1 Critical gap found</span>
+            <span class="pill pill-yellow">2 High gaps found</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-3">
+          <div class="section-tab active" onclick="showTab(3,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(3,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(3,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(3,'gaps')">Gaps (5)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-3-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">📋</div><div class="detail"><strong>Business Process Details (SG0301G)</strong><span>BT submits a completed Pre-Requirements Information Form at least 3 business days before the first workshop. Covers current processes, user personas, and known pain points.</span></div><div class="raci">R: BT FPO · A: PM</div></li>
+              <li><div class="icon">👥</div><div class="detail"><strong>BA & UI/UX Designer Onboarded</strong><span>BA and Designer assigned, given access to existing systems and documents. PM confirms onboarding complete in ALM before workshops commence.</span></div><div class="raci">R: BT · A: PM · C: RGC</div></li>
+              <li><div class="icon">📊</div><div class="detail"><strong>Requirements Stage Onboarding (SG0302T)</strong><span>Initial presentation explaining the requirements process. Covers BRD vs FRD, workshop rules, and sign-off process. Reviewed by PM + RGC before delivery.</span></div><div class="raci">R: BA · A: PM</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-3-activities">
+            <ul class="checklist">
+              <li><div class="icon">🗣️</div><div class="detail"><strong>Requirement Workshops (SG0303G)</strong><span>Minimum 3 workshops, each 90–180 mins. Quorum = FPO or designated BT lead must be present. Minutes uploaded within 2 business days. No workshop ends without action items captured.</span></div><div class="raci">R: BA · A: PM · C: BT</div></li>
+              <li><div class="icon">📄</div><div class="detail"><strong>Business Requirements Document — BRD (SG0304T + G)</strong><span>Captures the "What, Why, and For Whom." High-level requirements covering business goals, user personas, and scope boundaries. BA Track signs off on quality before BT review.</span></div><div class="raci">R: BA · A: PM · C: BT</div></li>
+              <li><div class="icon">🖼️</div><div class="detail"><strong>Low Fidelity Designs — LFD (SG0305T + G)</strong><span>Wireframes/mockups created in parallel with BRD. Designer extracts visual requirements during workshops. Updated iteratively as BRD sections are completed.</span></div><div class="raci">R: DES · A: PM · C: BT</div></li>
+              <li><div class="icon">⚠️</div><div class="detail"><strong>Risk Register (SG0306T)</strong><span>Active risk register maintained from this stage forward. Reviewed weekly. H×H risks escalated to RGC within 2 business days. Stored in HawkEye.</span></div><div class="raci">R: PM · A: PM · C: BT</div></li>
+              <li><div class="icon">📝</div><div class="detail"><strong>Functional Requirements Document — FRD (SG0307T + G)</strong><span>BLOCKED until BRD+LFD sign-off is formally closed. Captures the "How": business logic, data rules, edge cases, integrations, system behaviour. Written with BRD and HFD concurrently.</span></div><div class="raci">R: BA · A: PM · C: BT</div></li>
+              <li><div class="icon">🎨</div><div class="detail"><strong>High Fidelity Designs — HFD (SG0308T + G)</strong><span>Pixel-level designs worked on collaboratively with FRD. Each section reviewed by BT as completed. DES-Lead approves compliance with BAPS Design System before BT review.</span></div><div class="raci">R: DES · A: PM · C: BT</div></li>
+              <li><div class="icon">🧪</div><div class="detail"><strong>QA Test Scenarios — Start</strong><span>QA begins writing test scenarios per FRD section. Stored in ALM Test Management. Mapped to FRD requirements. Reviewed by QA-Lead — mandatory Gate 3 exit item.</span></div><div class="raci">R: QA · A: PM</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Dependency Review (SG0310G)</strong><span>SA reviews FRD for integration risks. Output: findings appended to Risk Register and FRD Appendix. Completed at least 5 business days before FRD sign-off gate.</span></div><div class="raci">R: BA · A: PM · C: SA, DataEng</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-3-gate">
+            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:16px;padding:10px 14px;background:var(--blue-light);border-radius:8px;">⚠️ <strong>Two-part gate:</strong> BRD + LFD must be signed off before FRD writing begins. FRD + HFD sign-off closes Stage 3.</p>
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>BRD and LFD Sign-off (SG0313T)</strong><span>Formal sign-off from department Sanyojak (lead) and FPO. Delivery team walks through BRD with BT. Stored in MS Teams. Unblocks FRD writing.</span></div><div class="raci">R: BT · A: PM · C: BA/DES</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>FRD Traceability Matrix (SG0312G)</strong><span>Every BRD requirement mapped to corresponding FRD section(s). No BRD requirement may be left unmapped at sign-off.</span></div><div class="raci">R: BA · A: PM</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>FRD and HFD Sign-off (SG0315T)</strong><span>Formal sign-off from Sanyojak + FPO. EAB representative also signs off on the IT side. Delivery team walks through FRD. Open Questions in FRD must be resolved before sign-off.</span></div><div class="raci">R: BT · A: PM · C: BA/DES</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>QA Test Scenarios Approved</strong><span>QA-Lead confirms draft test scenarios complete, mapped to FRD, and stored in ALM. This is a mandatory Gate 3 exit criterion.</span></div><div class="raci">R: QA-Lead · A: PM</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>FRD Loaded into ALM (SG0316G)</strong><span>FRD user stories and tasks loaded as ALM items per guidelines. All final documents uploaded to MS Teams project folder.</span></div><div class="raci">R: BA · A: PM</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-3-gaps">
+            <div class="gap-card critical">
+              <div class="gap-header"><span class="gap-badge critical">CRITICAL</span><span class="gap-title">Gap 10 — FRD starts before BRD/LFD gate closes</span></div>
+              <div class="gap-problem">BAs were starting the FRD while BRD+LFD was still under BT review — leading to wasted effort when BT requested changes.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Explicit rule added: FRD BLOCKED until BRD+LFD Sign-off sub-task is marked Done. Jira automation enforces this.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 9 — No workshop minimum or quorum</span></div>
+              <div class="gap-problem">One rushed workshop could technically satisfy "workshops held."</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Minimum 3 workshops, 90–180 mins each. Quorum = FPO or BT lead must be present. Sessions without quorum are void.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 11 — No Risk Register template</span></div>
+              <div class="gap-problem">Risk tracking described but no standard template, tool, or review cadence.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SG0306T created with: ID / Description / Probability / Impact / Mitigation / Owner / Status. Stored in HawkEye. Reviewed weekly.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 12 — No UI/UX Design System reference</span></div>
+              <div class="gap-problem">Designs can't be reviewed for consistency without a published standard.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Design System URL must be referenced in SG0305G + SG0308G. Until published, DES-Lead written approval serves as proxy.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 13 — QA involvement is informal</span></div>
+              <div class="gap-problem">No artefact, storage location, or review step for QA test scenarios in Stage 3.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> QA Test Scenarios draft is now a mandatory Gate 3 exit criterion. Stored in ALM. Reviewed by QA-Lead.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4 -->
+    <div class="stage-card" id="stage-4">
+      <div class="stage-header" onclick="toggleStage(4)">
+        <div class="stage-badge" style="background:#16537e">4</div>
+        <div class="stage-meta">
+          <div class="stage-name">Technical Design</div>
+          <div class="stage-tagline">Translate approved requirements into detailed technical architecture and design documents</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: TDD signed off by EAB</span>
+            <span class="pill pill-yellow">2 gaps found (1 High)</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-4">
+          <div class="section-tab active" onclick="showTab(4,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(4,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(4,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(4,'gaps')">Gaps (2)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-4-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">✅</div><div class="detail"><strong>Gate 3 Closed (FRD + HFD Signed Off)</strong><span>No design work begins until both FRD and HFD have received formal sign-off. Change Request process is now active.</span></div><div class="raci">Confirmed by PM</div></li>
+              <li><div class="icon">👷</div><div class="detail"><strong>Technical Lead Onboarded</strong><span>TL onboarded before FRD sign-off to gain context. Review FRD and provide technical feasibility input.</span></div><div class="raci">R: PM · A: PM-Admin · C: NDC Engg Leads</div></li>
+              <li><div class="icon">🧪</div><div class="detail"><strong>POC Team Onboarded (SG04POC-T)</strong><span>Where POCs are required, team allocated. Each POC registered with objective, owner, time budget, success criteria, and SA + PM approval.</span></div><div class="raci">R: PM · A: PM-Admin · C: NDC Engg Leads</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-4-activities">
+            <ul class="checklist">
+              <li><div class="icon">🔬</div><div class="detail"><strong>Conduct POCs</strong><span>All medium-high technical risks mitigated with time-boxed POCs. Enables accurate development timeline. Output documented per POC Register.</span></div><div class="raci">R: SA · A: PM · C: Devs</div></li>
+              <li><div class="icon">🏗️</div><div class="detail"><strong>System Architecture Design — SAD (SG04xxT)</strong><span>High-level system architecture diagram covering all components, integrations, and data flows.</span></div><div class="raci">R: SA · A: PM</div></li>
+              <li><div class="icon">📐</div><div class="detail"><strong>Technical Design Document — TDD (SG04xxT)</strong><span>Covers all requirements in BRD and FRD across all technical aspects. Enables accurate development timeline. Includes API SLA definitions by HTTP method and task complexity.</span></div><div class="raci">R: SA/TL · A: PM · C: SA/BA/Devs</div></li>
+              <li><div class="icon">🗺️</div><div class="detail"><strong>Traceability Matrix</strong><span>Maps every FRD/BRD requirement to the technical design. Confirms complete coverage before sign-off.</span></div><div class="raci">R: SA · A: PM</div></li>
+              <li><div class="icon">🧩</div><div class="detail"><strong>Data Integration Design</strong><span>All data integrations documented in TDD. Completed with Data Engineering leads.</span></div><div class="raci">R: SA/TL · A: PM · C: Data Eng Leads</div></li>
+              <li><div class="icon">🧪</div><div class="detail"><strong>QA Test Strategy & Test Plan</strong><span>QA-Lead creates test strategy document covering scope, types of testing, approach, tools, and frameworks. QA-Lead onboarded at design stage start.</span></div><div class="raci">R: QA-Lead · A: PM · C: QA Leads</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-4-gate">
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Technical Design Sign-off (SG04xxT)</strong><span>SA sign-off required. Portions needing NDC Engg member approval obtained. EAB reviews architecture decisions. Final documents stored in MS Teams.</span></div><div class="raci">R: EAB · A: PM</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Updated FRD/UIUX Approval</strong><span>Any FRD or design changes discovered during design stage presented to BT for formal approval. Design review SLA: 3 business days. Outcomes: Approved or Revise & Resubmit (max 2 cycles).</span></div><div class="raci">R: BA · A: PM · C: DES, SA</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Risk Register Updated</strong><span>Design-stage risks reviewed and updated. Final documents uploaded to MS Teams. ALM updated with design-level tasks.</span></div><div class="raci">R: PM · A: PM-Admin · C: SA</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-4-gaps">
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 15 — Design review has no SLA or outcome states</span></div>
+              <div class="gap-problem">Design reviews can drag on indefinitely with no deadline or defined result.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> 3 business day SLA. Outcome states: Approved / Revise &amp; Resubmit (max 2 cycles, then escalates to PM). DES-Lead documents outcome in ALM.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 14 — POC Register missing</span></div>
+              <div class="gap-problem">POCs described but not tracked — easy to over-scope or run without approval.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SG04POC-T created: POC ID / Objective / Owner / Dates / Budget / Success Criteria / Output / SA + PM Approval.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 5 -->
+    <div class="stage-card" id="stage-5">
+      <div class="stage-header" onclick="toggleStage(5)">
+        <div class="stage-badge" style="background:#c0392b">5</div>
+        <div class="stage-meta">
+          <div class="stage-name">Estimate & Planning</div>
+          <div class="stage-tagline">Establish a realistic, detailed estimate and plan before development begins</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: BT sign-off on timeline & scope</span>
+            <span class="pill pill-yellow">2 Medium gaps found</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-5">
+          <div class="section-tab active" onclick="showTab(5,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(5,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(5,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(5,'gaps')">Gaps (2)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-5-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">✅</div><div class="detail"><strong>Gate 4 Closed (TDD Signed Off)</strong><span>Technical Design must be complete and signed off. Any new change from this point forward is a Change Request.</span></div><div class="raci">Confirmed by PM</div></li>
+              <li><div class="icon">👥</div><div class="detail"><strong>Key Resources Onboarded</strong><span>All resources needed to create an accurate estimate (SA, TL, senior devs) onboarded and allocated by NDC track leads.</span></div><div class="raci">R: PM · A: PM-Admin · C: RGC, NDC Leads</div></li>
+              <li><div class="icon">🔄</div><div class="detail"><strong>Change Request Process Active</strong><span>CR process activated at Gate 3 close (FRD+HFD signed off). Any change from that point — including during design — must follow the CR process (SG05CR-G).</span></div><div class="raci">R: PM · A: PM-Admin · C: BT</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-5-activities">
+            <ul class="checklist">
+              <li><div class="icon">⏱️</div><div class="detail"><strong>Technical User Stories & Estimates (SG05xxG)</strong><span>All technical user stories added to ALM. Time effort estimated per story by team (FE/BE/Mobile). Stories allocated to sprints for all releases. Hours in increments: 2, 4, 8, 12, 16, 24, 32, 40.</span></div><div class="raci">R: SA · A: PM · C: BA/DEV/QA</div></li>
+              <li><div class="icon">📅</div><div class="detail"><strong>Release Timeline (SG05xxT)</strong><span>Timeline based on releases defined in Stage 3. Includes development, testing, regression, VAPT, UAT, and go-live steps. Accounts for leave, holidays, and volunteer availability.</span></div><div class="raci">R: PM · A: PM-Admin · C: RGC/SA/BA/TL/DEV/QA</div></li>
+              <li><div class="icon">🤝</div><div class="detail"><strong>Dependent Systems Agreement (SG05DEP-T)</strong><span>Final dates obtained from dependent system owners (TPOs). FPO or RGC approves the agreement. Stored in project folder.</span></div><div class="raci">R: SA · A: PM · C: RGC/EAB</div></li>
+              <li><div class="icon">🔄</div><div class="detail"><strong>Timeline Negotiation</strong><span>Timeline discussed with BT. Features may be re-aligned to releases to match expectations. Resulting agreement becomes firm commitment. Project demos: dates, features, and attendees agreed.</span></div><div class="raci">R: PM · A: PM-Admin · C: RGC/BT/SA/BA/TL/DEV/QA</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-5-gate">
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Development Commencement Sign-off</strong><span>Formal sign-off from department leads (Sanyojak) agreeing to timeline and scope. This is the "Handshake" — once signed, it is a firm commitment.</span></div><div class="raci">R: BT · A: PM · C: RGC · I: NDC Leads</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>ITC Re-approval (if needed)</strong><span>If the project timeline is now outside the originally approved proposal dates, ITC re-approval is required before development begins.</span></div><div class="raci">R: ITC · A: RGC · C: PM/BT</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>ALM Updated & Risk Register Current</strong><span>All stories tagged with final agreed release. Risk register updated with planning-stage risks.</span></div><div class="raci">R: BA · A: PM · C: SA/TL/QA</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-5-gaps">
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 16 — Change Request trigger is ambiguous</span></div>
+              <div class="gap-problem">Two different trigger points mentioned in the doc: "after FRD sign-off" and "after design."</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Single authoritative rule: CR process activates at Gate 3 close (FRD+HFD signed off). Applies through all subsequent stages including design changes.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 17 — No Dependent Systems Agreement template</span></div>
+              <div class="gap-problem">Sign-offs from dependent system owners made verbally or in ad hoc emails.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SG05DEP-T created: System Name / Owner / Planned Change / Impact / UAT date / Prod date / FPO Sign-off / Date.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 6 -->
+    <div class="stage-card" id="stage-6">
+      <div class="stage-header" onclick="toggleStage(6)">
+        <div class="stage-badge" style="background:#e67e22">6</div>
+        <div class="stage-meta">
+          <div class="stage-name">Development</div>
+          <div class="stage-tagline">Build the solution per approved design, with quality gates at code, QA, and feature level</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: All QA tests pass · VAPT Round 1 · Deployment checklist</span>
+            <span class="pill pill-yellow">2 gaps (1 High)</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-6">
+          <div class="section-tab active" onclick="showTab(6,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(6,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(6,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(6,'gaps')">Gaps (2)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-6-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">👥</div><div class="detail"><strong>Development Resources Onboarded</strong><span>Remaining Dev/QA team onboarded. Sessions held to cover requirements and technical design. Access to ALM, DevOps tools, and repositories confirmed.</span></div><div class="raci">R: PM · A: PM-Admin · C: RGC/BA/TL</div></li>
+              <li><div class="icon">🏗️</div><div class="detail"><strong>Initial Repository Commits + CI/CD</strong><span>Boilerplate commits made per repository standards. Dev environment and CI/CD pipeline set up. Quality gate configured: Grade A or 90% code quality minimum.</span></div><div class="raci">R: TL/SA · A: PM · C: Infra</div></li>
+              <li><div class="icon">🔐</div><div class="detail"><strong>Dependency System Credentials Obtained</strong><span>All dependent system TPOs contacted. API credentials and access keys obtained. User personas identified and credentials confirmed.</span></div><div class="raci">R: TL · A: PM</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-6-activities">
+            <ul class="checklist">
+              <li><div class="icon">💻</div><div class="detail"><strong>Code Standards Upheld (SG06xxG)</strong><span>All code follows standards: format, file structure, documentation, error handling, input validation, security, secrets management, response codes, logging, health endpoints, telemetry. Grade A / 90% maintained in CI/CD.</span></div><div class="raci">R: TL/Dev · A: PM</div></li>
+              <li><div class="icon">🌿</div><div class="detail"><strong>Git Guidelines Followed (SG06xxG)</strong><span>Commit guidelines, branching strategy, and PR guidelines followed. All code peer-reviewed — no single-developer commits without review.</span></div><div class="raci">R: TL/Dev · A: PM</div></li>
+              <li><div class="icon">📦</div><div class="detail"><strong>Approved Package Register Maintained</strong><span>TL maintains approved-packages.json in repo root. New package requires SA-reviewed PR. CI/CD fails if unapproved package introduced. Package list includes: name, version, approved date, approver, reason.</span></div><div class="raci">R: TL/Dev · A: PM</div></li>
+              <li><div class="icon">🧪</div><div class="detail"><strong>Unit & Integration Tests (≥80% coverage)</strong><span>All code has unit and integration tests. Coverage minimum 80%. Initial QA scenarios tested by developer before handing to QA.</span></div><div class="raci">R: TL/Dev · A: PM</div></li>
+              <li><div class="icon">🔍</div><div class="detail"><strong>External Code Review</strong><span>NDC/NDT Engineering spot checks conducted regularly throughout the project — minimum once every 2 sprints.</span></div><div class="raci">R: NDC/NDT Eng · A: TL/SA</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-6-gate">
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Implementation Review by SA</strong><span>SA performs overall review ensuring all standards have been met across all completed features.</span></div><div class="raci">R: SA · A: PM · C: TL</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>All Tests Pass (Unit · Integration · E2E · Performance)</strong><span>All test types running successfully. Coverage meets specified minimum. All APIs meet SLAs defined in design. QA-Lead signs off all test cases.</span></div><div class="raci">R: TL/QA · A: PM · C: SA/QA-Lead</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>VAPT Round 1 Complete</strong><span>Security team completes VAPT before UAT begins. All Critical issues resolved. Remaining issues have committed resolution before production release.</span></div><div class="raci">R: SEC · A: PM · C: TL</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Release Notes & Deployment Checklist Ready</strong><span>User and technical release notes written. Deployment checklist covers all technical steps for a stable deployment. Smoke Test Plan ready.</span></div><div class="raci">R: BA/TL · A: PM · C: DEV</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-6-gaps">
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 18 — Package approval has no mechanism</span></div>
+              <div class="gap-problem">"Packages must be pre-approved" stated but no list, process, or enforcement exists.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> TL maintains approved-packages.json in repo. New packages require SA-reviewed PR. CI/CD pipeline fails if unapproved package is introduced.</div>
+            </div>
+            <div class="gap-card low">
+              <div class="gap-header"><span class="gap-badge low">LOW</span><span class="gap-title">Gap 19 — Mid-feature demo has no template</span></div>
+              <div class="gap-problem">SA walkthrough after each feature has no agenda, format, or sign-off record.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SG06DEMO-T created: Feature name / FRD ref / Design ref / Demo date / SA attended / Issues raised / SA approval. Stored in ALM.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 7 -->
+    <div class="stage-card" id="stage-7">
+      <div class="stage-header" onclick="toggleStage(7)">
+        <div class="stage-badge" style="background:#8e44ad">7</div>
+        <div class="stage-meta">
+          <div class="stage-name">UAT</div>
+          <div class="stage-tagline">Business team validates the solution meets requirements before production deployment</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: FPO sign-off · No P0/P1 open</span>
+            <span class="pill pill-red">1 Critical gap found</span>
+            <span class="pill pill-yellow">1 High gap found</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-7">
+          <div class="section-tab active" onclick="showTab(7,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(7,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(7,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(7,'gaps')">Gaps (4)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-7-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">🖥️</div><div class="detail"><strong>UAT Environment Ready + Smoke Test Passed</strong><span>Correct build deployed. QA executes smoke test to confirm UAT environment is ready for business testing.</span></div><div class="raci">R: TL/QA · A: PM · C: SA</div></li>
+              <li><div class="icon">📋</div><div class="detail"><strong>UAT Test Plan Signed Off by FPO (SG07xxG)</strong><span>BA + QA create test scope and plan. PM applies dates. FPO reviews and signs off the plan before UAT begins.</span></div><div class="raci">R: FPO · A: PM · C: BA/QA</div></li>
+              <li><div class="icon">👥</div><div class="detail"><strong>UAT Testers Identified & Trained</strong><span>Minimum one tester per user persona (from BRD). All testers attend kickoff (mandatory). BA provides 30-min system walkthrough before testing begins.</span></div><div class="raci">R: BT · A: PM</div></li>
+              <li><div class="icon">🔑</div><div class="detail"><strong>UAT Credentials Ready</strong><span>Credentials for all user personas obtained. Cover all personas defined in BRD and UAT test plan.</span></div><div class="raci">R: BA/TL · A: PM</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-7-activities">
+            <ul class="checklist">
+              <li><div class="icon">🚀</div><div class="detail"><strong>UAT Kickoff with Testers</strong><span>Initial meeting with UAT testers. Walk through plan, roles, responsibilities, and issue reporting process.</span></div><div class="raci">R: BT · A: PM · C: BA/Support/TL</div></li>
+              <li><div class="icon">🎓</div><div class="detail"><strong>UAT Training</strong><span>Business team receives necessary training on new system features before testing begins.</span></div><div class="raci">R: BT · A: PM · C: BA/Support/TL</div></li>
+              <li><div class="icon">🔍</div><div class="detail"><strong>Feedback Grooming</strong><span>BT filters feedback. Issues submitted to delivery team. Any in-scope improvements during UAT must be treated as a Change Request.</span></div><div class="raci">R: BT · A: PM · I: BA/Support/TL</div></li>
+              <li><div class="icon">🔧</div><div class="detail"><strong>Issue Resolution</strong><span>P0/P1: hotfixed immediately. P2/P3: planned in release cycles (1–2 week frequency). Project plan updated after each release cycle if timeline is impacted.</span></div><div class="raci">R: TL/Dev · A: PM · C: BA</div></li>
+              <li><div class="icon">🔒</div><div class="detail"><strong>Implement All VAPT Concerns</strong><span>All VAPT findings from Round 1 must be addressed before UAT sign-off.</span></div><div class="raci">R: TL/Dev · A: PM · C: RGC</div></li>
+              <li><div class="icon">💬</div><div class="detail"><strong>Support Portal Created/Updated</strong><span>SharePoint support portal updated to cover all modules/features. Support videos created where appropriate.</span></div><div class="raci">R: BA · A: PM · C: BT/Support</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-7-gate">
+            <div style="background:#fff8e6;border:1px solid #f0c040;border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.83rem;">
+              <strong>Defect severity at sign-off:</strong> P0 = must be fixed. P1 = blocks sign-off unless waived by FPO in writing. P2 = in fix backlog with committed date. P3 = logged for next release.
+            </div>
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>UAT Sign-off Form (SG07UAT-T)</strong><span>Formal sign-off from Sanyojak + FPO. Lists all known open issues with P-level and planned fix release. Statement: "System is fit for production subject to open issues listed." Stored in MS Teams.</span></div><div class="raci">R: BT · A: PM · C: RGC</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Updated Project Plan</strong><span>Project plan updated with latest agreed timeline. Final documents uploaded to MS Teams.</span></div><div class="raci">R: PM · A: PM-Admin · C: RGC, BT</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-7-gaps">
+            <div class="gap-card critical">
+              <div class="gap-header"><span class="gap-badge critical">CRITICAL</span><span class="gap-title">Gap 20 — No defect severity classification</span></div>
+              <div class="gap-problem">"Fix critical issues" stated but "critical" was never defined — leading to disputes about what blocks go-live.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> P0 (Critical) / P1 (High) / P2 (Medium) / P3 (Low) defined with explicit UAT impact: P0 blocks UAT, P1 blocks sign-off (FPO can waive), P2 must be backlogged, P3 logged for next release.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 21 — UAT Sign-off has no standard format</span></div>
+              <div class="gap-problem">"Formal sign-off" with no template — some teams accepted a verbal yes.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SG07UAT-T created with: project name, release version, FPO signature, open issues list (P-level + fix release), and formal statement.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 22 — No UAT tester minimum or training standard</span></div>
+              <div class="gap-problem">No minimum number, persona coverage, or training requirement before testers begin.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Min 1 tester per BRD persona. All testers attend kickoff (mandatory). 30-min BA walkthrough before testing. No-shows cannot contribute to sign-off.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 23 — Pilot stage is empty</span></div>
+              <div class="gap-problem">Pilot listed as optional but has zero activities or gate criteria.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Minimum Pilot structure defined: named pilot group, daily check-ins week 1, feedback grooming, P0/P1 resolution, FPO sign-off, minimum 2–4 weeks duration.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 8 -->
+    <div class="stage-card" id="stage-8">
+      <div class="stage-header" onclick="toggleStage(8)">
+        <div class="stage-badge" style="background:#27ae60">8</div>
+        <div class="stage-meta">
+          <div class="stage-name">Launch & Hypercare</div>
+          <div class="stage-tagline">Deploy to production, execute go-live, and provide intensive post-launch support</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: VAPT Certificate · Go-live · Hypercare exit criteria met</span>
+            <span class="pill pill-red">1 Critical gap found</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-8">
+          <div class="section-tab active" onclick="showTab(8,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(8,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(8,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(8,'gaps')">Gaps (3)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-8-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">📋</div><div class="detail"><strong>Go-Live Plan Ready (SG08xxG)</strong><span>Structured roadmap: all activities, owners, timeline checkpoints, training, data migration, communications, risk/contingency plans, and hypercare roster.</span></div><div class="raci">R: PM · A: PM-Admin · C: BT/RGC</div></li>
+              <li><div class="icon">🔒</div><div class="detail"><strong>VAPT Certificate Issued</strong><span>Final VAPT submitted to SEC team at least 3 weeks before planned go-live. Certificate issued within 5 business days of final build. All Critical findings resolved.</span></div><div class="raci">R: SEC · A: PM · C: EAB</div></li>
+              <li><div class="icon">📦</div><div class="detail"><strong>Deployment Plan/Checklist Updated</strong><span>All technical steps for production deployment confirmed. Rollback plan in place.</span></div><div class="raci">R: TL · A: PM</div></li>
+              <li><div class="icon">📞</div><div class="detail"><strong>Support Team & Escalation Paths Confirmed</strong><span>Support plan created. All escalation levels staffed and trained. Helpdesk configured.</span></div><div class="raci">R: PM · A: PM-Admin · C: Support/BT</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-8-activities">
+            <ul class="checklist">
+              <li><div class="icon">🔍</div><div class="detail"><strong>Deployment Plan Review</strong><span>SA and Infra Leads review the deployment plan before execution.</span></div><div class="raci">R: Infra/SA · A: PM · C: TL</div></li>
+              <li><div class="icon">📢</div><div class="detail"><strong>Deployment Communications</strong><span>Final deployment date and activities communicated to BT, RGC, and support team (not end users at this point).</span></div><div class="raci">R: PM · A: PM-Admin · I: BT/RGC/Support</div></li>
+              <li><div class="icon">🚀</div><div class="detail"><strong>Execute Deployment</strong><span>Release deployed to production following the deployment plan. TL and Infra lead the execution.</span></div><div class="raci">R: Infra/TL · A: PM · C: SA/DataEng</div></li>
+              <li><div class="icon">✅</div><div class="detail"><strong>Deployment Verification + Smoke Test</strong><span>Post-deployment checks confirm successful deployment. Documented smoke test executed in production. FPO confirms readiness.</span></div><div class="raci">R: FPO/TL · A: PM · C: SA/Infra/DataEng</div></li>
+              <li><div class="icon">🎓</div><div class="detail"><strong>Knowledge Transfer</strong><span>All support team levels provided with sufficient knowledge and documentation to handle escalations independently.</span></div><div class="raci">R: BA/TL · A: PM-Admin · C: Support</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-8-gate">
+            <div style="background:var(--green-light);border:1px solid var(--green);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.83rem;">
+              <strong>Hypercare exit requires ALL THREE:</strong> (1) No P0/P1 open issues for 5 consecutive business days, (2) Support team completed knowledge transfer, (3) PM Admin closes hypercare in Jira.
+            </div>
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Bug Fixes & CRs Deployed</strong><span>All CRs for the current release deployed and validated. No outstanding committed fixes.</span></div><div class="raci">R: PM · A: PM-Admin · C: BA/Support/TL</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Hypercare Exit Criteria Met (SG08HYP-G)</strong><span>Standard: 2 weeks minimum. High-risk: 4 weeks minimum. After hypercare: only P0 issues get immediate response.</span></div><div class="raci">R: PM · A: PM-Admin · C: BA/Support/TL</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Retrospectives Conducted (SG08RETRO-T)</strong><span>Delivery Team retrospective and Business Team retrospective held. Outputs stored in shared Lessons Learned Log. Process improvement recommendations submitted to RGC.</span></div><div class="raci">R: PM · A: PM-Admin · C: Delivery Team / BT</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-8-gaps">
+            <div class="gap-card critical">
+              <div class="gap-header"><span class="gap-badge critical">CRITICAL</span><span class="gap-title">Gap 24 — Hypercare duration and exit criteria undefined</span></div>
+              <div class="gap-problem">No minimum duration, no exit criteria — "ends when changes are in a future release" could mean day 1 or year 1.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Standard = 2 weeks. High-risk = 4 weeks. Exit: no P0/P1 for 5 consecutive days + support team independent + PM Admin formally closes in Jira.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 25 — Cybersecurity/VAPT contact undefined</span></div>
+              <div class="gap-problem">"Cybersecurity team performs VAPT" — who, how, how long, is never documented.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SEC team defined in Glossary. VAPT request submitted 3 weeks before go-live. Certificate issued within 5 business days of final build delivery.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 26 — Retrospective has no template</span></div>
+              <div class="gap-problem">Two retrospectives listed but no template — lessons learned captured inconsistently.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> SG08RETRO-T created: What went well / What didn't / Root causes / Action items with owners / Process improvement recommendations fed back to RGC.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 9 -->
+    <div class="stage-card" id="stage-9">
+      <div class="stage-header" onclick="toggleStage(9)">
+        <div class="stage-badge" style="background:#2c3e50">9</div>
+        <div class="stage-meta">
+          <div class="stage-name">Project Closure</div>
+          <div class="stage-tagline">Formally close the project, archive documentation, and loop lessons back into the process</div>
+          <div class="stage-pills">
+            <span class="pill pill-blue">Gate: Closure Report · Team offboarded · Lessons logged</span>
+            <span class="pill pill-yellow">2 gaps found (1 High)</span>
+          </div>
+        </div>
+        <div class="stage-toggle">▼</div>
+      </div>
+      <div class="stage-body">
+        <div class="section-tabs" id="tabs-9">
+          <div class="section-tab active" onclick="showTab(9,'prereqs')">Prerequisites</div>
+          <div class="section-tab" onclick="showTab(9,'activities')">Activities</div>
+          <div class="section-tab" onclick="showTab(9,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(9,'gaps')">Gaps (2)</div>
+        </div>
+        <div class="section-content">
+          <div class="section-pane active" id="pane-9-prereqs">
+            <ul class="checklist">
+              <li><div class="icon">✅</div><div class="detail"><strong>Hypercare Exit Criteria Met</strong><span>All hypercare conditions satisfied. PM Admin has formally closed hypercare in Jira before closure begins.</span></div><div class="raci">Confirmed by PM-Admin</div></li>
+              <li><div class="icon">📋</div><div class="detail"><strong>All Retrospectives Completed</strong><span>Both Delivery Team and Business Team retrospectives conducted and outputs stored.</span></div><div class="raci">Confirmed by PM</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-9-activities">
+            <ul class="checklist">
+              <li><div class="icon">📁</div><div class="detail"><strong>Documentation Finalized & Archived</strong><span>All project documents finalized and stored in MS Teams project folder per SG0203G guidelines.</span></div><div class="raci">R: PM-Admin · A: PM</div></li>
+              <li><div class="icon">🔒</div><div class="detail"><strong>Team Access Revoked</strong><span>All team members offboarded per access revocation checklist. ALM and MS Teams access removed. Credential rotation for shared accounts.</span></div><div class="raci">R: PM-Admin · A: PM</div></li>
+              <li><div class="icon">📚</div><div class="detail"><strong>Lessons Learned Log Updated</strong><span>Retrospective outputs captured in the shared Lessons Learned Log. RGC reviews quarterly. If 2+ projects raise the same issue, a process improvement cycle is triggered.</span></div><div class="raci">R: PM · A: PM-Admin</div></li>
+              <li><div class="icon">📊</div><div class="detail"><strong>ITC & BOD Notified</strong><span>Project summary shared with ITC and BOD: what was delivered, timeline vs actual, key metrics, and outstanding backlog items for next release.</span></div><div class="raci">R: PM · A: RGC</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-9-gate">
+            <ul class="checklist">
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Project Closure Report Signed (SG09-T)</strong><span>PM Admin completes and signs the Closure Report confirming: all docs archived, access revoked, Lessons Learned updated, ITC/BOD notified. Jira Epic moved to Done.</span></div><div class="raci">R: PM-Admin · A: PM</div></li>
+              <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>All P0/P1 Issues Resolved or Backlogged with ITC Approval</strong><span>No outstanding committed P0/P1 fixes. All P2/P3 items formally backlogged for next release with ITC sign-off on the plan.</span></div><div class="raci">R: PM · A: ITC · C: RGC</div></li>
+            </ul>
+          </div>
+          <div class="section-pane gap-section" id="pane-9-gaps">
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 27 — Closure stage had no activities or gate criteria</span></div>
+              <div class="gap-problem">Stage 9 originally contained one line. Projects effectively never formally closed.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> Stage 9 now has 4 activities and 2 gate criteria: Closure Report, documentation archive, access revocation, and ITC/BOD notification.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 28 — Lessons learned never feeds back into the process</span></div>
+              <div class="gap-problem">No mechanism for retrospective outputs to improve future stage gate iterations.</div>
+              <div class="gap-fix"><strong>✅ FIX:</strong> RGC reviews Lessons Learned quarterly. If 2+ projects raise the same issue, a process review cycle is triggered within 30 days. Process changes are versioned and communicated.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /panel-stages -->
+
+
+  <!-- ═══════════════════════ GAPS PANEL ═══════════════════════ -->
+  <div id="panel-gaps" class="panel">
+    <div class="hero">
+      <h2>Gap Analysis — 32 Gaps Identified & Fixed</h2>
+      <p>Independent review of the BAPS IT Stage Gate Process (Draft) and PM Admin checklist. Every gap has a concrete fix implemented in the process documentation.</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card critical"><div class="stat-num">6</div><div class="stat-label">Critical Gaps</div></div>
+      <div class="stat-card high"><div class="stat-num">12</div><div class="stat-label">High Severity</div></div>
+      <div class="stat-card total"><div class="stat-num">32</div><div class="stat-label">Total Gaps Found</div></div>
+      <div class="stat-card fixed"><div class="stat-num">32</div><div class="stat-label">Gaps With Fixes</div></div>
+    </div>
+    <div style="background:white;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px;">
+      <table class="gap-table">
+        <thead><tr><th>#</th><th>Stage</th><th>Gap</th><th>Severity</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Stage 1</td><td>Circular prerequisite</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>2</td><td>Stage 1</td><td>No ITC review SLA</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>3</td><td>Stage 1</td><td>Gate decision states undefined</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>4</td><td>Stage 1</td><td>Communication cadence vague</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>5</td><td>Stage 2</td><td>Roles by title only</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>6</td><td>Stage 2</td><td>EAB never defined</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>7</td><td>Stage 2</td><td>No MS Teams naming convention</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>8</td><td>Stage 2</td><td>Executive Summary template missing</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>9</td><td>Stage 3</td><td>No workshop minimum or quorum</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>10</td><td>Stage 3</td><td>FRD starts before BRD gate closes</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>11</td><td>Stage 3</td><td>No Risk Register template</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>12</td><td>Stage 3</td><td>No UI/UX Design System reference</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>13</td><td>Stage 3</td><td>QA involvement is informal</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>14</td><td>Stage 4</td><td>POC Register missing</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>15</td><td>Stage 4</td><td>Design review no SLA or outcomes</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>16</td><td>Stage 5</td><td>CR trigger is ambiguous</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>17</td><td>Stage 5</td><td>No Dependent Systems Agreement template</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>18</td><td>Stage 6</td><td>Package approval has no mechanism</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>19</td><td>Stage 6</td><td>Mid-feature demo no template</td><td><span class="gap-badge low" style="display:inline-block">LOW</span></td><td>✅ Fixed</td></tr>
+          <tr><td>20</td><td>Stage 7</td><td>No defect severity classification (P0–P3)</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>21</td><td>Stage 7</td><td>UAT Sign-off no standard format</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>22</td><td>Stage 7</td><td>No UAT tester minimum or training</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>23</td><td>Stage 7</td><td>Pilot stage is empty</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>24</td><td>Stage 8</td><td>Hypercare duration undefined</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>25</td><td>Stage 8</td><td>VAPT contact undefined</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>26</td><td>Stage 8</td><td>Retrospective no template</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>27</td><td>Stage 9</td><td>Closure stage is empty</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>28</td><td>Stage 9</td><td>Lessons never loop back</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+          <tr><td>29</td><td>Cross-cutting</td><td>No Glossary</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>30</td><td>Cross-cutting</td><td>No Gate Compliance Scorecard</td><td><span class="gap-badge critical" style="display:inline-block">CRITICAL</span></td><td>✅ Fixed</td></tr>
+          <tr><td>31</td><td>Cross-cutting</td><td>No escalation for skipped gates</td><td><span class="gap-badge high" style="display:inline-block">HIGH</span></td><td>✅ Fixed</td></tr>
+          <tr><td>32</td><td>Cross-cutting</td><td>RACI abbreviations undefined</td><td><span class="gap-badge medium" style="display:inline-block">MEDIUM</span></td><td>✅ Fixed</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.83rem;color:var(--text-light);text-align:center;">Full details and fixes: <a href="gap-analysis/gap-analysis.md" style="color:var(--primary-light)">gap-analysis/gap-analysis.md</a></p>
+  </div>
+
+
+  <!-- ═══════════════════════ INDUSTRY PANEL ═══════════════════════ -->
+  <div id="panel-industry" class="panel">
+    <div class="hero">
+      <h2>Industry Context — Cooper Stage-Gate® vs BAPS 8-Stage</h2>
+      <p>The BAPS model is grounded in Cooper's Stage-Gate® framework (the global industry standard) and extended for a volunteer nonprofit IT organization.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col cooper">
+        <h3>Cooper Stage-Gate® (Industry Standard)</h3>
+        <div class="compare-item"><div class="compare-num">1</div><div class="compare-item-text"><strong>Discovery</strong><span>Identify opportunities, generate ideas</span></div></div>
+        <div class="compare-item"><div class="compare-num">2</div><div class="compare-item-text"><strong>Scoping</strong><span>Quick preliminary assessment</span></div></div>
+        <div class="compare-item"><div class="compare-num">3</div><div class="compare-item-text"><strong>Build Business Case</strong><span>Detailed investigation, market research, technical feasibility</span></div></div>
+        <div class="compare-item"><div class="compare-num">4</div><div class="compare-item-text"><strong>Development</strong><span>Build the solution</span></div></div>
+        <div class="compare-item"><div class="compare-num">5</div><div class="compare-item-text"><strong>Testing & Launch</strong><span>Validate and deploy</span></div></div>
+      </div>
+      <div class="compare-col baps">
+        <h3>BAPS 8-Stage Model</h3>
+        <div class="compare-item"><div class="compare-num">1</div><div class="compare-item-text"><strong>Project Proposal</strong><span>Maps to Discovery + early Scoping. ITC/BOD gate.</span></div></div>
+        <div class="compare-item"><div class="compare-num">2</div><div class="compare-item-text"><strong>Project Initiation</strong><span>Maps to Scoping — formalizes team and governance.</span></div></div>
+        <div class="compare-item"><div class="compare-num">3</div><div class="compare-item-text"><strong>Requirements</strong><span>Maps to Build Business Case — BRD + FRD split is a BAPS extension.</span></div></div>
+        <div class="compare-item"><div class="compare-num">4–5</div><div class="compare-item-text"><strong>Technical Design + Estimate</strong><span>Cooper combines these; BAPS separates design from costing — reduces estimation surprises.</span></div></div>
+        <div class="compare-item"><div class="compare-num">6–9</div><div class="compare-item-text"><strong>Dev + UAT + Launch + Closure</strong><span>Maps to Testing & Launch. BAPS adds formal Closure and Lessons Learned loop.</span></div></div>
+      </div>
+    </div>
+    <div class="decision-board">
+      <h3>BAPS Extensions Beyond Cooper</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;">
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:16px;">
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">BRD / FRD Split</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Cooper treats requirements as one stage. BAPS splits BRD (what/why) from FRD (how) with a formal gate between them — preventing design from starting on incomplete logic.</div>
+        </div>
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:16px;">
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">Exit Points A / B / C</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Cooper assumes IT always builds. BAPS provides three structured off-ramps that give departments flexibility while preventing IT burnout from unrealistic expectations.</div>
+        </div>
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:16px;">
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">Readiness Overlap Model</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Cooper gates are sequential. BAPS stages overlap: prerequisites for the next stage begin while the current stage is running, preventing stalls (e.g., finding a Solution Architect before Stage 3 ends).</div>
+        </div>
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:16px;">
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">Volunteer RACI</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Cooper assumes dedicated staff. BAPS RACI accounts for limited volunteer availability, rotating team members, and the need to distribute accountability across a semi-professional governance structure.</div>
+        </div>
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:16px;">
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">Formal Closure Stage</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Cooper's model ends at Launch. BAPS adds Project Closure with formal documentation archival, access revocation, and a Lessons Learned loop that feeds back into process improvements.</div>
+        </div>
+        <div style="background:var(--blue-light);border-radius:var(--radius-sm);padding:16px;">
+          <div style="font-weight:700;color:var(--primary);margin-bottom:6px;">Defect Severity Classification</div>
+          <div style="font-size:0.82rem;color:var(--text-light);">Cooper focuses on business gates. BAPS adds a P0–P3 defect severity framework to formalize what must be resolved before UAT sign-off, preventing "go-live with known issues" disputes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════ GLOSSARY PANEL ═══════════════════════ -->
+  <div id="panel-glossary" class="panel">
+    <div class="hero">
+      <h2>Glossary</h2>
+      <p>Every abbreviation used in the stage gate process, RACI matrices, and Jira templates — defined in plain language.</p>
+    </div>
+    <input type="text" class="glossary-search" placeholder="Search acronyms..." id="glossary-search" oninput="filterGlossary(this.value)">
+    <div class="glossary-grid" id="glossary-grid">
+      <div class="glossary-card"><div class="glossary-abbr">RGC</div><div class="glossary-full">Regional Governance Committee</div><div class="glossary-desc">Central IT governance body. Reviews proposals, coordinates resources, and oversees project quality.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">ITC</div><div class="glossary-full">IT Committee</div><div class="glossary-desc">Senior committee that approves or defers project proposals and allocates IT resources. Reports to BOD.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">BOD</div><div class="glossary-full">Board of Directors</div><div class="glossary-desc">Executive governance authority. Escalation point when ITC cannot reach a decision within the defined SLA.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">EAB</div><div class="glossary-full">Enterprise Architecture Board</div><div class="glossary-desc">Technical standards body. Responsible for architecture sign-offs and integration decisions. Engage via RGC at Stage 2 start.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">FPO</div><div class="glossary-full">Functional Product Owner</div><div class="glossary-desc">Business-side owner of the product. Responsible for requirement sign-offs and UAT approval. Typically a department lead (Sanyojak).</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">BT</div><div class="glossary-full">Business Team</div><div class="glossary-desc">Department stakeholders, SMEs, and end-users representing the business side of the project.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">PM</div><div class="glossary-full">Project Manager</div><div class="glossary-desc">Accountable for overall delivery, timelines, communications, and gate progression.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">PM-Admin</div><div class="glossary-full">Project Manager Admin</div><div class="glossary-desc">Responsible for process administration, ALM setup, MS Teams setup, and compliance tracking.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">BA</div><div class="glossary-full">Business Analyst</div><div class="glossary-desc">Responsible for requirements elicitation, BRD, FRD, and traceability matrices.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">SA</div><div class="glossary-full">Solution / Systems Architect</div><div class="glossary-desc">Designs technical architecture, leads POCs, reviews design, and signs off implementation quality.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">TL</div><div class="glossary-full">Technical Lead</div><div class="glossary-desc">Leads developers, enforces code standards, approves packages, and is accountable for code quality.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">DES</div><div class="glossary-full">Designer (UI/UX)</div><div class="glossary-desc">Creates LFD and HFD. Must comply with the BAPS Design System.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">QA</div><div class="glossary-full">Quality Analyst</div><div class="glossary-desc">Writes and executes test scenarios, test cases, performance tests, and regression tests.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">SEC</div><div class="glossary-full">Security / Cybersecurity Team</div><div class="glossary-desc">Conducts VAPT. Engage 3 weeks before go-live. Issues VAPT Certificate within 5 business days of final build.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">NDC</div><div class="glossary-full">National Development Committee</div><div class="glossary-desc">National-level oversight body. Includes engineering leads and other track leads.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">SME</div><div class="glossary-full">Subject Matter Expert</div><div class="glossary-desc">Domain expert from the business team who provides detailed knowledge during requirements workshops.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">BRD</div><div class="glossary-full">Business Requirements Document</div><div class="glossary-desc">High-level "What, Why, For Whom." Must be signed off before FRD writing begins.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">FRD</div><div class="glossary-full">Functional Requirements Document</div><div class="glossary-desc">Detailed "How." Business logic, data rules, edge cases, integrations. Signed off after BRD+LFD.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">LFD</div><div class="glossary-full">Low Fidelity Design</div><div class="glossary-desc">Wireframes/mockups at a conceptual level. Signed off together with BRD.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">HFD</div><div class="glossary-full">High Fidelity Design</div><div class="glossary-desc">Pixel-level Figma designs. Must comply with BAPS Design System. Signed off together with FRD.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">TDD</div><div class="glossary-full">Technical Design Document</div><div class="glossary-desc">Covers full architecture, component design, API contracts, data models, and integrations.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">CR</div><div class="glossary-full">Change Request</div><div class="glossary-desc">Any scope, requirement, or timeline change after Gate 3 close. Must be formally logged and approved.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">RACI</div><div class="glossary-full">Responsible, Accountable, Consulted, Informed</div><div class="glossary-desc">R = does the work · A = signs off · C = input required · I = notified of outcome</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">ALM</div><div class="glossary-full">Application Lifecycle Management</div><div class="glossary-desc">Tool (e.g., HawkEye) used to track stories, sprints, test cases, and project artefacts.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">VAPT</div><div class="glossary-full">Vulnerability Assessment and Penetration Testing</div><div class="glossary-desc">Security testing by SEC team. Round 1 before UAT; final round before go-live.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">UAT</div><div class="glossary-full">User Acceptance Testing</div><div class="glossary-desc">Business-team-led testing in a production-like environment before go-live.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">POC</div><div class="glossary-full">Proof of Concept</div><div class="glossary-desc">Time-boxed technical experiment to validate a high-risk design decision before committing to development.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">SDLC</div><div class="glossary-full">Software Development Life Cycle</div><div class="glossary-desc">The end-to-end process for planning, building, testing, and deploying software. The stage gate IS the BAPS SDLC.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">SLA</div><div class="glossary-full">Service Level Agreement</div><div class="glossary-desc">A defined time or performance commitment. E.g., ITC review = 15 business days; design review = 3 business days.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">RFP</div><div class="glossary-full">Request for Proposal</div><div class="glossary-desc">Formal document issued to external vendors when a department chooses Exit Point B.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">CI/CD</div><div class="glossary-full">Continuous Integration / Continuous Deployment</div><div class="glossary-desc">Automated pipeline. Enforces code quality gate: Grade A / 90% minimum. Fails on unapproved packages.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">PII</div><div class="glossary-full">Personally Identifiable Information</div><div class="glossary-desc">Personal data about individuals. Projects storing PII must follow data security requirements.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">MOM</div><div class="glossary-full">Minutes of Meeting</div><div class="glossary-desc">Written record of decisions, action items, and owners. Uploaded to MS Teams within 2 business days.</div></div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  function showPanel(name) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    event.target.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function toggleStage(n) {
+    const card = document.getElementById('stage-' + n);
+    card.classList.toggle('open');
+  }
+
+  function showTab(stageNum, tabName) {
+    const tabs = document.querySelectorAll('#tabs-' + stageNum + ' .section-tab');
+    const panes = document.querySelectorAll('#stage-' + stageNum + ' .section-pane');
+    tabs.forEach(t => t.classList.remove('active'));
+    panes.forEach(p => p.classList.remove('active'));
+    const clickedTab = event.target;
+    clickedTab.classList.add('active');
+    document.getElementById('pane-' + stageNum + '-' + tabName).classList.add('active');
+  }
+
+  function jumpToStage(n) {
+    const card = document.getElementById('stage-' + n);
+    card.classList.add('open');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function filterGlossary(query) {
+    const q = query.toLowerCase();
+    document.querySelectorAll('#glossary-grid .glossary-card').forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(q) ? '' : 'none';
+    });
+  }
+
+  // Open first stage by default
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('stage-1').classList.add('open');
+  });
+</script>
+</body>
+</html>
