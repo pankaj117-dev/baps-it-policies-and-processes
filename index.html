@@ -475,6 +475,7 @@
     <nav class="header-nav">
       <button class="nav-btn active" onclick="showPanel('stages')">Stages</button>
       <button class="nav-btn" onclick="showPanel('gaps')">Gap Analysis</button>
+      <button class="nav-btn" onclick="showPanel('pmfeedback')">PM Review</button>
       <button class="nav-btn" onclick="showPanel('industry')">Industry Context</button>
       <button class="nav-btn" onclick="showPanel('glossary')">Glossary</button>
       <button class="nav-btn" onclick="window.print()">Print</button>
@@ -580,6 +581,7 @@
           <div class="section-tab active" onclick="showTab(1,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(1,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(1,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(1,'templates')">📎 Templates (3)</div>
           <div class="section-tab" onclick="showTab(1,'gaps')">Gaps (4)</div>
         </div>
         <div class="section-content">
@@ -607,6 +609,14 @@
             <ul class="checklist">
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Project Proposal Approval (SG0103G)</strong><span>ITC decision documented in the proposal form with one of four outcomes. Decision includes: project type classification, authorized stages, and resource allocation for next stage.</span></div><div class="raci">R: BOD/ITC · A: ITC · I: NDC Leads, Stakeholders</div></li>
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Next Steps Meeting (SG0104G)</strong><span>Meeting held within 5 business days of ITC decision. Agreed next steps documented in meeting minutes and uploaded to project folder. Decision communicated with email confirmation.</span></div><div class="raci">R+A: RGC · I: NDC Leads</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-1-templates">
+            <ul class="checklist">
+              <li><div class="icon">📄</div><div class="detail"><strong>Project Proposal Template</strong><span>Covers department, project type (New/Redevelop/Enhance), scope, purpose, risks, SLA appetite, budget estimate, and target audience. Submit to apps.rgc@na.baps.org.</span></div><div class="raci">Folder: 01 - Proposal</div></li>
+              <li><div class="icon">📊</div><div class="detail"><strong>IT-System High-Level Requirements Template</strong><span>Excel template for capturing high-level system capabilities and feature list at proposal stage. Companion supplement to the proposal form.</span></div><div class="raci">Folder: 01 - Proposal</div></li>
+              <li><div class="icon">📊</div><div class="detail"><strong>IT-System High-Level Requirements Example</strong><span>Filled-in sample showing how to complete the requirements template. Reference for first-time proposers.</span></div><div class="raci">Folder: 01 - Proposal</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Project Estimation Guideline</strong><span>Reference document explaining when and how to estimate project budget. Links to best-practice literature on multi-stage estimation.</span></div><div class="raci">Folder: 01 - Proposal (URL)</div></li>
             </ul>
           </div>
           <div class="section-pane gap-section" id="pane-1-gaps">
@@ -655,6 +665,7 @@
           <div class="section-tab active" onclick="showTab(2,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(2,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(2,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(2,'templates')">📎 Templates (5)</div>
           <div class="section-tab" onclick="showTab(2,'gaps')">Gaps (4)</div>
         </div>
         <div class="section-content">
@@ -683,6 +694,15 @@
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Meeting Cadence Agreed</strong><span>Weekly cadence until requirements complete; bi-weekly during development. Next 4 meetings (minimum) scheduled with all required attendees confirmed.</span></div><div class="raci">R: PM · A: RGC · I: PM-Admins</div></li>
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>MS Teams & ALM Access Confirmed</strong><span>All team members (business and delivery) logged into MS Teams and ALM with correct access levels before Gate 2 closes.</span></div><div class="raci">R: PM · A: PM-Admin</div></li>
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Role Assignment Register Signed</strong><span>Named individuals confirmed for all roles (not just titles). Register signed by RGC and stored in project folder.</span></div><div class="raci">R+A: RGC</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-2-templates">
+            <ul class="checklist">
+              <li><div class="icon">📄</div><div class="detail"><strong>Project Charter Template (17 sections)</strong><span>Covers: Project Overview, Purpose & Business Justification, SMART Objectives, Scope, Deliverables, HLR, Stakeholders & RACI, Assumptions, Timeline, Budget, Risks, Governance, Communication Plan, Quality Criteria, Security, Dependencies, Approval.</span></div><div class="raci">Folder: 02 - Initialization</div></li>
+              <li><div class="icon">📖</div><div class="detail"><strong>Project Charter Guideline A</strong><span>Explains how to complete each section of the charter. Emphasizes keeping it high-level (1–2 sentences per section), using bullet lists, and involving team members when drafting.</span></div><div class="raci">Folder: 02 - Initialization</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Project Charter Example (filled-in)</strong><span>Sample completed charter for reference. Helps first-time PMs understand expected detail level.</span></div><div class="raci">Folder: 02 - Initialization (URL)</div></li>
+              <li><div class="icon">🎯</div><div class="detail"><strong>High Level RACI (PowerPoint)</strong><span>RACI matrix slide deck covering all stages and roles. Use as a visual reference for kickoff presentations and team onboarding.</span></div><div class="raci">Folder: 02 - Initialization</div></li>
+              <li><div class="icon">📋</div><div class="detail"><strong>Stakeholder Guide — BRD+UIUX vs BRD+FRD+UIUX</strong><span>Explains to business stakeholders the difference between Approach A (lean) and Approach B (comprehensive). Recommends Approach B (BRD+FRD+UIUX) for all enterprise projects. Includes the 1:10:100 cost-of-error rule and risk assessment.</span></div><div class="raci">Folder: 02 - Initialization</div></li>
             </ul>
           </div>
           <div class="section-pane gap-section" id="pane-2-gaps">
@@ -731,6 +751,7 @@
           <div class="section-tab active" onclick="showTab(3,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(3,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(3,'gate')">Gate Criteria</div>
+          <div class="section-tab" onclick="showTab(3,'templates')">📎 Templates (3)</div>
           <div class="section-tab" onclick="showTab(3,'gaps')">Gaps (5)</div>
         </div>
         <div class="section-content">
@@ -761,6 +782,13 @@
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>FRD and HFD Sign-off (SG0315T)</strong><span>Formal sign-off from Sanyojak + FPO. EAB representative also signs off on the IT side. Delivery team walks through FRD. Open Questions in FRD must be resolved before sign-off.</span></div><div class="raci">R: BT · A: PM · C: BA/DES</div></li>
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>QA Test Scenarios Approved</strong><span>QA-Lead confirms draft test scenarios complete, mapped to FRD, and stored in ALM. This is a mandatory Gate 3 exit criterion.</span></div><div class="raci">R: QA-Lead · A: PM</div></li>
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>FRD Loaded into ALM (SG0316G)</strong><span>FRD user stories and tasks loaded as ALM items per guidelines. All final documents uploaded to MS Teams project folder.</span></div><div class="raci">R: BA · A: PM</div></li>
+            </ul>
+          </div>
+          <div class="section-pane" id="pane-3-templates">
+            <ul class="checklist">
+              <li><div class="icon">📄</div><div class="detail"><strong>BRD Template</strong><span>Covers: Project Stakeholders, Document Control, Glossary, Project Overview, Business Concepts, Challenges, Goals, Assumptions, Process Overview, User Roles, Reporting, Notifications, NFRs (Performance, Security, Scalability, Compatibility, UX/UI), System Integrations, Data Requirements, Out-of-Scope items.</span></div><div class="raci">Folder: 03 - Requirements</div></li>
+              <li><div class="icon">📄</div><div class="detail"><strong>FRD Template</strong><span>Covers: Project Overview, Business Concepts, System Capabilities (per module), System Features, User Stories with Pre-Conditions, Behaviour, Automations, Acceptance Criteria (Given/When/Then format).</span></div><div class="raci">Folder: 03 - Requirements</div></li>
+              <li><div class="icon">📖</div><div class="detail"><strong>Stage Planning and Execution Guideline</strong><span>Detailed guide on how to plan and run requirement workshops. Covers 20-workshop sequence, workshop types, roles, preparation materials, structured extraction techniques, parking lot technique, and recommended deliverables checklist.</span></div><div class="raci">Folder: 03 - Requirements</div></li>
             </ul>
           </div>
           <div class="section-pane gap-section" id="pane-3-gaps">
@@ -813,7 +841,8 @@
           <div class="section-tab active" onclick="showTab(4,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(4,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(4,'gate')">Gate Criteria</div>
-          <div class="section-tab" onclick="showTab(4,'gaps')">Gaps (2)</div>
+          <div class="section-tab" onclick="showTab(4,'templates')">📎 Templates (5)</div>
+          <div class="section-tab" onclick="showTab(4,'gaps')">Gaps (4) ⚠️</div>
         </div>
         <div class="section-content">
           <div class="section-pane active" id="pane-4-prereqs">
@@ -840,6 +869,15 @@
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Risk Register Updated</strong><span>Design-stage risks reviewed and updated. Final documents uploaded to MS Teams. ALM updated with design-level tasks.</span></div><div class="raci">R: PM · A: PM-Admin · C: SA</div></li>
             </ul>
           </div>
+          <div class="section-pane" id="pane-4-templates">
+            <ul class="checklist">
+              <li><div class="icon">🔗</div><div class="detail"><strong>SAD Template (System Architecture Design)</strong><span>Template for creating the high-level system architecture document. Covers components, integrations, and data flows.</span></div><div class="raci">Folder: 04 - Design / SAD & TDD (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>TDD Template (Technical Design Document)</strong><span>Template for the detailed technical design covering all FRD/BRD requirements from a technical perspective.</span></div><div class="raci">Folder: 04 - Design / SAD & TDD (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>ADR Template (Architecture Decision Record)</strong><span>Template for documenting significant architecture decisions with context, options considered, and rationale.</span></div><div class="raci">Folder: 04 - Design / SAD & TDD (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Quick Reference — SAD</strong><span>Condensed guide explaining what to include in a System Architecture Design document.</span></div><div class="raci">Folder: 04 - Design / SAD & TDD (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>BAPS Infrastructure Standards & Guidelines</strong><span>Organisational standards for infrastructure choices including approved AWS cloud services.</span></div><div class="raci">Folder: 04 - Design / Infra (SharePoint URL)</div></li>
+            </ul>
+          </div>
           <div class="section-pane gap-section" id="pane-4-gaps">
             <div class="gap-card high">
               <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 15 — Design review has no SLA or outcome states</span></div>
@@ -850,6 +888,16 @@
               <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 14 — POC Register missing</span></div>
               <div class="gap-problem">POCs described but not tracked — easy to over-scope or run without approval.</div>
               <div class="gap-fix"><strong>✅ FIX:</strong> SG04POC-T created: POC ID / Objective / Owner / Dates / Budget / Success Criteria / Output / SA + PM Approval.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">RACI Error — Technical Design Sign-off accountability wrong</span></div>
+              <div class="gap-problem">EAB is listed as Responsible for sign-off, but SA authors the TDD. Having the same body author and approve violates separation of duties. PMs raised this as a RACI inconsistency.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Fix RACI: SA = Responsible (submits TDD for review), EAB = Accountable (approves), PM = Informed. Add: EAB reviews within 5 business days; rejection triggers mandatory revision with SA before resubmission.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM — PM Flagged</span><span class="gap-title">ALM task update accountability — SA vs BA</span></div>
+              <div class="gap-problem">SA is listed as Responsible for updating design-level tasks in ALM. PMs noted BA should own ALM task maintenance; SA's role is technical review, not administrative tracking.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Change Responsible to BA for all ALM task updates. SA remains Consulted for design-level items. BA must verify completeness before gate is closed.</div>
             </div>
           </div>
         </div>
@@ -875,7 +923,8 @@
           <div class="section-tab active" onclick="showTab(5,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(5,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(5,'gate')">Gate Criteria</div>
-          <div class="section-tab" onclick="showTab(5,'gaps')">Gaps (2)</div>
+          <div class="section-tab" onclick="showTab(5,'templates')">📎 Templates (2)</div>
+          <div class="section-tab" onclick="showTab(5,'gaps')">Gaps (4) ⚠️</div>
         </div>
         <div class="section-content">
           <div class="section-pane active" id="pane-5-prereqs">
@@ -900,6 +949,12 @@
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>ALM Updated & Risk Register Current</strong><span>All stories tagged with final agreed release. Risk register updated with planning-stage risks.</span></div><div class="raci">R: BA · A: PM · C: SA/TL/QA</div></li>
             </ul>
           </div>
+          <div class="section-pane" id="pane-5-templates">
+            <ul class="checklist">
+              <li><div class="icon">📖</div><div class="detail"><strong>Project Estimation Reference Document</strong><span>Explains when to estimate (after requirements = rough range; after technical design = firm estimate). Covers multi-stage budgeting approach, links to PMI and SEBoK standards, and the recommended two-step policy: initial estimate after requirements, final estimate after design.</span></div><div class="raci">Folder: 05 - Estimate and Planning</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Change Enablement Document</strong><span>Defines the Change Request process including classification criteria, form, approval chain, and cost-impact thresholds (10–20% cost or timeline variance triggers ITC re-approval per IT Process Presentation Script Slide 12).</span></div><div class="raci">Folder: 06 - Development (SharePoint URL) — cross-reference in Stage 5</div></li>
+            </ul>
+          </div>
           <div class="section-pane gap-section" id="pane-5-gaps">
             <div class="gap-card medium">
               <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 16 — Change Request trigger is ambiguous</span></div>
@@ -910,6 +965,16 @@
               <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 17 — No Dependent Systems Agreement template</span></div>
               <div class="gap-problem">Sign-offs from dependent system owners made verbally or in ad hoc emails.</div>
               <div class="gap-fix"><strong>✅ FIX:</strong> SG05DEP-T created: System Name / Owner / Planned Change / Impact / UAT date / Prod date / FPO Sign-off / Date.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">ITC re-approval trigger has no quantified threshold</span></div>
+              <div class="gap-problem">"Outside the approved proposal" is subjective. PMs noted this is inconsistently applied — some teams skip ITC re-approval for significant overruns.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Define explicit threshold: ITC re-approval required if project timeline exceeds original by more than 4 weeks OR total cost increases by more than 10–20% (per IT Process Presentation Script Slide 12). PM prepares a Change Impact Summary. ITC SLA: 10 business days.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM — PM Flagged</span><span class="gap-title">"Update Project Charter" is wrong — should be Project Plan</span></div>
+              <div class="gap-problem">The process says "update the project charter" with the agreed timeline. The Project Charter is a Stage 2 governance document — updating it post-Stage-5 creates version control confusion and undermines Charter as a fixed governance baseline.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Replace all occurrences of "update project charter" with "update the Project Plan / Release Plan." Version-control the updated plan in ALM. Applies also to Stages 6 and 7 where same error occurs.</div>
             </div>
           </div>
         </div>
@@ -935,7 +1000,8 @@
           <div class="section-tab active" onclick="showTab(6,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(6,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(6,'gate')">Gate Criteria</div>
-          <div class="section-tab" onclick="showTab(6,'gaps')">Gaps (2)</div>
+          <div class="section-tab" onclick="showTab(6,'templates')">📎 Templates (5)</div>
+          <div class="section-tab" onclick="showTab(6,'gaps')">Gaps (5) ⚠️</div>
         </div>
         <div class="section-content">
           <div class="section-pane active" id="pane-6-prereqs">
@@ -962,6 +1028,15 @@
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Release Notes & Deployment Checklist Ready</strong><span>User and technical release notes written. Deployment checklist covers all technical steps for a stable deployment. Smoke Test Plan ready.</span></div><div class="raci">R: BA/TL · A: PM · C: DEV</div></li>
             </ul>
           </div>
+          <div class="section-pane" id="pane-6-templates">
+            <ul class="checklist">
+              <li><div class="icon">🔗</div><div class="detail"><strong>API Design and Implementation Guide</strong><span>Standards and best practices for designing and implementing APIs within BAPS systems.</span></div><div class="raci">Folder: 06 - Development (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Backend Coding Standards — General</strong><span>General coding standards document covering code structure, naming conventions, error handling, and documentation requirements.</span></div><div class="raci">Folder: 06 - Development (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Branching Strategy and Release Management</strong><span>Git branching model, PR guidelines, merge strategy, and release tagging conventions.</span></div><div class="raci">Folder: 06 - Development (SharePoint URL)</div></li>
+              <li><div class="icon">🔗</div><div class="detail"><strong>Change Enablement Document</strong><span>Formal Change Request process: classification criteria, CR form, approval chain (PM + FPO + RGC), and cost/timeline thresholds for ITC re-approval.</span></div><div class="raci">Folder: 06 - Development (SharePoint URL)</div></li>
+              <li><div class="icon">📊</div><div class="detail"><strong>Development Stage Entry &amp; Exit Checklist</strong><span>Two-tab Excel with Dev Entry Checklist (9 items: requirements, design readiness, environment, dependencies, test data, defect process, team, risk, kickoff) and Dev Exit Checklist (9 items: code completion, tests, build readiness, documentation, approval, risk register, RTM, document archive, sign-off &amp; handover). Plus Sign-Off Tracker tab.</span></div><div class="raci">File: Development Stage Checklist.xlsx</div></li>
+            </ul>
+          </div>
           <div class="section-pane gap-section" id="pane-6-gaps">
             <div class="gap-card high">
               <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 18 — Package approval has no mechanism</span></div>
@@ -972,6 +1047,21 @@
               <div class="gap-header"><span class="gap-badge low">LOW</span><span class="gap-title">Gap 19 — Mid-feature demo has no template</span></div>
               <div class="gap-problem">SA walkthrough after each feature has no agenda, format, or sign-off record.</div>
               <div class="gap-fix"><strong>✅ FIX:</strong> SG06DEMO-T created: Feature name / FRD ref / Design ref / Demo date / SA attended / Issues raised / SA approval. Stored in ALM.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">Credentials for dependent systems: no secure storage method</span></div>
+              <div class="gap-problem">Process says "obtain credentials" but specifies no storage method. PMs flagged this as a security risk — credentials stored in ALM, emails, or plain text are a compliance violation.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Specify: all credentials stored in approved secrets management tool (e.g. Azure Key Vault, HashiCorp Vault). Never in ALM, email, or plain-text files. TL confirms secure storage before Sprint 1. Any unresolved access within 5 days escalated to PM then RGC.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM — PM Flagged</span><span class="gap-title">VAPT Round 1 — insufficient detail on severity thresholds and role definition</span></div>
+              <div class="gap-problem">SEC role is undefined in the process. No OWASP reference. No definition of which severity levels block UAT vs. require risk acceptance. PMs flagged this as a critical security gate with insufficient controls.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Define SEC = Security Team / Third-Party Security Assessor in Glossary. Reference OWASP Testing Guide. Add: Critical/High vulnerabilities must be remediated before UAT gate opens. Medium: documented risk acceptance by RGC. VAPT report stored in SharePoint.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM — PM Flagged</span><span class="gap-title">External Code Review has dual Accountable — RACI violation</span></div>
+              <div class="gap-problem">Both TL and SA are listed as Accountable for External Code Review. RACI rules require exactly one Accountable per activity. This creates ambiguity about who is ultimately responsible for follow-up.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Designate TL = Accountable, SA = Consulted. Output: Code Review Report uploaded to ALM after each review cycle (minimum once per release).</div>
             </div>
           </div>
         </div>
@@ -998,7 +1088,8 @@
           <div class="section-tab active" onclick="showTab(7,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(7,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(7,'gate')">Gate Criteria</div>
-          <div class="section-tab" onclick="showTab(7,'gaps')">Gaps (4)</div>
+          <div class="section-tab" onclick="showTab(7,'templates')">📎 Templates (1)</div>
+          <div class="section-tab" onclick="showTab(7,'gaps')">Gaps (7) ⚠️</div>
         </div>
         <div class="section-content">
           <div class="section-pane active" id="pane-7-prereqs">
@@ -1028,6 +1119,11 @@
               <li class="gate"><div class="icon">🔑</div><div class="detail"><strong>Updated Project Plan</strong><span>Project plan updated with latest agreed timeline. Final documents uploaded to MS Teams.</span></div><div class="raci">R: PM · A: PM-Admin · C: RGC, BT</div></li>
             </ul>
           </div>
+          <div class="section-pane" id="pane-7-templates">
+            <ul class="checklist">
+              <li><div class="icon">📄</div><div class="detail"><strong>UAT Document Template</strong><span>Covers: Purpose, Scope (in/out), Roles &amp; Responsibilities (UAT Tester / Coordinator / Project Team), Test Environment details, How to Perform UAT, Test Case format (ID, scenario, steps, expected result, actual result, pass/fail, comments), Issue Reporting process, Office Hour Calls, UAT Sign-Off form, Final Decision (Approved / Approved with Minor Issues / Not Approved).</span></div><div class="raci">Folder: 07 - UAT</div></li>
+            </ul>
+          </div>
           <div class="section-pane gap-section" id="pane-7-gaps">
             <div class="gap-card critical">
               <div class="gap-header"><span class="gap-badge critical">CRITICAL</span><span class="gap-title">Gap 20 — No defect severity classification</span></div>
@@ -1048,6 +1144,21 @@
               <div class="gap-header"><span class="gap-badge high">HIGH</span><span class="gap-title">Gap 23 — Pilot stage is empty</span></div>
               <div class="gap-problem">Pilot listed as optional but has zero activities or gate criteria.</div>
               <div class="gap-fix"><strong>✅ FIX:</strong> Minimum Pilot structure defined: named pilot group, daily check-ins week 1, feedback grooming, P0/P1 resolution, FPO sign-off, minimum 2–4 weeks duration.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">UAT Training has zero description in original process</span></div>
+              <div class="gap-problem">The original process document has a completely blank description for UAT Training. Without a description, this activity cannot be planned, executed, or audited.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Full description: Business team UAT testers trained on system features in UAT scope. Delivered by BA and/or Support team. Materials prepared using Training Material Template, stored in MS Teams. Attendance recorded. Testers must complete training before participating in UAT sessions.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">UAT Test Plan Sign-off RACI is inverted</span></div>
+              <div class="gap-problem">FPO is listed as Responsible for the UAT Test Plan sign-off. But FPO is the approver (receiver of the walkthrough), not the executor. BA/QA present the plan; FPO approves it.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Correct RACI: BA + QA = Responsible (prepare and present), PM = Accountable, FPO = sign-off authority. Define sign-off SLA: FPO signs within 3 business days of walkthrough. Escalation: PM → RGC if not received within SLA.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM — PM Flagged</span><span class="gap-title">UAT Initial Data — no PII masking requirement</span></div>
+              <div class="gap-problem">"Identify initial data needed" is critically vague. No data preparation process and no PII masking requirement. This is a frequent cause of UAT delays and a data protection risk.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> TL and BA identify required test data sets per user persona. Data prepared and loaded at least 2 business days before UAT kick-off. PII masked per Data Masking Specification. QA confirms data readiness before UAT commences.</div>
             </div>
           </div>
         </div>
@@ -1073,7 +1184,7 @@
           <div class="section-tab active" onclick="showTab(8,'prereqs')">Prerequisites</div>
           <div class="section-tab" onclick="showTab(8,'activities')">Activities</div>
           <div class="section-tab" onclick="showTab(8,'gate')">Gate Criteria</div>
-          <div class="section-tab" onclick="showTab(8,'gaps')">Gaps (3)</div>
+          <div class="section-tab" onclick="showTab(8,'gaps')">Gaps (6) ⚠️</div>
         </div>
         <div class="section-content">
           <div class="section-pane active" id="pane-8-prereqs">
@@ -1118,6 +1229,21 @@
               <div class="gap-header"><span class="gap-badge medium">MEDIUM</span><span class="gap-title">Gap 26 — Retrospective has no template</span></div>
               <div class="gap-problem">Two retrospectives listed but no template — lessons learned captured inconsistently.</div>
               <div class="gap-fix"><strong>✅ FIX:</strong> SG08RETRO-T created: What went well / What didn't / Root causes / Action items with owners / Process improvement recommendations fed back to RGC.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">Both Retrospective rows have zero description in original process</span></div>
+              <div class="gap-problem">Both "Release Retrospective — Delivery Team" and "Release Retrospective — Business Team" have completely blank descriptions in the original document. This makes them impossible to plan or execute consistently.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Delivery Retro: conducted within 5 business days of go-live, facilitated by PM using Start/Stop/Continue format, output = Retrospective Report in MS Teams, action items tracked in ALM. Business Retro: facilitated by PM + RGC PoC, covers satisfaction, process experience, support readiness. Outputs fed into process improvement backlog.</div>
+            </div>
+            <div class="gap-card high">
+              <div class="gap-header"><span class="gap-badge high">HIGH — PM Flagged</span><span class="gap-title">Execute Deployment — no rollback trigger criteria or communication protocol</span></div>
+              <div class="gap-problem">The most critical activity in the entire project has no deployment runbook reference, no rollback trigger criteria, no rollback procedure, and no real-time status update process. If deployment fails, the team has no documented path forward.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Reference Deployment Runbook (PRODUCTION version). Runbook must include: pre-deployment checklist sign-off, step-by-step deployment sequence with owners, go/no-go decision after each major step, rollback trigger criteria (e.g. critical service down after 15 minutes), rollback procedure with named owner, real-time status updates to PM every 30 minutes during deployment.</div>
+            </div>
+            <div class="gap-card medium">
+              <div class="gap-header"><span class="gap-badge medium">MEDIUM — PM Flagged</span><span class="gap-title">End of Hypercare — no BAU handover process</span></div>
+              <div class="gap-problem">"All changes taken in a future release" implies a handover process but provides no mechanism, no communication, and no defined handover to BAU support.</div>
+              <div class="gap-fix"><strong>✅ RECOMMENDATION:</strong> Hypercare end criteria: X consecutive days with zero Critical/High incidents + support team confirmed capable of independent L1/L2 resolution. End communicated in writing to BT FPO, RGC, and Support. Open items formally transferred to BAU or logged in ALM as future release items.</div>
             </div>
           </div>
         </div>
@@ -1188,14 +1314,14 @@
   <!-- ═══════════════════════ GAPS PANEL ═══════════════════════ -->
   <div id="panel-gaps" class="panel">
     <div class="hero">
-      <h2>Gap Analysis — 32 Gaps Identified & Fixed</h2>
-      <p>Independent review of the BAPS IT Stage Gate Process (Draft) and PM Admin checklist. Every gap has a concrete fix implemented in the process documentation.</p>
+      <h2>Gap Analysis — 32 Original + 17 PM-Flagged = 49 Total</h2>
+      <p>Independent review of the BAPS IT Stage Gate Process (Draft) combined with PM Admin feedback from <em>StageGate_1_to_8_Reviewed_by_PM_Admins.xlsx</em>. See <strong>PM Review</strong> tab for the full PM feedback breakdown.</p>
     </div>
     <div class="stats-row">
-      <div class="stat-card critical"><div class="stat-num">6</div><div class="stat-label">Critical Gaps</div></div>
-      <div class="stat-card high"><div class="stat-num">12</div><div class="stat-label">High Severity</div></div>
-      <div class="stat-card total"><div class="stat-num">32</div><div class="stat-label">Total Gaps Found</div></div>
-      <div class="stat-card fixed"><div class="stat-num">32</div><div class="stat-label">Gaps With Fixes</div></div>
+      <div class="stat-card critical"><div class="stat-num">8</div><div class="stat-label">Critical Gaps</div></div>
+      <div class="stat-card high"><div class="stat-num">22</div><div class="stat-label">High Severity</div></div>
+      <div class="stat-card total"><div class="stat-num">49</div><div class="stat-label">Total Issues Found</div></div>
+      <div class="stat-card fixed"><div class="stat-num">32</div><div class="stat-label">Original Gaps Fixed</div></div>
     </div>
     <div style="background:white;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px;">
       <table class="gap-table">
@@ -1239,6 +1365,97 @@
     <p style="font-size:0.83rem;color:var(--text-light);text-align:center;">Full details and fixes: <a href="gap-analysis/gap-analysis.md" style="color:var(--primary-light)">gap-analysis/gap-analysis.md</a></p>
   </div>
 
+
+  <!-- ═══════════════════════ PM FEEDBACK PANEL ═══════════════════════ -->
+  <div id="panel-pmfeedback" class="panel">
+    <div class="hero">
+      <h2>PM Review — Feedback from StageGate_1_to_8_Reviewed_by_PM_Admins.xlsx</h2>
+      <p>This is the consolidated PM Admin review of the stage gate process. Items are grouped by theme. The <strong>Status</strong> column shows whether a fix has been applied to this viewer or is a recommended next action.</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card critical"><div class="stat-num">8</div><div class="stat-label">🔴 Critical — Fix before go-live</div></div>
+      <div class="stat-card high"><div class="stat-num">13</div><div class="stat-label">🟡 Significant — Next SOP revision</div></div>
+      <div class="stat-card total"><div class="stat-num">9</div><div class="stat-label">🟢 Low-impact — Future iteration</div></div>
+      <div class="stat-card fixed"><div class="stat-num">3</div><div class="stat-label">Missing Templates (no file found)</div></div>
+    </div>
+
+    <div class="decision-board">
+      <h3>🔴 Critical — Must fix before process goes live</h3>
+      <div style="overflow-x:auto;">
+      <table class="gap-table">
+        <thead><tr><th>#</th><th>Stage</th><th>PM Finding</th><th>Recommendation</th></tr></thead>
+        <tbody>
+          <tr><td>C1</td><td>S1</td><td>Circular prerequisite: "Project Proposal" listed as both stage name AND prerequisite</td><td>Rename prerequisite to "Business Need / Stakeholder Brief." Proposal is the Stage 1 OUTPUT.</td></tr>
+          <tr><td>C2</td><td>S1</td><td>No gate decision states defined. "A decision is given" is unmeasurable.</td><td>Define: Approved / Conditionally Approved / On Hold / Rejected — each with documented rationale.</td></tr>
+          <tr><td>C3</td><td>S7</td><td>UAT Training has ZERO description in original document — completely blank field.</td><td>Full description added (see Stage 7 gap card): who trains, materials, attendance record required.</td></tr>
+          <tr><td>C4</td><td>S8</td><td>Both Retrospective rows (Delivery + Business Team) have ZERO description.</td><td>Full descriptions added (see Stage 8 gap card): format, facilitator, output artefact, action item tracking.</td></tr>
+          <tr><td>C5</td><td>S7</td><td>UAT Sign-off has no measurable exit criteria. No % pass rate, no defect threshold.</td><td>Define: X% test cases passed + zero Critical/High open defects + all VAPT Critical/High resolved.</td></tr>
+          <tr><td>C6</td><td>S8</td><td>Execute Deployment: no rollback trigger criteria, no communication protocol.</td><td>Add Deployment Runbook reference with explicit go/no-go checkpoints and rollback triggers.</td></tr>
+          <tr><td>C7</td><td>S6</td><td>Credentials for dependent systems: no secure storage method specified — PII/security risk.</td><td>Mandate secrets management tool (Azure Key Vault etc.). Never store in ALM, email, or plain text.</td></tr>
+          <tr><td>C8</td><td>S6</td><td>VAPT Round 1: SEC role undefined, no OWASP reference, no severity threshold for blocking UAT.</td><td>Define SEC role + Critical/High blocks UAT + Medium needs risk acceptance sign-off from RGC.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="decision-board">
+      <h3>🟡 Significant — Address in next SOP revision</h3>
+      <div style="overflow-x:auto;">
+      <table class="gap-table">
+        <thead><tr><th>#</th><th>Stage</th><th>PM Finding</th><th>Recommendation</th></tr></thead>
+        <tbody>
+          <tr><td>S1</td><td>S2</td><td>EAB (Enterprise Architecture Board) is undefined. New PMs don't know who to contact.</td><td>Added to Glossary. Engage via RGC at Stage 2 start. Mandatory sign-off before Gate 4.</td></tr>
+          <tr><td>S2</td><td>S6–7</td><td>TPO (Technical Product Owner) is undefined — appears in Stages 6 &amp; 7.</td><td>Added to Glossary. Technical PoC for dependent systems / third-party integrations.</td></tr>
+          <tr><td>S3</td><td>S5–8</td><td>"Update the Project Charter" written 3+ times — incorrect. Charter is a Stage 2 governance doc.</td><td>Replace all occurrences with "Update the Project Plan / Release Plan."</td></tr>
+          <tr><td>S4</td><td>S4</td><td>RACI error on Technical Design Sign-off: EAB listed as Responsible but SA authors the TDD.</td><td>Fix: SA = Responsible (submits), EAB = Accountable (approves), PM = Informed.</td></tr>
+          <tr><td>S5</td><td>S4</td><td>"Update Tasks in ALM" — SA listed as Responsible but BA should own ALM task maintenance.</td><td>Change Responsible to BA. SA remains Consulted.</td></tr>
+          <tr><td>S6</td><td>S7</td><td>UAT Test Plan Sign-off: FPO listed as Responsible (they're the approver, not the presenter).</td><td>Fix: BA + QA = Responsible, PM = Accountable, FPO = sign-off authority.</td></tr>
+          <tr><td>S7</td><td>S8</td><td>Helpdesk Setup: PM-Admin listed as Accountable — should be PM or Support Lead.</td><td>Change Accountable to PM.</td></tr>
+          <tr><td>S8</td><td>S3</td><td>RTM (Requirement Traceability Matrix) only referenced in Stage 6 — should start in Stage 3.</td><td>RTM creation begins in Stage 3 (BRD→FRD mapping). Stage 6 completes it (FRD→Test Cases).</td></tr>
+          <tr><td>S9</td><td>S5</td><td>ITC re-approval trigger vague — "outside approved proposal" has no measurable threshold.</td><td>Use IT Process Script Slide 12: &gt;10% cost or &gt;20% timeline variance triggers ITC re-approval.</td></tr>
+          <tr><td>S10</td><td>S6</td><td>Dev/QA "remaining resources" onboarded at Stage 6 contradicts Stage 5 estimation involvement.</td><td>Core Dev Lead + QA Lead: onboarded at Stage 5. Full team: onboarded at Stage 6.</td></tr>
+          <tr><td>S11</td><td>S4+6</td><td>Stage Introduction Meetings at Stages 2, 4, 6 have no differentiated agendas.</td><td>S2=kickoff; S4=technical design + BT query SLAs; S6=demo schedule + UAT prep.</td></tr>
+          <tr><td>S12</td><td>S8</td><td>End of Hypercare: no defined duration, no exit criteria, no BAU handover process.</td><td>Standard: 4 weeks. Exit = X consecutive days zero Critical/High incidents + support team independent.</td></tr>
+          <tr><td>S13</td><td>All</td><td>Risk register update appears ~8 times with identical vague "update the risk register" language.</td><td>Standardize: reviewed at every sprint retro. High-rated risks require mitigation plan within 2 business days.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="decision-board">
+      <h3>🟢 Low-impact — Log for future iteration</h3>
+      <div style="overflow-x:auto;">
+      <table class="gap-table">
+        <thead><tr><th>#</th><th>Stage</th><th>PM Finding</th><th>Recommendation</th></tr></thead>
+        <tbody>
+          <tr><td>L1</td><td>S5</td><td>Rows "Adjust Release Timeline" + "Update Project Plan" could be merged — noted by a PM.</td><td>Merge into a single "Finalise Release Plan" activity with one gate criterion.</td></tr>
+          <tr><td>L2</td><td>S3</td><td>FRD/HFD sign-off — unclear if signed jointly or separately.</td><td>Clarify: signed jointly in one form; separate only if delivery dates differ significantly.</td></tr>
+          <tr><td>L3</td><td>S4</td><td>BT availability commitment is informal ("available for queries" with no SLA).</td><td>Add written email confirmation from FPO before Stage 4 begins with agreed query response SLA.</td></tr>
+          <tr><td>L4</td><td>S6</td><td>External Code Review: dual Accountable (TL + SA) — RACI must have exactly one Accountable.</td><td>TL = Accountable. SA = Consulted.</td></tr>
+          <tr><td>L5</td><td>S8</td><td>Deployment Verification: dual Responsible (FPO + TL) without a clear lead.</td><td>TL = technical verification. FPO = business verification. SA oversees both and declares go-live.</td></tr>
+          <tr><td>L6</td><td>All</td><td>MS Teams document storage guidelines referenced but never linked to an actual document.</td><td>Create and link a "Folder Naming Convention" one-pager (e.g. 01-Charter, 02-BRD, 03-FRD, etc.).</td></tr>
+          <tr><td>L7</td><td>S3+4+5</td><td>Downstream notifications at Stages 3, 4, 5 — PMs asked for clarity on the difference.</td><td>S3 = initial awareness. S4 = design approval. S5 = final dates confirmation.</td></tr>
+          <tr><td>L8</td><td>All</td><td>Sign-off mechanism undefined across all stages (DocuSign? ALM? Email?).</td><td>Standardize: ALM approval workflow as the official mechanism. BT has 5 business days to respond.</td></tr>
+          <tr><td>L9</td><td>S1</td><td>No SLA for ITC review — ITC could sit on a proposal indefinitely.</td><td>Add: ITC to review and respond within 15 business days. Already in this viewer.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <div class="decision-board">
+      <h3>📎 Template gaps — files referenced but not yet found locally</h3>
+      <div style="overflow-x:auto;">
+      <table class="gap-table">
+        <thead><tr><th>Stage</th><th>Missing Template</th><th>Where referenced</th></tr></thead>
+        <tbody>
+          <tr><td>S3–6</td><td>ALM Document Loading Guide — how to attach BRD/FRD/HFD to ALM items</td><td>Multiple stages reference "loaded into ALM as per guidelines" — no guide found</td></tr>
+          <tr><td>S4</td><td>QA Test Strategy Template &amp; Test Plan Template</td><td>Stage 4 Design gate; 06 - Development folder has Testing Standards URL only</td></tr>
+          <tr><td>S5</td><td>Change Request Form Template</td><td>Stage 5 CR process; Change Enablement Document URL exists in Stage 6 folder (needs Stage 5 cross-reference)</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
 
   <!-- ═══════════════════════ INDUSTRY PANEL ═══════════════════════ -->
   <div id="panel-industry" class="panel">
@@ -1337,6 +1554,11 @@
       <div class="glossary-card"><div class="glossary-abbr">CI/CD</div><div class="glossary-full">Continuous Integration / Continuous Deployment</div><div class="glossary-desc">Automated pipeline. Enforces code quality gate: Grade A / 90% minimum. Fails on unapproved packages.</div></div>
       <div class="glossary-card"><div class="glossary-abbr">PII</div><div class="glossary-full">Personally Identifiable Information</div><div class="glossary-desc">Personal data about individuals. Projects storing PII must follow data security requirements.</div></div>
       <div class="glossary-card"><div class="glossary-abbr">MOM</div><div class="glossary-full">Minutes of Meeting</div><div class="glossary-desc">Written record of decisions, action items, and owners. Uploaded to MS Teams within 2 business days.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">TPO</div><div class="glossary-full">Technical Product Owner</div><div class="glossary-desc">Technical point of contact for a dependent system or third-party integration. Responsible for providing API credentials, integration support, and change notifications.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">RTM</div><div class="glossary-full">Requirements Traceability Matrix</div><div class="glossary-desc">Document mapping every BRD requirement → FRD section → Test Case → Result. Created in Stage 3 (BRD→FRD mapping) and extended in Stage 6 (FRD→Test Cases). 100% coverage required before gate closure.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">RAID</div><div class="glossary-full">Risks, Assumptions, Issues, Dependencies</div><div class="glossary-desc">Project management log tracking all four risk-related categories. Updated at every sprint retrospective and reviewed at gate closures.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">WSR</div><div class="glossary-full">Weekly Status Report</div><div class="glossary-desc">Regular stakeholder update shared via MS Teams. Covers RAG status, completed items, upcoming milestones, risks, and issues.</div></div>
+      <div class="glossary-card"><div class="glossary-abbr">NFR</div><div class="glossary-full">Non-Functional Requirement</div><div class="glossary-desc">System quality attribute requirements (performance, security, scalability, availability, reliability) captured in BRD and refined in FRD. SLAs defined in Stage 3 and tested in Stage 6.</div></div>
     </div>
   </div>
 
