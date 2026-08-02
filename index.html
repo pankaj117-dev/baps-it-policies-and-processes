@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BAPS IT Stage Gate Process</title>
+<title>BAPS IT Policies and Processes</title>
 <style>
   :root {
     --primary: #1a3a5c;
@@ -468,12 +468,13 @@
     <div class="header-title">
       <div class="header-logo">SG</div>
       <div>
-        <h1>BAPS IT Stage Gate Process</h1>
-        <p>8-stage software delivery lifecycle for volunteer IT teams</p>
+        <h1>BAPS IT Policies &amp; Processes</h1>
+        <p>IT governance documentation for BAPS Swaminarayan Sanstha</p>
       </div>
     </div>
     <nav class="header-nav">
-      <button class="nav-btn active" onclick="showPanel('stages')">Stages</button>
+      <button class="nav-btn active" onclick="showPanel('stages')">Stage Gate</button>
+      <button class="nav-btn" onclick="showPanel('ptx')">PTX Policy</button>
       <button class="nav-btn" onclick="showPanel('gaps')">Gap Analysis</button>
       <button class="nav-btn" onclick="showPanel('pmfeedback')">PM Review</button>
       <button class="nav-btn" onclick="showPanel('industry')">Industry Context</button>
@@ -1562,6 +1563,195 @@
     </div>
   </div>
 
+  <!-- ═══════════════════════ PTX POLICY PANEL ═══════════════════════ -->
+  <div id="panel-ptx" class="panel">
+
+    <div class="hero">
+      <h2>PTX Policy — IT Project Intake &amp; Governance</h2>
+      <p>The Permit to Execute (PTX) policy establishes formal approval gates that every IT project must pass through — from proposal to rollout. Issued by the BAPS Information Technology Committee (ITC). <strong>Status: Draft v1.0 · Effective June 15, 2026.</strong></p>
+    </div>
+
+    <!-- Gate Pipeline -->
+    <div class="pipeline">
+      <div class="pipeline-stage" onclick="jumpToPtxGate('pts')">
+        <div class="pipeline-num">4.1</div>
+        <div class="pipeline-label">Permit to Start</div>
+        <div class="pipeline-gate">~40% contingency</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToPtxGate('pdep')">
+        <div class="pipeline-num">4.2</div>
+        <div class="pipeline-label">Permit to Design, Estimate &amp; Plan</div>
+        <div class="pipeline-gate">~20% contingency</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToPtxGate('ptb')">
+        <div class="pipeline-num">4.3</div>
+        <div class="pipeline-label">Permit to Build</div>
+        <div class="pipeline-gate">~10% contingency</div>
+      </div>
+      <div class="pipeline-stage" onclick="jumpToPtxGate('ptr')">
+        <div class="pipeline-num">4.4</div>
+        <div class="pipeline-label">Permit to Rollout</div>
+        <div class="pipeline-gate">Approver: IT RGC + Dept</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num" style="color:var(--primary)">4</div><div class="stat-label">Approval Gates</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--red)">3</div><div class="stat-label">Critical Gaps</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--yellow)">5</div><div class="stat-label">High Priority Gaps</div></div>
+      <div class="stat-card"><div class="stat-num" style="color:var(--green)">8</div><div class="stat-label">Roles Defined</div></div>
+    </div>
+
+    <!-- Gate 4.1 -->
+    <div id="ptx-gate-pts" style="background:white;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border-left:4px solid var(--primary)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div><div style="font-size:0.75rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">§4.1</div><h3 style="font-size:1.1rem;color:var(--primary)">Permit to Start (PTS)</h3></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Submitter: Department</span>
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Approver: ITC</span>
+          <span style="background:var(--yellow-light);color:var(--yellow);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">~40% contingency</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Inputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Business need &amp; high-level requirements</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Expected value &amp; target user base</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Level of urgency &amp; key dependencies</li>
+          </ul>
+        </div>
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Outputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Preliminary timeline &amp; cost estimate</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Conceptual approval to proceed to requirements</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:14px;background:var(--gray-light);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--text-light)">ITC may consult BAPS Inc. leadership for major proposals.</div>
+    </div>
+
+    <!-- Gate 4.2 -->
+    <div id="ptx-gate-pdep" style="background:white;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border-left:4px solid var(--primary)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div><div style="font-size:0.75rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">§4.2</div><h3 style="font-size:1.1rem;color:var(--primary)">Permit to Design, Estimate &amp; Plan (PDEP)</h3></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Submitter: IT + Dept SME</span>
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Approver: ITC</span>
+          <span style="background:var(--yellow-light);color:var(--yellow);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">~20% contingency</span>
+          <span style="background:var(--red-light);color:var(--red);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Gap D noted</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Inputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Detailed requirements (BA + SME elicitation)</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Data classification &amp; cybersecurity assessment</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Integration, reporting &amp; infrastructure needs</li>
+          </ul>
+        </div>
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Outputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Refined timeline &amp; cost estimate</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Formal requirements sign-off</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Approval to proceed to design &amp; planning</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:14px;background:var(--red-light);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--red)"><strong>Open Gap D:</strong> Stage title says "Design" but body covers requirements elicitation — naming is off by one vs gate 4.3.</div>
+    </div>
+
+    <!-- Gate 4.3 -->
+    <div id="ptx-gate-ptb" style="background:white;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border-left:4px solid var(--primary)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div><div style="font-size:0.75rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">§4.3</div><h3 style="font-size:1.1rem;color:var(--primary)">Permit to Build (PTB)</h3></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Submitter: IT</span>
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Approver: ITC</span>
+          <span style="background:var(--yellow-light);color:var(--yellow);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">~10% contingency</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Inputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Technical design</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Delivery, resource &amp; cost plan</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Risk &amp; dependency assessment</li>
+          </ul>
+        </div>
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Outputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>ITC authorization to begin development</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Locked scope baseline</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:14px;background:var(--gray-light);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--text-light)">Development may <strong>NOT</strong> begin until formal PTB is granted.</div>
+    </div>
+
+    <!-- Gate 4.4 -->
+    <div id="ptx-gate-ptr" style="background:white;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border-left:4px solid var(--primary)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div><div style="font-size:0.75rem;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:0.05em">§4.4</div><h3 style="font-size:1.1rem;color:var(--primary)">Permit to Rollout (PTR)</h3></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Submitter: IT + Department</span>
+          <span style="background:var(--blue-light);color:var(--primary);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Approver: IT RGC + Dept</span>
+          <span style="background:var(--red-light);color:var(--red);padding:4px 12px;border-radius:12px;font-size:0.75rem;font-weight:600">Gap R — ITC absent</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Inputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>System, security &amp; performance testing complete</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>UAT sign-off from Department</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--accent)">·</span>Training &amp; stakeholder comms done</li>
+          </ul>
+        </div>
+        <div><div style="font-size:0.8rem;font-weight:700;color:var(--text-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Key Outputs</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Joint rollout readiness approval</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Production deployment</li>
+            <li style="font-size:0.9rem;padding-left:14px;position:relative"><span style="position:absolute;left:0;color:var(--green)">✓</span>Hypercare then production support handoff</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:14px;background:var(--red-light);border-radius:8px;padding:12px;font-size:0.85rem;color:var(--red)"><strong>Open Gap R:</strong> ITC absent from this gate — inconsistent with gates 1–3. Needs clarification on whether this is deliberate.</div>
+    </div>
+
+    <!-- Top gaps summary -->
+    <div style="background:white;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);margin-bottom:20px">
+      <h3 style="color:var(--primary);margin-bottom:16px;font-size:1rem">Critical &amp; High Priority Gaps — For Swami Review</h3>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--red-light);border-radius:8px">
+          <span style="font-weight:800;font-size:0.8rem;color:var(--red);min-width:24px">A</span>
+          <div><div style="font-weight:600;font-size:0.9rem">No size tiering</div><div style="font-size:0.85rem;color:var(--text-light);margin-top:2px">Small and large projects go through identical 4-gate process. Risk: departments route around it. Fix: add lite path for low-effort changes.</div></div>
+          <span style="margin-left:auto;white-space:nowrap;font-size:0.75rem;font-weight:700;color:var(--red);background:white;padding:2px 8px;border-radius:8px;border:1px solid var(--red)">Critical</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--red-light);border-radius:8px">
+          <span style="font-weight:800;font-size:0.8rem;color:var(--red);min-width:24px">B</span>
+          <div><div style="font-weight:600;font-size:0.9rem">ITC has no decision SLA</div><div style="font-size:0.85rem;color:var(--text-light);margin-top:2px">Departments are accountable at every gate; ITC is not. Fix: define turnaround time and auto-escalation.</div></div>
+          <span style="margin-left:auto;white-space:nowrap;font-size:0.75rem;font-weight:700;color:var(--red);background:white;padding:2px 8px;border-radius:8px;border:1px solid var(--red)">Critical</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--red-light);border-radius:8px">
+          <span style="font-weight:800;font-size:0.8rem;color:var(--red);min-width:24px">O</span>
+          <div><div style="font-weight:600;font-size:0.9rem">No emergency / event-driven fast path</div><div style="font-size:0.85rem;color:var(--text-light);margin-top:2px">Festival and event deadlines are immovable. Without a defined compressed path, urgent work bypasses policy by default.</div></div>
+          <span style="margin-left:auto;white-space:nowrap;font-size:0.75rem;font-weight:700;color:var(--red);background:white;padding:2px 8px;border-radius:8px;border:1px solid var(--red)">Critical</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--yellow-light);border-radius:8px">
+          <span style="font-weight:800;font-size:0.8rem;color:var(--yellow);min-width:24px">N</span>
+          <div><div style="font-weight:600;font-size:0.9rem">Volunteer resourcing not acknowledged</div><div style="font-size:0.85rem;color:var(--text-light);margin-top:2px">Policy assumes predictable IT capacity. Reality at BAPS is predominantly volunteer. Needs capacity forecasting and mid-build unavailability coverage.</div></div>
+          <span style="margin-left:auto;white-space:nowrap;font-size:0.75rem;font-weight:700;color:var(--yellow);background:white;padding:2px 8px;border-radius:8px;border:1px solid var(--yellow)">High</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:12px;background:var(--yellow-light);border-radius:8px">
+          <span style="font-weight:800;font-size:0.8rem;color:var(--yellow);min-width:24px">C</span>
+          <div><div style="font-weight:600;font-size:0.9rem">Support model unclear</div><div style="font-size:0.85rem;color:var(--text-light);margin-top:2px">§3 and §4.4 are contradictory on who handles post-launch support. Needs L1/L2/L3 definition and hypercare exit criteria.</div></div>
+          <span style="margin-left:auto;white-space:nowrap;font-size:0.75rem;font-weight:700;color:var(--yellow);background:white;padding:2px 8px;border-radius:8px;border:1px solid var(--yellow)">High</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /panel-ptx -->
+
 </div><!-- /container -->
 
 <script>
@@ -1586,6 +1776,11 @@
     const clickedTab = event.target;
     clickedTab.classList.add('active');
     document.getElementById('pane-' + stageNum + '-' + tabName).classList.add('active');
+  }
+
+  function jumpToPtxGate(id) {
+    const el = document.getElementById('ptx-gate-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function jumpToStage(n) {
