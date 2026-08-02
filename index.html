@@ -507,6 +507,191 @@
   .compare-item-text strong { display: block; font-size: 0.85rem; }
   .compare-item-text span { font-size: 0.76rem; color: var(--text-light); }
 
+  /* ── RECOMMENDED POLICY PANEL ── */
+  .policy-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .policy-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--gray-light);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  .policy-section-header:hover { background: #f1f3f5; }
+  .policy-section-header .ps-num {
+    width: 28px; height: 28px;
+    background: var(--primary);
+    color: white;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .policy-section-header h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    flex: 1;
+  }
+  .policy-section-header .ps-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .policy-section-header .ps-arrow {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    transition: transform 0.2s;
+  }
+  .policy-section.open .ps-arrow { transform: rotate(90deg); }
+  .policy-section-body {
+    display: none;
+    padding: 18px;
+  }
+  .policy-section.open .policy-section-body { display: block; }
+  .policy-rule {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.84rem;
+  }
+  .policy-rule:last-child { border-bottom: none; padding-bottom: 0; }
+  .policy-rule-icon {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .policy-rule-icon.add { background: #dcfce7; color: #16a34a; }
+  .policy-rule-icon.fix { background: #fef3c7; color: #d97706; }
+  .policy-rule-icon.new { background: #eff6ff; color: #3b82f6; }
+  .policy-rule strong { display: block; margin-bottom: 2px; color: var(--text); }
+  .policy-rule span { color: var(--text-light); line-height: 1.5; }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+  .tier-card {
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    border: 1px solid var(--border);
+  }
+  .tier-card .tier-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .tier-card .tier-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .tier-card .tier-row {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-bottom: 3px;
+  }
+  .tier-card .tier-row strong { color: var(--text); }
+  .gate-enhanced {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+  .gate-enhanced-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--gray-light);
+    border-bottom: 1px solid var(--border);
+  }
+  .gate-enhanced-num {
+    width: 32px; height: 32px;
+    background: var(--primary);
+    color: var(--accent);
+    border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 800;
+    flex-shrink: 0;
+  }
+  .gate-enhanced-title { font-weight: 700; font-size: 0.9rem; flex: 1; }
+  .gate-enhanced-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .gate-col {
+    padding: 14px 16px;
+    font-size: 0.82rem;
+  }
+  .gate-col:first-child { border-right: 1px solid var(--border); }
+  .gate-col h4 { font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 8px; }
+  .gate-col ul { padding-left: 16px; }
+  .gate-col li { margin-bottom: 4px; line-height: 1.5; }
+  .decision-box {
+    padding: 10px 16px;
+    background: #f8faff;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.78rem;
+  }
+  .decision-box strong { color: var(--text-light); margin-right: 4px; }
+  .decision-chip {
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.72rem;
+  }
+  .raci-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .raci-table th { background: var(--primary); color: white; padding: 8px 10px; text-align: center; white-space: nowrap; }
+  .raci-table th:first-child { text-align: left; }
+  .raci-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: center; }
+  .raci-table td:first-child { text-align: left; font-weight: 500; }
+  .raci-table tr:nth-child(even) { background: var(--gray-light); }
+  .raci-r { color: #dc2626; font-weight: 700; }
+  .raci-a { color: var(--primary); font-weight: 700; }
+  .raci-c { color: #d97706; font-weight: 600; }
+  .raci-i { color: var(--text-light); }
+  .sla-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.84rem;
+  }
+  .sla-row:last-child { border-bottom: none; }
+  .sla-label { flex: 1; }
+  .sla-value {
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--blue-light);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
   /* ── PRINT ── */
   @media print {
     header { position: static; }
@@ -564,6 +749,7 @@
     <div class="subnav-inner">
       <button class="nav-btn active" onclick="showPanel('ptx', this)">Approval Gates</button>
       <button class="nav-btn" onclick="showPanel('ptx-gaps', this)">Industry Gap Analysis</button>
+      <button class="nav-btn" onclick="showPanel('ptx-recommended', this)">&#10003; Recommended Policy</button>
       <button class="nav-btn nav-print" onclick="window.print()">Print</button>
     </div>
   </div>
@@ -2118,12 +2304,540 @@
 
   </div><!-- /panel-ptx-gaps -->
 
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PTX — RECOMMENDED (ENHANCED) POLICY                    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div id="panel-ptx-recommended" class="panel">
+
+    <div class="hero" style="border-left:4px solid var(--green);background:linear-gradient(135deg,#f0fdf4 0%,#f8faff 100%)">
+      <h2 style="color:var(--green)">&#10003; Recommended PTX Policy — Enhanced Draft</h2>
+      <p>All gap-analysis recommendations applied. This is the target state for <strong>v1.1</strong> of the BAPS IT Project Intake &amp; Governance Policy. Click any section to expand. Items marked <span class="pill" style="background:#dcfce7;color:#16a34a;font-size:0.72rem">NEW</span> are additions to the current draft; <span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">UPDATED</span> are clarifications to existing text.</p>
+    </div>
+
+    <!-- 1. PROJECT TIERING -->
+    <div class="policy-section open" id="rec-1">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-1')">
+        <div class="ps-num">1</div>
+        <h3>Project Tiering — Lite / Standard / Major</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.84rem;color:var(--text-light);margin-bottom:16px">A single gating path for all projects creates bureaucratic overhead for small requests and insufficient scrutiny for large ones. Three tiers match oversight to risk and effort.</p>
+        <div class="tier-grid">
+          <div class="tier-card" style="background:#f0fdf4;border-color:#86efac">
+            <div class="tier-label" style="color:#16a34a">Tier 1</div>
+            <div class="tier-title">Lite</div>
+            <div class="tier-row"><strong>Cost:</strong> &lt; $5,000</div>
+            <div class="tier-row"><strong>Effort:</strong> &lt; 40 person-hours</div>
+            <div class="tier-row"><strong>Scope:</strong> Single system, no integration, no PII</div>
+            <div class="tier-row" style="margin-top:8px"><strong>Gates:</strong> 1 combined gate (IT PM + IT RGC approval)</div>
+            <div class="tier-row"><strong>Approver:</strong> IT RGC — no ITC review required</div>
+            <div class="tier-row"><strong>Turnaround:</strong> &le; 5 business days</div>
+          </div>
+          <div class="tier-card" style="background:#eff6ff;border-color:#93c5fd">
+            <div class="tier-label" style="color:#3b82f6">Tier 2</div>
+            <div class="tier-title">Standard</div>
+            <div class="tier-row"><strong>Cost:</strong> $5,000 – $50,000</div>
+            <div class="tier-row"><strong>Effort:</strong> 40 – 500 person-hours</div>
+            <div class="tier-row"><strong>Scope:</strong> Single or multi-system; may include integrations</div>
+            <div class="tier-row" style="margin-top:8px"><strong>Gates:</strong> Full PTX (Gates 4.1 – 4.5)</div>
+            <div class="tier-row"><strong>Approver:</strong> ITC at each gate</div>
+            <div class="tier-row"><strong>Turnaround:</strong> &le; 10 business days per gate</div>
+          </div>
+          <div class="tier-card" style="background:#fef3c7;border-color:#fcd34d">
+            <div class="tier-label" style="color:#d97706">Tier 3</div>
+            <div class="tier-title">Major</div>
+            <div class="tier-row"><strong>Cost:</strong> &gt; $50,000 or org-wide impact</div>
+            <div class="tier-row"><strong>Effort:</strong> &gt; 500 person-hours</div>
+            <div class="tier-row"><strong>Scope:</strong> Multi-department, strategic, or new platform</div>
+            <div class="tier-row" style="margin-top:8px"><strong>Gates:</strong> Full PTX + BAPS Inc. Leadership co-approval</div>
+            <div class="tier-row"><strong>Approver:</strong> ITC + BAPS Inc. Leadership</div>
+            <div class="tier-row"><strong>Turnaround:</strong> &le; 15 business days per gate</div>
+          </div>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-light);margin-top:10px">Tier is assigned by IT PM at intake and confirmed by IT RGC. If any criterion moves a project to a higher tier during execution, a tier reclassification change request is required.</p>
+      </div>
+    </div>
+
+    <!-- 2. ITC CHARTER & SLAs -->
+    <div class="policy-section" id="rec-2">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-2')">
+        <div class="ps-num">2</div>
+        <h3>ITC Charter &amp; Decision SLAs</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px">
+          <div>
+            <h4 style="font-size:0.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:10px">ITC Composition &amp; Quorum</h4>
+            <div class="policy-rule">
+              <div class="policy-rule-icon new">N</div>
+              <div><strong>Composition</strong><span>ITC Chair (BAPS Inc. appointed), IT Director, IT RGC Lead, 2 Department Lead representatives (rotating annually). Maximum 7 members.</span></div>
+            </div>
+            <div class="policy-rule">
+              <div class="policy-rule-icon new">N</div>
+              <div><strong>Quorum</strong><span>Minimum 3 members including the ITC Chair or designee. Decisions require simple majority; Chair holds casting vote on ties.</span></div>
+            </div>
+            <div class="policy-rule">
+              <div class="policy-rule-icon new">N</div>
+              <div><strong>Delegation</strong><span>If ITC Chair is unavailable, they designate a co-chair at least 48 hours in advance. Unplanned absences default to IT Director as acting chair.</span></div>
+            </div>
+            <div class="policy-rule">
+              <div class="policy-rule-icon new">N</div>
+              <div><strong>Conflict of interest</strong><span>Any ITC member with a direct departmental stake in a gate decision must declare it and abstain from voting on that item.</span></div>
+            </div>
+          </div>
+          <div>
+            <h4 style="font-size:0.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:10px">Decision SLAs</h4>
+            <div class="sla-row"><span class="sla-label">ITC meeting cadence</span><span class="sla-value">Bi-weekly</span></div>
+            <div class="sla-row"><span class="sla-label">Gate decision — Tier 1 (Lite)</span><span class="sla-value">&le; 5 business days</span></div>
+            <div class="sla-row"><span class="sla-label">Gate decision — Tier 2 (Standard)</span><span class="sla-value">&le; 10 business days</span></div>
+            <div class="sla-row"><span class="sla-label">Gate decision — Tier 3 (Major)</span><span class="sla-value">&le; 15 business days</span></div>
+            <div class="sla-row"><span class="sla-label">Auto-escalation if SLA missed</span><span class="sla-value">+5 business days</span></div>
+            <div class="sla-row"><span class="sla-label">Emergency path decision</span><span class="sla-value">&le; 48 hours</span></div>
+            <div class="sla-row"><span class="sla-label">Department appeal response</span><span class="sla-value">&le; 1 leadership cycle</span></div>
+          </div>
+        </div>
+        <div style="background:#fef3c7;border-radius:6px;padding:10px 14px;font-size:0.82rem">
+          <strong>Clock starts when:</strong> A complete gate submission package is received by ITC. An incomplete submission is returned within 2 business days with a checklist of missing items — the clock does not start until resubmission is complete.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ENHANCED 5-GATE STRUCTURE -->
+    <div class="policy-section" id="rec-3">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-3')">
+        <div class="ps-num">3</div>
+        <h3>Enhanced Gate Structure — 5 Gates with Decision Records</h3>
+        <span class="ps-badge" style="background:#fef3c7;color:#d97706">UPDATED</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.84rem;color:var(--text-light);margin-bottom:14px">Every gate produces a <strong>Gate Decision Record</strong>. Outcome must be one of four options documented by ITC. Kill and Redirect decisions count as successful governance — not failures.</p>
+
+        <div class="gate-enhanced">
+          <div class="gate-enhanced-header">
+            <div class="gate-enhanced-num">4.1</div>
+            <div class="gate-enhanced-title">Permit to Start — Conceptual Approval</div>
+            <span class="pill" style="font-size:0.72rem;background:var(--blue-light);color:var(--primary)">ITC (T2/T3) · IT RGC (T1)</span>
+          </div>
+          <div class="gate-enhanced-body">
+            <div class="gate-col">
+              <h4>Department submits</h4>
+              <ul>
+                <li>Business need, expected value, user base</li>
+                <li>Urgency, dependencies, strategic alignment</li>
+                <li>Completed project questionnaire</li>
+                <li>Tier self-assessment (confirmed by IT PM)</li>
+              </ul>
+            </div>
+            <div class="gate-col">
+              <h4>IT provides</h4>
+              <ul>
+                <li>Preliminary estimate with ~40% contingency (T2/T3)</li>
+                <li>Initial risk screen (data classification, integration complexity)</li>
+                <li>Capacity check — including volunteer resource calendar</li>
+              </ul>
+            </div>
+          </div>
+          <div class="decision-box">
+            <strong>Decision:</strong>
+            <span class="decision-chip" style="background:#dcfce7;color:#16a34a">Go</span>
+            <span class="decision-chip" style="background:#fee2e2;color:#dc2626">Kill</span>
+            <span class="decision-chip" style="background:#fef3c7;color:#d97706">Hold</span>
+            <span class="decision-chip" style="background:#eff6ff;color:#3b82f6">Redirect</span>
+          </div>
+        </div>
+
+        <div class="gate-enhanced">
+          <div class="gate-enhanced-header">
+            <div class="gate-enhanced-num">4.2</div>
+            <div class="gate-enhanced-title">Permit to Define Requirements &amp; Plan</div>
+            <span class="pill" style="font-size:0.72rem;background:var(--blue-light);color:var(--primary)">ITC (T2/T3) · IT RGC (T1)</span>
+          </div>
+          <div class="gate-enhanced-body">
+            <div class="gate-col">
+              <h4>IT + Department deliver</h4>
+              <ul>
+                <li>Detailed requirements — documented &amp; signed off by Dept SME</li>
+                <li>Data classification, PII, cross-border transfer assessment</li>
+                <li>Integration points and infrastructure needs</li>
+                <li>Cybersecurity requirements identified</li>
+                <li>If vendor: evaluation, DPA, security assessment, exit plan</li>
+                <li>POC completed if elevated risk</li>
+              </ul>
+            </div>
+            <div class="gate-col">
+              <h4>IT provides</h4>
+              <ul>
+                <li>Refined cost &amp; timeline estimate (~20% contingency)</li>
+                <li>RAID log initialized</li>
+                <li>Resource plan with volunteer availability</li>
+                <li>MVP scope baseline locked</li>
+                <li>Support tier assignment proposed (L1/L2/L3)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="decision-box">
+            <strong>Decision:</strong>
+            <span class="decision-chip" style="background:#dcfce7;color:#16a34a">Go</span>
+            <span class="decision-chip" style="background:#fee2e2;color:#dc2626">Kill</span>
+            <span class="decision-chip" style="background:#fef3c7;color:#d97706">Hold</span>
+            <span class="decision-chip" style="background:#eff6ff;color:#3b82f6">Redirect</span>
+          </div>
+        </div>
+
+        <div class="gate-enhanced">
+          <div class="gate-enhanced-header">
+            <div class="gate-enhanced-num">4.3</div>
+            <div class="gate-enhanced-title">Permit to Build</div>
+            <span class="pill" style="font-size:0.72rem;background:var(--blue-light);color:var(--primary)">ITC (T2/T3) · IT RGC (T1)</span>
+          </div>
+          <div class="gate-enhanced-body">
+            <div class="gate-col">
+              <h4>IT delivers</h4>
+              <ul>
+                <li>Technical design and architecture</li>
+                <li>Full project plan, milestones, resource assignments</li>
+                <li>Final cost estimate (~10% contingency)</li>
+                <li>Contingency rules: &gt;50% drawdown → ITC notification; full drawdown → change request</li>
+                <li>Volunteer capacity and availability windows confirmed</li>
+              </ul>
+            </div>
+            <div class="gate-col">
+              <h4>Funding &amp; change thresholds</h4>
+              <ul>
+                <li>Budget source identified (Dept or central IT)</li>
+                <li>Multi-year carryover documented if applicable</li>
+                <li>Cost threshold: greater of 5% or $2,500 cumulative</li>
+                <li>Schedule threshold: 10% or 4 weeks, whichever greater</li>
+                <li>Development starts only after formal Gate 4.3 approval</li>
+              </ul>
+            </div>
+          </div>
+          <div class="decision-box">
+            <strong>Decision:</strong>
+            <span class="decision-chip" style="background:#dcfce7;color:#16a34a">Go → development begins</span>
+            <span class="decision-chip" style="background:#fee2e2;color:#dc2626">Kill</span>
+            <span class="decision-chip" style="background:#fef3c7;color:#d97706">Hold</span>
+            <span class="decision-chip" style="background:#eff6ff;color:#3b82f6">Redirect</span>
+          </div>
+        </div>
+
+        <div class="gate-enhanced">
+          <div class="gate-enhanced-header">
+            <div class="gate-enhanced-num">4.4</div>
+            <div class="gate-enhanced-title">Permit to Rollout — Go-Live Readiness</div>
+            <span class="pill" style="font-size:0.72rem;background:var(--blue-light);color:var(--primary)">IT RGC + Dept (ITC re-engaged if scope changed &gt;10% during build)</span>
+          </div>
+          <div class="gate-enhanced-body">
+            <div class="gate-col">
+              <h4>IT certifies</h4>
+              <ul>
+                <li>Build complete: system test, cybersecurity validation, perf testing</li>
+                <li>Deployment plan, rollback plan, cutover schedule</li>
+                <li>Infrastructure readiness confirmed</li>
+                <li>L1/L2/L3 support model in place; hypercare team identified</li>
+                <li>Hypercare exit criteria: &lt;3 P1 incidents/week for 2 consecutive weeks</li>
+              </ul>
+            </div>
+            <div class="gate-col">
+              <h4>Department certifies</h4>
+              <ul>
+                <li>UAT completed and signed off</li>
+                <li>Business readiness confirmed</li>
+                <li>Training delivered to all affected users</li>
+                <li>Stakeholder communications sent</li>
+                <li>L1 support owner (Dept SME) confirmed and trained</li>
+              </ul>
+            </div>
+          </div>
+          <div class="decision-box">
+            <strong>Decision:</strong>
+            <span class="decision-chip" style="background:#dcfce7;color:#16a34a">Go → production deployment</span>
+            <span class="decision-chip" style="background:#fef3c7;color:#d97706">Hold → remediation with re-entry date</span>
+            <span class="decision-chip" style="background:#eff6ff;color:#3b82f6">Conditional Go → named conditions + owner + date</span>
+          </div>
+        </div>
+
+        <div class="gate-enhanced" style="border-color:#86efac">
+          <div class="gate-enhanced-header" style="background:#f0fdf4;border-color:#86efac">
+            <div class="gate-enhanced-num" style="background:var(--green)">4.5</div>
+            <div class="gate-enhanced-title">Permit to Close — Benefits Realization &amp; Lessons Learned <span style="color:var(--green);font-weight:600;font-size:0.75rem">NEW</span></div>
+            <span class="pill" style="font-size:0.72rem;background:#dcfce7;color:#16a34a">ITC · 60 days post go-live</span>
+          </div>
+          <div class="gate-enhanced-body">
+            <div class="gate-col">
+              <h4>IT + Department deliver</h4>
+              <ul>
+                <li>Actual vs. approved cost and timeline — variance explained</li>
+                <li>Benefits realized vs. expected (from Gate 4.1 business case)</li>
+                <li>Hypercare exit confirmed by IT RGC and Dept SME</li>
+                <li>Application handed off to production support group</li>
+                <li>L1/L2/L3 support owners active and documented</li>
+              </ul>
+            </div>
+            <div class="gate-col">
+              <h4>Lessons learned</h4>
+              <ul>
+                <li>Estimate accuracy documented (feeds future norms)</li>
+                <li>Process friction points identified</li>
+                <li>RAID log closed; open items moved to production support</li>
+                <li>Post-implementation review filed with IT</li>
+                <li>ITC formal sign-off closes the project record</li>
+              </ul>
+            </div>
+          </div>
+          <div class="decision-box" style="background:#f0fdf4">
+            <strong>Decision:</strong>
+            <span class="decision-chip" style="background:#dcfce7;color:#16a34a">Closed → project archived</span>
+            <span class="decision-chip" style="background:#fef3c7;color:#d97706">Extended → hypercare +30 days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. P0 / PRIORITY CLASSIFICATION -->
+    <div class="policy-section" id="rec-4">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-4')">
+        <div class="ps-num">4</div>
+        <h3>Priority Classification — P0 / P1 / P2 / P3 with Defined Consequences</h3>
+        <span class="ps-badge" style="background:#fef3c7;color:#d97706">UPDATED</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px">
+          <div class="tier-card" style="background:#fee2e2;border-color:#fca5a5">
+            <div class="tier-label" style="color:#dc2626">P0 — Critical</div>
+            <div class="tier-title" style="font-size:0.85rem">ITC Discretion Only</div>
+            <div class="tier-row"><strong>Criteria:</strong> Sanstha-wide impact, compliance/security risk, service continuity threat</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Gets:</strong> Dedicated resources, combined gate review &le;5 days, weekly ITC status, BAPS Inc. visibility</div>
+            <div class="tier-row"><strong>Does NOT skip:</strong> Cybersecurity or UAT gates</div>
+          </div>
+          <div class="tier-card" style="background:#fef3c7;border-color:#fcd34d">
+            <div class="tier-label" style="color:#d97706">P1 — High</div>
+            <div class="tier-title" style="font-size:0.85rem">Dept + ITC</div>
+            <div class="tier-row"><strong>Criteria:</strong> Single-dept critical impact; significant disruption if delayed</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Gets:</strong> Priority queue, bi-weekly ITC status, reduced gate SLA (–20%)</div>
+          </div>
+          <div class="tier-card" style="background:#eff6ff;border-color:#93c5fd">
+            <div class="tier-label" style="color:#3b82f6">P2 — Standard</div>
+            <div class="tier-title" style="font-size:0.85rem">Normal Queue</div>
+            <div class="tier-row"><strong>Criteria:</strong> All other approved projects</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Gets:</strong> Standard SLAs, monthly ITC status reporting</div>
+          </div>
+          <div class="tier-card" style="background:var(--gray-light);border-color:var(--border)">
+            <div class="tier-label" style="color:var(--text-light)">P3 — Deferred</div>
+            <div class="tier-title" style="font-size:0.85rem">Future Planning</div>
+            <div class="tier-row"><strong>Criteria:</strong> Approved in principle; deferred for capacity or budget</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Gets:</strong> IT backlog; reviewed quarterly for re-prioritization</div>
+          </div>
+        </div>
+        <div style="background:#fef3c7;border-radius:6px;padding:10px 14px;font-size:0.82rem">Department urgency does not automatically determine priority — ITC makes the final classification. A Department that disagrees may use the appeal path.</div>
+      </div>
+    </div>
+
+    <!-- 5. EMERGENCY FAST-PATH -->
+    <div class="policy-section" id="rec-5">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-5')">
+        <div class="ps-num">5</div>
+        <h3>Emergency / Event-Driven Fast Path</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <h4 style="font-size:0.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:10px">Eligibility — ALL must be met</h4>
+            <div class="policy-rule"><div class="policy-rule-icon new">1</div><div><strong>Time-critical trigger</strong><span>Immovable festival, event, or compliance deadline &le; 30 days away and project directly enables it.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">2</div><div><strong>Bounded scope</strong><span>Tier 1 or 2. No new integrations, PII data flows, or significant infrastructure change.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">3</div><div><strong>Pre-documented risk</strong><span>IT documents top 3 risks in writing before requesting fast path activation.</span></div></div>
+          </div>
+          <div>
+            <h4 style="font-size:0.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:10px">Fast-Path Process</h4>
+            <div class="policy-rule"><div class="policy-rule-icon new">A</div><div><strong>Combined single gate</strong><span>Gates 4.1 + 4.2 + 4.3 combined into one emergency package reviewed in a single sitting.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">B</div><div><strong>Approvers</strong><span>ITC Chair + IT RGC Lead — 2-person approval. Decision within 48 hours of complete submission.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">C</div><div><strong>Gates 4.4 and 4.5 still required</strong><span>Rollout readiness and benefits review are NOT waived — only pre-build gates are compressed.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">D</div><div><strong>Retrospective required</strong><span>Within 2 weeks of go-live, IT files a retrospective with ITC. &gt;3 fast-path uses/year triggers a policy review.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. VENDOR / PROCUREMENT -->
+    <div class="policy-section" id="rec-6">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-6')">
+        <div class="ps-num">6</div>
+        <h3>Vendor &amp; Third-Party Procurement Governance</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.84rem;color:var(--text-light);margin-bottom:12px">Required at Gate 4.2 for any project involving a third-party vendor, SaaS platform, or outsourced delivery.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#10003;</div><div><strong>Vendor evaluation</strong><span>At least 2 alternatives assessed against defined criteria (functionality, cost, support, security).</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#10003;</div><div><strong>Contract &amp; licensing review</strong><span>IT (and legal if applicable) reviews terms, licensing model, renewal clauses, and termination conditions.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#10003;</div><div><strong>Data Processing Agreement (DPA)</strong><span>Signed DPA required if vendor processes any BAPS member, devotee, or donor data.</span></div></div>
+          </div>
+          <div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#10003;</div><div><strong>Vendor security assessment</strong><span>IT Cybersecurity reviews vendor's SOC 2 / ISO 27001 or equivalent before contract signature.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#10003;</div><div><strong>Data portability &amp; exit plan</strong><span>How BAPS data is exported if the relationship ends — documented before contract signature.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#10003;</div><div><strong>Cross-border data handling</strong><span>Applicable transfer mechanisms identified for multi-jurisdiction vendors (India, UK, US, Australia).</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. SUPPORT TIER MODEL -->
+    <div class="policy-section" id="rec-7">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-7')">
+        <div class="ps-num">7</div>
+        <h3>Support Tier Model — L1 / L2 / L3 + Hypercare</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px">
+          <div class="tier-card" style="background:#f0fdf4;border-color:#86efac">
+            <div class="tier-label" style="color:#16a34a">L1 — User Support</div>
+            <div class="tier-title" style="font-size:0.85rem">Department SME</div>
+            <div class="tier-row"><strong>Handles:</strong> How-to, access requests, training gaps, basic config</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Escalates to L2:</strong> If unresolved within 1 business day</div>
+          </div>
+          <div class="tier-card" style="background:#eff6ff;border-color:#93c5fd">
+            <div class="tier-label" style="color:#3b82f6">L2 — Functional Support</div>
+            <div class="tier-title" style="font-size:0.85rem">IT RGC</div>
+            <div class="tier-row"><strong>Handles:</strong> Functional config, data corrections, integration issues, business rule changes</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Escalates to L3:</strong> If technical or code change required</div>
+          </div>
+          <div class="tier-card" style="background:#fef3c7;border-color:#fcd34d">
+            <div class="tier-label" style="color:#d97706">L3 — Technical Support</div>
+            <div class="tier-title" style="font-size:0.85rem">IT Application Team</div>
+            <div class="tier-row"><strong>Handles:</strong> Code defects, infrastructure, security incidents, performance</div>
+            <div class="tier-row" style="margin-top:6px"><strong>Escalates to:</strong> Vendor or IT Architecture</div>
+          </div>
+        </div>
+        <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;font-size:0.82rem">
+          <strong style="display:block;margin-bottom:8px">Hypercare</strong>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;color:var(--text-light)">
+            <div><strong>Duration:</strong> 4 weeks (6 weeks for Tier 3)</div>
+            <div><strong>Exit criteria:</strong> &lt;3 P1 incidents/week for 2 consecutive weeks, confirmed by IT RGC + Dept SME</div>
+            <div><strong>During hypercare:</strong> IT App Team on elevated SLA (same-day P1, next-day P2)</div>
+            <div><strong>Extension:</strong> IT RGC may extend in 2-week increments; ITC notified beyond 8 weeks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. APPEAL PATH -->
+    <div class="policy-section" id="rec-8">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-8')">
+        <div class="ps-num">8</div>
+        <h3>Department Appeal Path</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <div class="policy-rule"><div class="policy-rule-icon new">1</div><div><strong>Trigger</strong><span>A Department that disagrees with an ITC gate decision (Kill, Hold, Redirect, or priority classification) may submit a written appeal within 10 business days.</span></div></div>
+        <div class="policy-rule"><div class="policy-rule-icon new">2</div><div><strong>Contents</strong><span>The appeal must state: the decision being challenged, the specific grounds (new information, process error, disproportionate impact), and the outcome requested.</span></div></div>
+        <div class="policy-rule"><div class="policy-rule-icon new">3</div><div><strong>Review</strong><span>BAPS Inc. Leadership reviews and responds within one leadership cycle (&le;20 business days). Leadership may uphold, modify, or overturn the ITC decision.</span></div></div>
+        <div class="policy-rule"><div class="policy-rule-icon new">4</div><div><strong>Status during appeal</strong><span>The ITC decision remains in effect while under review, unless Leadership issues an interim stay in writing.</span></div></div>
+        <div class="policy-rule"><div class="policy-rule-icon new">5</div><div><strong>Finality</strong><span>Leadership's decision is final. All appeals and outcomes are logged in the ITC decision register.</span></div></div>
+      </div>
+    </div>
+
+    <!-- 9. RACI MATRIX -->
+    <div class="policy-section" id="rec-9">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-9')">
+        <div class="ps-num">9</div>
+        <h3>RACI Matrix — Gate-by-Gate Accountability</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.79rem;color:var(--text-light);margin-bottom:12px"><strong style="color:var(--text)">R</strong> = Responsible &nbsp;·&nbsp; <strong style="color:var(--text)">A</strong> = Accountable &nbsp;·&nbsp; <strong style="color:var(--text)">C</strong> = Consulted &nbsp;·&nbsp; <strong style="color:var(--text)">I</strong> = Informed</p>
+        <div style="overflow-x:auto">
+          <table class="raci-table">
+            <thead>
+              <tr>
+                <th style="min-width:200px;text-align:left">Activity</th>
+                <th>ITC</th>
+                <th>BAPS Inc.</th>
+                <th>IT RGC</th>
+                <th>IT PM/BA</th>
+                <th>IT App</th>
+                <th>Dept SME</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="7" style="background:var(--primary);color:white;padding:6px 10px;font-size:0.74rem;font-weight:600;text-align:left">Gate 4.1 — Permit to Start</td></tr>
+              <tr><td>Submit project proposal &amp; questionnaire</td><td class="raci-c">C</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-r">R</td><td class="raci-i">I</td><td class="raci-a">A</td></tr>
+              <tr><td>Preliminary estimate &amp; risk screen</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-c">C</td></tr>
+              <tr><td>Gate 4.1 approval decision</td><td class="raci-a">A</td><td class="raci-c">C</td><td class="raci-c">C</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-i">I</td></tr>
+              <tr><td colspan="7" style="background:var(--primary);color:white;padding:6px 10px;font-size:0.74rem;font-weight:600;text-align:left">Gate 4.2 — Permit to Define Requirements</td></tr>
+              <tr><td>Requirements elicitation &amp; documentation</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-a">A</td><td class="raci-c">C</td><td class="raci-r">R</td></tr>
+              <tr><td>Requirements sign-off</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-r">R</td><td class="raci-i">I</td><td class="raci-a">A</td></tr>
+              <tr><td>Vendor / DPA / security assessment</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-r">R</td><td class="raci-c">C</td></tr>
+              <tr><td>Gate 4.2 approval decision</td><td class="raci-a">A</td><td class="raci-c">C</td><td class="raci-c">C</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-i">I</td></tr>
+              <tr><td colspan="7" style="background:var(--primary);color:white;padding:6px 10px;font-size:0.74rem;font-weight:600;text-align:left">Gate 4.3 — Permit to Build</td></tr>
+              <tr><td>Technical design &amp; project plan</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-c">C</td></tr>
+              <tr><td>Cost &amp; resource plan (incl. volunteer capacity)</td><td class="raci-c">C</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-i">I</td></tr>
+              <tr><td>Gate 4.3 approval decision</td><td class="raci-a">A</td><td class="raci-c">C</td><td class="raci-c">C</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-i">I</td></tr>
+              <tr><td colspan="7" style="background:var(--primary);color:white;padding:6px 10px;font-size:0.74rem;font-weight:600;text-align:left">Gate 4.4 — Permit to Rollout</td></tr>
+              <tr><td>System testing &amp; cybersecurity validation</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-r">R</td><td class="raci-i">I</td></tr>
+              <tr><td>UAT execution &amp; sign-off</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-r">R</td><td class="raci-c">C</td><td class="raci-a">A</td></tr>
+              <tr><td>Training delivery</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-r">R</td><td class="raci-c">C</td><td class="raci-a">A</td></tr>
+              <tr><td>Rollout readiness approval</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-r">R</td><td class="raci-a">A</td></tr>
+              <tr><td colspan="7" style="background:var(--primary);color:white;padding:6px 10px;font-size:0.74rem;font-weight:600;text-align:left">Gate 4.5 — Permit to Close</td></tr>
+              <tr><td>Benefits realization review</td><td class="raci-a">A</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-r">R</td><td class="raci-c">C</td><td class="raci-r">R</td></tr>
+              <tr><td>Hypercare exit &amp; support handoff</td><td class="raci-i">I</td><td class="raci-i">I</td><td class="raci-a">A</td><td class="raci-r">R</td><td class="raci-r">R</td><td class="raci-c">C</td></tr>
+              <tr><td>Lessons learned &amp; project close</td><td class="raci-a">A</td><td class="raci-i">I</td><td class="raci-c">C</td><td class="raci-r">R</td><td class="raci-c">C</td><td class="raci-r">R</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. POLICY KPIs -->
+    <div class="policy-section" id="rec-10">
+      <div class="policy-section-header" onclick="togglePolicySection('rec-10')">
+        <div class="ps-num">10</div>
+        <h3>Policy Metrics &amp; Annual Review Cadence</h3>
+        <span class="ps-badge" style="background:#dcfce7;color:#16a34a">NEW</span>
+        <span class="ps-arrow">&#9658;</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+          <div>
+            <h4 style="font-size:0.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:10px">KPIs — Reported Quarterly to ITC</h4>
+            <div class="sla-row"><span class="sla-label">Avg. gate cycle time (submission → decision)</span><span class="sla-value">Target &le; SLA</span></div>
+            <div class="sla-row"><span class="sla-label">Estimate accuracy (approved vs. actual cost)</span><span class="sla-value">Target &le;15% variance</span></div>
+            <div class="sla-row"><span class="sla-label">% projects delivered to approved scope</span><span class="sla-value">Target &ge;85%</span></div>
+            <div class="sla-row"><span class="sla-label">Change request volume per project</span><span class="sla-value">Tracked — no target</span></div>
+            <div class="sla-row"><span class="sla-label">Emergency fast-path uses per year</span><span class="sla-value">Alert if &gt;3</span></div>
+            <div class="sla-row"><span class="sla-label">Benefits realization rate (Gate 4.5)</span><span class="sla-value">Target &ge;70%</span></div>
+          </div>
+          <div>
+            <h4 style="font-size:0.8rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:10px">Annual Policy Review</h4>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#8635;</div><div><strong>Cadence</strong><span>ITC conducts a formal review annually, no later than 12 months from effective date or prior review.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#8635;</div><div><strong>Inputs</strong><span>Gate cycle times, estimate accuracy, change request log, fast-path usage, benefits realization results, and all open comments from the current version.</span></div></div>
+            <div class="policy-rule"><div class="policy-rule-icon new">&#8635;</div><div><strong>Output</strong><span>Updated version with revision history table (version, date, reviewer, change summary). "Draft" prefix removed only upon formal ITC approval.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /panel-ptx-recommended -->
+
 <script>
   // Track which section each panel belongs to
   const panelSection = {
     stages: 'stagegate', gaps: 'stagegate', pmfeedback: 'stagegate',
     industry: 'stagegate', glossary: 'stagegate',
-    ptx: 'ptx', 'ptx-gaps': 'ptx'
+    ptx: 'ptx', 'ptx-gaps': 'ptx', 'ptx-recommended': 'ptx'
   };
 
   function switchSection(section) {
@@ -2172,6 +2886,10 @@
   function jumpToPtxGate(id) {
     const el = document.getElementById('ptx-gate-' + id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function togglePolicySection(id) {
+    document.getElementById(id).classList.toggle('open');
   }
 
   function jumpToStage(n) {
