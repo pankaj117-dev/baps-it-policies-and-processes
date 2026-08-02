@@ -563,6 +563,7 @@
   <div class="subnav" id="subnav-ptx" style="display:none">
     <div class="subnav-inner">
       <button class="nav-btn active" onclick="showPanel('ptx', this)">Approval Gates</button>
+      <button class="nav-btn" onclick="showPanel('ptx-gaps', this)">Industry Gap Analysis</button>
       <button class="nav-btn nav-print" onclick="window.print()">Print</button>
     </div>
   </div>
@@ -1836,14 +1837,293 @@
 
   </div><!-- /panel-ptx -->
 
-</div><!-- /container -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PTX — INDUSTRY GAP ANALYSIS                            -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div id="panel-ptx-gaps" class="panel">
+
+    <div class="hero">
+      <h2>PTX Process — Industry Gap Analysis</h2>
+      <p>Comparing the BAPS PTX policy (Draft v1.0, June 2026) against industry frameworks: <strong>COBIT BAI11</strong>, <strong>PMI PMBOK Stage-Gate</strong>, and <strong>Nonprofit IT Governance best practices</strong>.</p>
+    </div>
+
+    <!-- Score summary -->
+    <div class="stats-row" style="margin-bottom:28px">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#fee2e2;color:#dc2626">&#9888;</div>
+        <div><div class="stat-num" style="color:#dc2626">5</div><div class="stat-label">Critical Gaps</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#fef3c7;color:#d97706">&#9679;</div>
+        <div><div class="stat-num" style="color:#d97706">7</div><div class="stat-label">High Gaps</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#eff6ff;color:#3b82f6">&#8505;</div>
+        <div><div class="stat-num" style="color:#3b82f6">6</div><div class="stat-label">Medium Gaps</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#dcfce7;color:#16a34a">&#10003;</div>
+        <div><div class="stat-num" style="color:#16a34a">6</div><div class="stat-label">Strengths vs Industry</div></div>
+      </div>
+    </div>
+
+    <!-- Strengths first -->
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--text)">Where BAPS PTX Aligns with Industry</h3>
+    <div class="gap-table" style="margin-bottom:32px">
+      <table style="width:100%;border-collapse:collapse;font-size:0.85rem">
+        <thead>
+          <tr style="background:var(--gray-light);text-align:left">
+            <th style="padding:10px 14px;border-bottom:1px solid var(--border)">Area</th>
+            <th style="padding:10px 14px;border-bottom:1px solid var(--border)">BAPS PTX</th>
+            <th style="padding:10px 14px;border-bottom:1px solid var(--border)">Industry Standard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);font-weight:600">Formal gate structure</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">4 sequential approval gates (Start → Design → Build → Rollout)</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">4–5 gates standard (COBIT BAI11: Initiation, Plan, Build, Go-Live, Closure)</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;border-bottom:1px solid var(--border);font-weight:600">Cybersecurity integration</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Explicitly required at every stage and rollout readiness</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">COBIT/NIST require security embedded throughout — BAPS meets this intent</td></tr>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);font-weight:600">Business sign-off (UAT)</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Department sign-off required at Gate 4.4 before rollout</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Acceptance/UAT sign-off is a universal gate D requirement</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;border-bottom:1px solid var(--border);font-weight:600">Change control threshold</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">5% variance triggers formal change request</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Industry uses percentage thresholds; BAPS threshold needs clarification but concept is correct</td></tr>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);font-weight:600">SME / business ownership</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Departments own requirements, UAT, training, and readiness</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">COBIT BAI11 requires defined business ownership and sign-off — BAPS aligns</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;font-weight:600">Project questionnaire</td><td style="padding:9px 14px">Mandatory intake form covering business value, risk, integrations, compliance</td><td style="padding:9px 14px">COBIT requires minimum intake fields: objective, data classification, regulatory impact, owner — BAPS covers these</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Critical Gaps -->
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:#dc2626">&#9888; Critical Gaps — Must Fix Before Publishing</h3>
+
+    <div class="gap-card" style="border-left:4px solid #dc2626;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">CRITICAL</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">C1 · No project size tiering</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> A one-day enhancement and a multi-year platform both walk the same four ITC-reviewed gates. <strong>Industry (COBIT / Stage-Gate):</strong> 2–3 tiers are standard — Lite (single gate, IT-approved, &lt;defined cost threshold), Standard (full PTX), and Major (BAPS Inc. leadership required).</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Define three tiers by cost + effort (e.g., Lite: &lt;$5K / &lt;40h; Standard: $5K–$50K; Major: &gt;$50K or org-wide). Lite uses a single combined gate with IT-only approval. Without this, Departments will route around the policy entirely.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #dc2626;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">CRITICAL</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">C2 · ITC has no decision SLA</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> Departments have obligations at every gate; ITC has none — no meeting cadence, no turnaround commitment. <strong>Industry (Stage-Gate model):</strong> Gate reviews are SLA-bound — typically ≤10 business days from complete submission to decision, with a "silence = no objection" rule for advisory inputs and auto-escalation on slippage.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add: ITC meets [bi-weekly/monthly]. Decision due within one ITC cycle of a complete submission. If no decision in [X] days, auto-escalates to BAPS Inc. leadership. This becomes the most cited complaint within 6 months if left unaddressed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #dc2626;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">CRITICAL</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">C3 · No Kill / Redirect decision mechanism</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §12 says non-compliant projects "may be paused, deferred, or returned." <strong>Industry:</strong> Every gate has four explicit outcomes: <strong>Go</strong> (proceed + release next funding tranche), <strong>Kill</strong> (stop, document rationale), <strong>Hold</strong> (pause with defined re-entry criteria), <strong>Redirect</strong> (scope/approach change). Kill decisions are tracked and celebrated — they prevent sunk-cost projects.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add a Gate Decision Record template to each gate section with Go / Kill / Hold / Redirect as checkboxes, rationale field, conditions, owners, and target dates. Require ITC to document which outcome and why at every gate.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #dc2626;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">CRITICAL</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">C4 · No benefits realization / post-implementation review</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §7 requires expected benefits at intake — but nothing checks whether they materialized. <strong>Industry (COBIT BAI11 Gate E):</strong> Closure gate is mandatory: acceptance sign-off, lessons learned, and benefits tracking approach. PMI best practice adds a formal post-implementation review at 30/60/90 days.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add Gate 5: Permit to Close — 60-day post-launch review covering actual vs. expected benefits, support model handoff confirmation, lessons learned filed with IT, and ITC sign-off. This closes the feedback loop that improves future estimates.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #dc2626;margin-bottom:28px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">CRITICAL</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">C5 · Volunteer capacity is unmodeled (BAPS-specific)</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> The policy assumes assignable IT resources with predictable capacity. In practice, a significant share of delivery capacity is likely volunteer. Nothing covers resource unavailability mid-build or realistic capacity forecasting at Gate 4.3. <strong>Industry:</strong> Even commercial organizations require a Resource Management Plan at the Permit to Build gate — this gap is more acute for BAPS.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add a volunteer capacity acknowledgment: "Estimates at Gate 4.3 will account for volunteer availability and seasonal constraints. If a key resource becomes unavailable, the PM must notify ITC within [X] days and submit a revised resource plan or change request."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- High Gaps -->
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:#d97706">&#9679; High Gaps — Address Before First Project Runs Through</h3>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H1 · No RACI matrix</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §11 lists roles but with narrative descriptions. <strong>Industry (COBIT):</strong> A gate-by-gate RACI (Responsible, Accountable, Consulted, Informed) is required — it resolves ambiguous ownership at a glance, especially the IT vs. Department support question and who approves rollout.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add Appendix A: RACI table with rows = key activities per gate and columns = ITC, IT RGC, IT PM, BA, Dept SME, BAPS Inc. Leadership. Resolves gaps C3, H1, and the rollout approver inconsistency in one artifact.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H2 · Vendor / third-party procurement is absent</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> Many IT projects will be SaaS or vendor-delivered — the policy says nothing about it. <strong>Industry:</strong> Gate 2 must include vendor selection criteria, contract/licensing review, data processing agreement, security assessment of the vendor, and data portability/exit terms.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add to §4.2 checklist: "Where a third-party vendor is involved, Gate 4.2 must include vendor evaluation, data classification review, contract/DPA review, and cybersecurity assessment." Add a Vendor Clause to §3 Governance Principle.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H3 · No emergency / event-driven fast path</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §12 allows exceptions "approved by ITC" with no criteria or timeline. Festival and event deadlines are real and immovable. <strong>Industry:</strong> A defined compressed path (e.g., Gates 1–3 combined into a single 48-hour review with senior approval) prevents the policy from being bypassed routinely once one project slips through.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add §4.5 Emergency / Event-Driven Path: criteria (e.g., event &lt;30 days, scope &lt;defined threshold), compressed combined gate, named approvers (ITC Chair + IT RGC), post-event retrospective required. Track usage to detect policy bypass patterns.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H4 · P0 classification has no consequence defined</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §8 explains how ITC decides, but not what P0 gets you — does it skip gates? Jump the queue? Get dedicated resources? <strong>Industry:</strong> Priority classifications must define the operational consequence: dedicated resources, compressed gate timeline, board-level visibility, or all three. Without consequence, the label is meaningless.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add to §8: "A P0-classified project receives: [dedicated IT resource allocation / combined gate review within 5 business days / weekly ITC status update / BAPS Inc. leadership visibility]. P0 does not bypass cybersecurity or UAT gates." Also add P1/P2/P3 tiers below P0.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H5 · Rollout approver is inconsistent with other gates</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> Gates 4.1–4.3 are approved by ITC. Gate 4.4 (Rollout) is approved jointly by IT RGC + Department, with ITC absent. <strong>Industry:</strong> The go-live gate (Gate D) typically requires the same governance body that approved the prior gates to sign off, with the operational body (IT RGC equivalent) providing readiness certification as input — not as the approver.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Clarify whether the omission of ITC at Gate 4.4 is deliberate (ITC trusts IT RGC + Dept at this stage) or an oversight. Document the rationale either way. If deliberate, define what triggers ITC re-engagement at rollout (e.g., scope change &gt;X% during build).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H6 · Support tier model is undefined</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §3 says business-side support sits with Departments; §4.4 says IT transitions to a "production support group" after hypercare. These are not reconciled, and hypercare duration and exit criteria are undefined. <strong>Industry (ITIL):</strong> L1/L2/L3 tier model with defined ownership, escalation SLAs, and hypercare exit criteria (e.g., &lt;X incidents per week for Y consecutive weeks).</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add Appendix B: Support Tier Model. L1 = Dept SME (user how-to). L2 = IT RGC (functional config). L3 = IT App Team (technical). Hypercare = [4 weeks] post go-live; exit requires &lt;X P1 incidents per week confirmed by IT RGC and Dept SME.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gap-card" style="border-left:4px solid #d97706;margin-bottom:28px">
+      <div style="display:flex;align-items:flex-start;gap:16px">
+        <div style="flex-shrink:0"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">HIGH</span></div>
+        <div style="flex:1">
+          <div style="font-weight:700;margin-bottom:4px">H7 · No Department appeal path</div>
+          <div style="font-size:0.84rem;color:var(--text-light);margin-bottom:8px"><strong>BAPS:</strong> §8 gives ITC sole discretion; no route for a Department that disagrees with a gate decision. <strong>Industry:</strong> Every governance framework requires a defined escalation path — typically to the next level of authority (board or leadership) with a time-bound response and documented rationale requirement.</div>
+          <div style="font-size:0.84rem;background:var(--blue-light);border-radius:6px;padding:8px 12px"><strong>Recommendation:</strong> Add to §8 or §12: "A Department that disagrees with an ITC gate decision may escalate in writing to BAPS Inc. Leadership within [10] business days. Leadership will review and respond within [one leadership cycle]. ITC's decision remains in effect pending escalation review."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium Gaps -->
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:#3b82f6">&#8505; Medium Gaps — Fix in v1.1</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px">
+
+      <div class="gap-card" style="border-left:4px solid #3b82f6">
+        <span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem;margin-bottom:8px;display:inline-block">MEDIUM</span>
+        <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px">M1 · Contingency is uncontrolled</div>
+        <div style="font-size:0.82rem;color:var(--text-light)">40%/20%/10% stated but who owns it and how drawdown is approved is undefined. A project could burn 40% contingency with no change request. <strong>Fix:</strong> Contingency drawdown &gt;50% requires ITC notification; full drawdown requires a change request.</div>
+      </div>
+
+      <div class="gap-card" style="border-left:4px solid #3b82f6">
+        <span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem;margin-bottom:8px;display:inline-block">MEDIUM</span>
+        <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px">M2 · 5% variance rule is ambiguous</div>
+        <div style="font-size:0.82rem;color:var(--text-light)">5% of which baseline — original or most recently re-approved? Cumulative or per-change? 5% on a 12-month project = 18 days. <strong>Fix:</strong> "Cost: greater of 5% or $[floor], tracked cumulatively from last approved baseline. Schedule: 10% or [X] weeks."</div>
+      </div>
+
+      <div class="gap-card" style="border-left:4px solid #3b82f6">
+        <span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem;margin-bottom:8px;display:inline-block">MEDIUM</span>
+        <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px">M3 · ITC charter is undefined</div>
+        <div style="font-size:0.82rem;color:var(--text-light)">Composition, quorum, decision method (consensus or vote), delegation rules when members are unavailable, and conflict-of-interest handling are undefined. <strong>Fix:</strong> Add an ITC charter as Appendix C or reference an existing charter document.</div>
+      </div>
+
+      <div class="gap-card" style="border-left:4px solid #3b82f6">
+        <span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem;margin-bottom:8px;display:inline-block">MEDIUM</span>
+        <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px">M4 · Funding source is unaddressed</div>
+        <div style="font-size:0.82rem;color:var(--text-light)">Department budget or central IT budget? What happens when a project crosses a fiscal-year boundary? §11 gives ITC "review of budgets" but no funding model sits underneath it. <strong>Fix:</strong> Add a one-paragraph Funding Model to §4.3 covering budget source, fiscal-year treatment, and multi-year project carryover.</div>
+      </div>
+
+      <div class="gap-card" style="border-left:4px solid #3b82f6">
+        <span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem;margin-bottom:8px;display:inline-block">MEDIUM</span>
+        <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px">M5 · Data governance is thin</div>
+        <div style="font-size:0.82rem;color:var(--text-light)">Donor/devotee PII handling, retention periods, and cross-border data handling (reviewers in Melbourne, Chicago, Houston) deserve explicit mention. <strong>Fix:</strong> Add to §4.2 assessment checklist: data classification, PII handling, retention, and cross-border transfer requirements.</div>
+      </div>
+
+      <div class="gap-card" style="border-left:4px solid #3b82f6">
+        <span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem;margin-bottom:8px;display:inline-block">MEDIUM</span>
+        <div style="font-weight:700;font-size:0.88rem;margin-bottom:4px">M6 · No policy metrics or review cadence</div>
+        <div style="font-size:0.82rem;color:var(--text-light)">No KPIs to measure whether the policy is working. <strong>Fix:</strong> Add §13 Policy Metrics: gate cycle time, estimate-to-actual accuracy, change request volume, % delivered to approved cost. Commit to annual policy review with ITC.</div>
+      </div>
+
+    </div>
+
+    <!-- Side-by-side framework comparison -->
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--text)">Framework Comparison: BAPS PTX vs. COBIT BAI11</h3>
+    <div class="compare-grid" style="margin-bottom:32px">
+      <div class="compare-col cooper" style="background:#f8faff;border:1px solid var(--border);border-radius:var(--radius);padding:18px">
+        <div style="font-weight:700;font-size:0.9rem;margin-bottom:12px;color:#3b82f6">COBIT BAI11 — Industry Standard Gates</div>
+        <div class="compare-item"><div class="compare-num">A</div><div class="compare-item-text"><strong>Gate A: Initiation</strong><span>Business case, sponsor, funding/priority, risk screen</span></div></div>
+        <div class="compare-item"><div class="compare-num">B</div><div class="compare-item-text"><strong>Gate B: Plan Approval</strong><span>Scope baseline, schedule, resourcing, RAID log, security requirements</span></div></div>
+        <div class="compare-item"><div class="compare-num">C</div><div class="compare-item-text"><strong>Gate C: Build Control</strong><span>Status reporting, change control, dependency management, third-party oversight</span></div></div>
+        <div class="compare-item"><div class="compare-num">D</div><div class="compare-item-text"><strong>Gate D: Go-Live Readiness</strong><span>Testing evidence, security sign-off, rollback plan, operational readiness, UAT</span></div></div>
+        <div class="compare-item"><div class="compare-num">E</div><div class="compare-item-text"><strong>Gate E: Closure ✦ missing in BAPS</strong><span>Acceptance sign-off, lessons learned, benefits tracking, support handoff</span></div></div>
+      </div>
+      <div class="compare-col baps" style="background:#f0f4f8;border:1px solid var(--border);border-radius:var(--radius);padding:18px">
+        <div style="font-weight:700;font-size:0.9rem;margin-bottom:12px;color:var(--primary)">BAPS PTX — Current Draft Gates</div>
+        <div class="compare-item"><div class="compare-num" style="background:var(--blue-light);color:var(--primary)">4.1</div><div class="compare-item-text"><strong>Permit to Start</strong><span>Business need, high-level estimate (~40% contingency), ITC conceptual approval</span></div></div>
+        <div class="compare-item"><div class="compare-num" style="background:var(--blue-light);color:var(--primary)">4.2</div><div class="compare-item-text"><strong>Permit to Design, Estimate &amp; Plan</strong><span>Requirements, refined estimate (~20% contingency), ITC approval to design/plan — naming off by one step</span></div></div>
+        <div class="compare-item"><div class="compare-num" style="background:var(--blue-light);color:var(--primary)">4.3</div><div class="compare-item-text"><strong>Permit to Build</strong><span>Technical design, resource plan, cost estimate (~10% contingency), ITC build approval</span></div></div>
+        <div class="compare-item"><div class="compare-num" style="background:var(--blue-light);color:var(--primary)">4.4</div><div class="compare-item-text"><strong>Permit to Rollout</strong><span>UAT, cybersecurity validation, performance testing, deployment plan — approved by IT RGC + Dept (not ITC)</span></div></div>
+        <div class="compare-item" style="opacity:0.4"><div class="compare-num" style="background:#e5e7eb;color:#9ca3af">—</div><div class="compare-item-text"><strong>Gate E: Closure</strong><span>Not present — benefits realization and lessons learned are missing</span></div></div>
+      </div>
+    </div>
+
+    <!-- Priority action plan -->
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:12px;color:var(--text)">Recommended Action Plan</h3>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px">
+      <table style="width:100%;border-collapse:collapse;font-size:0.84rem">
+        <thead>
+          <tr style="background:var(--primary);color:white">
+            <th style="padding:10px 14px;text-align:left">Priority</th>
+            <th style="padding:10px 14px;text-align:left">Action</th>
+            <th style="padding:10px 14px;text-align:left">Owner</th>
+            <th style="padding:10px 14px;text-align:left">Before</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">NOW</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Add project tiering (Lite / Standard / Major) with cost/effort thresholds</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">ITC + IT PM</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Policy published</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">NOW</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Define ITC decision SLA and meeting cadence</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">ITC Chair</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Policy published</td></tr>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.72rem">NOW</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Add Go / Kill / Hold / Redirect decision record to each gate</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">IT PM + ITC</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Policy published</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">SOON</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Create gate-by-gate RACI matrix (Appendix A)</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">IT RGC + ITC</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">First project in-flight</td></tr>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">SOON</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Add vendor/procurement checklist to Gate 4.2</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">IT + Cybersecurity</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">First project in-flight</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">SOON</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Define emergency fast-path (§4.5) with criteria and approvers</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">ITC Chair + IT RGC</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">First project in-flight</td></tr>
+          <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.72rem">SOON</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Add Gate 5 Permit to Close with 60-day benefits review</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">IT PM + ITC</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">v1.1 of policy</td></tr>
+          <tr style="background:var(--gray-light)"><td style="padding:9px 14px;border-bottom:1px solid var(--border)"><span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem">V1.1</span></td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">Clarify 5% variance baseline, contingency drawdown rules, and funding model</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">ITC + Finance</td><td style="padding:9px 14px;border-bottom:1px solid var(--border)">6 months post-launch</td></tr>
+          <tr><td style="padding:9px 14px"><span class="pill" style="background:#eff6ff;color:#3b82f6;font-size:0.72rem">V1.1</span></td><td style="padding:9px 14px">Add L1/L2/L3 support tier model (Appendix B), data governance clause, and volunteer capacity acknowledgment</td><td style="padding:9px 14px">IT RGC + Dept Leads</td><td style="padding:9px 14px">6 months post-launch</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- /panel-ptx-gaps -->
 
 <script>
   // Track which section each panel belongs to
   const panelSection = {
     stages: 'stagegate', gaps: 'stagegate', pmfeedback: 'stagegate',
     industry: 'stagegate', glossary: 'stagegate',
-    ptx: 'ptx'
+    ptx: 'ptx', 'ptx-gaps': 'ptx'
   };
 
   function switchSection(section) {
