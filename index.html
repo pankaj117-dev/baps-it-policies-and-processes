@@ -71,59 +71,88 @@
   header h1 { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.2; }
   header p { font-size: 0.72rem; color: var(--text-light); margin-top: 1px; }
   /* ── SECTION SWITCHER (top level) ── */
-  .header-nav { display: flex; gap: 4px; }
+  .header-nav { display: flex; gap: 6px; }
   .section-btn {
     background: none;
-    border: 1px solid transparent;
+    border: 1px solid var(--border);
     color: var(--text-light);
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 0.83rem;
+    padding: 7px 18px;
+    border-radius: 8px;
+    font-size: 0.84rem;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.18s;
     font-weight: 500;
     white-space: nowrap;
+    line-height: 1;
   }
-  .section-btn:hover { background: var(--gray-light); color: var(--text); }
+  .section-btn:hover {
+    background: var(--gray-light);
+    color: var(--text);
+    border-color: var(--primary);
+  }
   .section-btn.active {
     background: var(--primary);
     color: white;
     border-color: var(--primary);
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(30,58,95,0.18);
   }
 
   /* ── SUB-NAV BAR (second level) ── */
   .subnav {
-    border-top: 1px solid var(--border);
-    background: var(--gray-light);
+    border-top: 2px solid var(--primary);
+    background: var(--white);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
   .subnav-inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 28px;
     display: flex;
-    align-items: center;
-    gap: 2px;
-    height: 40px;
+    align-items: stretch;
+    gap: 0;
+    height: 44px;
+    overflow-x: auto;
   }
   .nav-btn {
     background: none;
     border: none;
+    border-bottom: 3px solid transparent;
     color: var(--text-light);
-    padding: 5px 12px;
-    border-radius: 5px;
-    font-size: 0.8rem;
+    padding: 0 16px;
+    font-size: 0.82rem;
     cursor: pointer;
     transition: all 0.15s;
     font-weight: 500;
     white-space: nowrap;
-    height: 30px;
+    height: 100%;
     display: flex;
     align-items: center;
+    margin-bottom: -2px;
   }
-  .nav-btn:hover { background: var(--border); color: var(--text); }
-  .nav-btn.active { background: white; color: var(--primary); font-weight: 600; border: 1px solid var(--border); }
-  .nav-print { margin-left: auto; }
+  .nav-btn:hover { color: var(--primary); background: var(--blue-light); }
+  .nav-btn.active {
+    color: var(--primary);
+    font-weight: 700;
+    border-bottom: 3px solid var(--primary);
+    background: none;
+  }
+  .nav-btn.nav-recommended {
+    color: var(--green);
+    font-weight: 600;
+  }
+  .nav-btn.nav-recommended.active {
+    color: var(--green);
+    border-bottom-color: var(--green);
+  }
+  .nav-btn.nav-recommended:hover { background: #f0fdf4; }
+  .nav-divider {
+    width: 1px;
+    background: var(--border);
+    margin: 10px 4px;
+    flex-shrink: 0;
+  }
+  .nav-print { margin-left: auto; color: var(--text-light); font-size: 0.78rem; }
 
   /* ── LAYOUT ── */
   .container { max-width: 1200px; margin: 0 auto; padding: 28px 28px 60px; }
@@ -692,6 +721,110 @@
     white-space: nowrap;
   }
 
+  /* ── TEMPLATES ── */
+  .template-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .template-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.15s, transform 0.15s;
+    cursor: pointer;
+  }
+  .template-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+  }
+  .template-card.open .template-body { display: block; }
+  .template-card.open .template-arrow { transform: rotate(90deg); }
+  .template-head {
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .template-icon {
+    width: 38px; height: 38px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .template-meta { flex: 1; }
+  .template-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 3px; color: var(--text); }
+  .template-stage { font-size: 0.74rem; color: var(--text-light); }
+  .template-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
+  .template-arrow {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    margin-top: 2px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .template-body {
+    display: none;
+    padding: 0 16px 14px;
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+  }
+  .template-body h4 {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 12px 0 6px;
+  }
+  .template-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .template-field {
+    background: var(--gray-light);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    color: var(--text);
+  }
+  .template-owner {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--gray-light);
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+  .template-filter-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .tfilter-btn {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: all 0.15s;
+  }
+  .tfilter-btn:hover, .tfilter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
   /* ── PRINT ── */
   @media print {
     header { position: static; }
@@ -730,29 +863,34 @@
       </div>
     </div>
     <nav class="header-nav">
-      <button class="section-btn active" id="sbtn-stagegate" onclick="switchSection('stagegate')">Stage Gate Process</button>
-      <button class="section-btn" id="sbtn-ptx" onclick="switchSection('ptx')">PTX Policy</button>
+      <button class="section-btn active" id="sbtn-stagegate" onclick="switchSection('stagegate')">&#9632; Stage Gate Process</button>
+      <button class="section-btn" id="sbtn-ptx" onclick="switchSection('ptx')">&#9632; PTX Policy</button>
     </nav>
   </div>
   <!-- Sub-nav bar -->
   <div class="subnav" id="subnav-stagegate">
     <div class="subnav-inner">
-      <button class="nav-btn active" onclick="showPanel('stages', this)">Overview</button>
+      <button class="nav-btn nav-recommended active" onclick="showPanel('sg-recommended', this)">&#10003; Recommended Policy</button>
+      <div class="nav-divider"></div>
+      <button class="nav-btn" onclick="showPanel('stages', this)">Approval Gates</button>
       <button class="nav-btn" onclick="showPanel('gaps', this)">Gap Analysis</button>
+      <button class="nav-btn" onclick="showPanel('sg-industry-gaps', this)">Industry Comparison</button>
       <button class="nav-btn" onclick="showPanel('pmfeedback', this)">PM Review</button>
-      <button class="nav-btn" onclick="showPanel('industry', this)">Industry Context</button>
-      <button class="nav-btn" onclick="showPanel('sg-industry-gaps', this)">Industry Gap Analysis</button>
-      <button class="nav-btn" onclick="showPanel('sg-recommended', this)">&#10003; Recommended Policy</button>
+      <div class="nav-divider"></div>
+      <button class="nav-btn" onclick="showPanel('sg-templates', this)">&#9783; Templates</button>
       <button class="nav-btn" onclick="showPanel('glossary', this)">Glossary</button>
-      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
+      <button class="nav-btn nav-print" onclick="window.print()">&#128438; Print</button>
     </div>
   </div>
   <div class="subnav" id="subnav-ptx" style="display:none">
     <div class="subnav-inner">
-      <button class="nav-btn active" onclick="showPanel('ptx', this)">Approval Gates</button>
-      <button class="nav-btn" onclick="showPanel('ptx-gaps', this)">Industry Gap Analysis</button>
-      <button class="nav-btn" onclick="showPanel('ptx-recommended', this)">&#10003; Recommended Policy</button>
-      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
+      <button class="nav-btn nav-recommended active" onclick="showPanel('ptx-recommended', this)">&#10003; Recommended Policy</button>
+      <div class="nav-divider"></div>
+      <button class="nav-btn" onclick="showPanel('ptx', this)">Approval Gates</button>
+      <button class="nav-btn" onclick="showPanel('ptx-gaps', this)">Industry Comparison</button>
+      <div class="nav-divider"></div>
+      <button class="nav-btn" onclick="showPanel('ptx-templates', this)">&#9783; Templates</button>
+      <button class="nav-btn nav-print" onclick="window.print()">&#128438; Print</button>
     </div>
   </div>
 </header>
@@ -2414,6 +2552,420 @@
 
   </div><!-- /panel-sg-recommended -->
 
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- STAGE GATE — TEMPLATES                                         -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div id="panel-sg-templates" class="panel">
+    <div class="hero">
+      <h2>Stage Gate — Templates Library</h2>
+      <p>All templates referenced in the BAPS Stage Gate Process. Click any card to see what each template contains. Templates will be auto-generated by agent skills — coming soon.</p>
+    </div>
+
+    <div class="template-filter-bar" id="sg-tfilter">
+      <button class="tfilter-btn active" onclick="filterTemplates('sg', 'all', this)">All (21)</button>
+      <button class="tfilter-btn" onclick="filterTemplates('sg', 'governance', this)">Governance</button>
+      <button class="tfilter-btn" onclick="filterTemplates('sg', 'requirements', this)">Requirements</button>
+      <button class="tfilter-btn" onclick="filterTemplates('sg', 'design', this)">Design &amp; Technical</button>
+      <button class="tfilter-btn" onclick="filterTemplates('sg', 'delivery', this)">Delivery &amp; QA</button>
+      <button class="tfilter-btn" onclick="filterTemplates('sg', 'closure', this)">Closure &amp; Ops</button>
+    </div>
+
+    <div class="template-grid" id="sg-template-grid">
+
+      <!-- GOVERNANCE -->
+      <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">📋</div>
+          <div class="template-meta">
+            <div class="template-name">Project Questionnaire</div>
+            <div class="template-stage">Stage 1 · Gate 1</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Business value &amp; justification</span><span class="template-field">Expected benefits &amp; KPIs</span><span class="template-field">Impacted users &amp; departments</span><span class="template-field">Operational impact</span><span class="template-field">Data &amp; reporting needs</span><span class="template-field">Integration requirements</span><span class="template-field">Compliance &amp; security flags</span><span class="template-field">Estimated timeline</span><span class="template-field">Estimated cost range</span><span class="template-field">Project tier self-assessment</span><span class="template-field">Urgency &amp; strategic alignment</span><span class="template-field">Key dependencies</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: Department FPO &nbsp;·&nbsp; Reviewed by: IT PM</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fef3c7">🏛️</div>
+          <div class="template-meta">
+            <div class="template-name">Gate Decision Record</div>
+            <div class="template-stage">Every Gate</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Project name &amp; tier</span><span class="template-field">Gate number &amp; date</span><span class="template-field">Decision: Go / Kill / Hold / Recycle</span><span class="template-field">Evidence reviewed</span><span class="template-field">Rationale</span><span class="template-field">Conditions (if Conditional Go)</span><span class="template-field">Condition owner &amp; due date</span><span class="template-field">Re-entry criteria (if Hold)</span><span class="template-field">Approver signatures</span><span class="template-field">Next gate target date</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: ITC Chair (T2/T3) · IT RGC (T1)</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">📄</div>
+          <div class="template-meta">
+            <div class="template-name">Project Charter</div>
+            <div class="template-stage">Stage 2 · Gate 2</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Project name &amp; version</span><span class="template-field">Approved scope statement</span><span class="template-field">Project objectives &amp; success criteria</span><span class="template-field">Team RACI by role</span><span class="template-field">Milestone schedule</span><span class="template-field">Budget envelope</span><span class="template-field">Communication plan</span><span class="template-field">ALM workspace link</span><span class="template-field">MS Teams channel link</span><span class="template-field">SharePoint folder structure</span><span class="template-field">Escalation path</span><span class="template-field">Kick-off MOM reference</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM &nbsp;·&nbsp; Approved by: ITC</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fee2e2">⚠️</div>
+          <div class="template-meta">
+            <div class="template-name">Change Request Form</div>
+            <div class="template-stage">Post Gate 4 · Any stage</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">CR number &amp; date</span><span class="template-field">Change description</span><span class="template-field">Reason / trigger</span><span class="template-field">Scope impact</span><span class="template-field">Cost impact (vs. approved baseline)</span><span class="template-field">Schedule impact (vs. approved baseline)</span><span class="template-field">Cumulative variance to date</span><span class="template-field">Risk &amp; dependency impact</span><span class="template-field">Alternatives considered</span><span class="template-field">PM recommendation</span><span class="template-field">ITC decision (Approve / Reject / Defer)</span><span class="template-field">New baseline snapshot</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM &nbsp;·&nbsp; Approved by: ITC RGC or ITC</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#f3e8ff">📊</div>
+          <div class="template-meta">
+            <div class="template-name">Weekly Status Report (WSR)</div>
+            <div class="template-stage">Stages 3–8 · Weekly</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">RAG status (Red/Amber/Green)</span><span class="template-field">Sprint / week number</span><span class="template-field">Completed this week</span><span class="template-field">Planned for next week</span><span class="template-field">Milestone tracking (on track / at risk)</span><span class="template-field">Budget burn vs. plan</span><span class="template-field">Open risks &amp; blockers</span><span class="template-field">Open action items with owners</span><span class="template-field">Decisions needed</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM &nbsp;·&nbsp; Distributed via: MS Teams</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fef3c7">🗒️</div>
+          <div class="template-meta">
+            <div class="template-name">Minutes of Meeting (MOM)</div>
+            <div class="template-stage">After every meeting · ≤2 days</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Meeting date, time, type</span><span class="template-field">Attendees &amp; roles</span><span class="template-field">Agenda items</span><span class="template-field">Decisions made</span><span class="template-field">Action items (owner + due date)</span><span class="template-field">Risks / issues raised</span><span class="template-field">Next meeting date</span><span class="template-field">SharePoint upload confirmation</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM-Admin &nbsp;·&nbsp; Uploaded to: MS Teams ≤2 days</div>
+      </div>
+
+      <!-- REQUIREMENTS -->
+      <div class="template-card" data-sg-cat="requirements" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">📝</div>
+          <div class="template-meta">
+            <div class="template-name">Business Requirements Document (BRD)</div>
+            <div class="template-stage">Stage 3 · Gate 3</div>
+            <div class="template-tags"><span class="pill" style="background:#dcfce7;color:#16a34a;font-size:0.68rem">Requirements</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">Document control &amp; version history</span><span class="template-field">Glossary of business terms</span><span class="template-field">Project stakeholders</span><span class="template-field">Project overview &amp; business need</span><span class="template-field">Business concepts &amp; background</span><span class="template-field">Goals &amp; success criteria</span><span class="template-field">Assumptions &amp; constraints</span><span class="template-field">Business process overview (as-is / to-be)</span><span class="template-field">User roles &amp; personas</span><span class="template-field">Reporting &amp; notification requirements</span><span class="template-field">Non-functional requirements (NFRs)</span><span class="template-field">System integrations</span><span class="template-field">Data requirements &amp; classification</span><span class="template-field">Out-of-scope items</span><span class="template-field">FPO sign-off block</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: BA &nbsp;·&nbsp; Sign-off: FPO (must precede FRD start)</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="requirements" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">📋</div>
+          <div class="template-meta">
+            <div class="template-name">Functional Requirements Document (FRD)</div>
+            <div class="template-stage">Stage 4 · Gate 4</div>
+            <div class="template-tags"><span class="pill" style="background:#dcfce7;color:#16a34a;font-size:0.68rem">Requirements</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">BRD reference traceability</span><span class="template-field">Functional specifications per user story</span><span class="template-field">Business rules &amp; logic</span><span class="template-field">Data validation rules</span><span class="template-field">Edge cases &amp; error handling</span><span class="template-field">Integration specifications (API contracts)</span><span class="template-field">Workflow &amp; state diagrams</span><span class="template-field">Reporting specifications</span><span class="template-field">Notification triggers &amp; templates</span><span class="template-field">NFR targets (confirmed from BRD)</span><span class="template-field">Security &amp; access control requirements</span><span class="template-field">FPO sign-off block</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: BA &nbsp;·&nbsp; Sign-off: FPO (starts only after BRD gate)</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="requirements" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fef3c7">📊</div>
+          <div class="template-meta">
+            <div class="template-name">RAID Log</div>
+            <div class="template-stage">Stages 2–9 · Ongoing</div>
+            <div class="template-tags"><span class="pill" style="background:#dcfce7;color:#16a34a;font-size:0.68rem">Requirements</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Columns per entry</h4>
+          <div class="template-fields">
+            <span class="template-field">ID</span><span class="template-field">Type: Risk / Assumption / Issue / Decision</span><span class="template-field">Description</span><span class="template-field">Impact (H/M/L)</span><span class="template-field">Probability (H/M/L)</span><span class="template-field">Owner</span><span class="template-field">Raised date</span><span class="template-field">Target resolution date</span><span class="template-field">Status (Open / Mitigated / Closed)</span><span class="template-field">Mitigation / response</span><span class="template-field">Escalation flag</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM &nbsp;·&nbsp; Updated: every sprint retrospective + gate review</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="requirements" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#f3e8ff">🔗</div>
+          <div class="template-meta">
+            <div class="template-name">Requirements Traceability Matrix (RTM)</div>
+            <div class="template-stage">Stages 3–7 · Gate 7 (100% required)</div>
+            <div class="template-tags"><span class="pill" style="background:#dcfce7;color:#16a34a;font-size:0.68rem">Requirements</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Columns</h4>
+          <div class="template-fields">
+            <span class="template-field">BRD section reference</span><span class="template-field">BRD requirement ID &amp; description</span><span class="template-field">FRD section reference</span><span class="template-field">FRD requirement ID</span><span class="template-field">Test case ID(s)</span><span class="template-field">Test case description</span><span class="template-field">Test result (Pass / Fail / N/A)</span><span class="template-field">Defect ID (if failed)</span><span class="template-field">Coverage status</span>
+          </div>
+          <h4>Coverage rule</h4>
+          <div class="template-fields"><span class="template-field">100% BRD requirements must map to at least one test case before Gate 7</span></div>
+        </div>
+        <div class="template-owner">👤 Owner: BA (BRD→FRD) then QA (FRD→test cases)</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="requirements" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">🧑‍💼</div>
+          <div class="template-meta">
+            <div class="template-name">Volunteer Capacity Plan</div>
+            <div class="template-stage">Stage 5 · Gate 5 (T2/T3 required)</div>
+            <div class="template-tags"><span class="pill" style="background:#dcfce7;color:#16a34a;font-size:0.68rem">Requirements</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Resource name &amp; role</span><span class="template-field">Confirmed hours / sprint</span><span class="template-field">Critical path flag (Yes/No)</span><span class="template-field">Known blackout periods (festivals / events)</span><span class="template-field">Backup resource (if critical path)</span><span class="template-field">Sprint velocity assumption</span><span class="template-field">Dept SME availability windows confirmed</span><span class="template-field">Resource loss escalation procedure</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM &nbsp;·&nbsp; Reviewed by: IT RGC</div>
+      </div>
+
+      <!-- DESIGN & TECHNICAL -->
+      <div class="template-card" data-sg-cat="design" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">🎨</div>
+          <div class="template-meta">
+            <div class="template-name">Low Fidelity Design (LFD) Review Checklist</div>
+            <div class="template-stage">Stage 3 · Gate 3 (with BRD)</div>
+            <div class="template-tags"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.68rem">Design</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Checklist items</h4>
+          <div class="template-fields">
+            <span class="template-field">Screen inventory complete</span><span class="template-field">Navigation flows documented</span><span class="template-field">Key user journeys covered</span><span class="template-field">All BRD user roles represented</span><span class="template-field">Data inputs &amp; outputs shown</span><span class="template-field">Error &amp; empty states included</span><span class="template-field">Accessibility annotations present</span><span class="template-field">FPO / SME review comments resolved</span><span class="template-field">FPO sign-off obtained</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: Designer &nbsp;·&nbsp; Sign-off: FPO (co-signed with BRD)</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="design" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#f3e8ff">🖥️</div>
+          <div class="template-meta">
+            <div class="template-name">High Fidelity Design (HFD) Review Checklist</div>
+            <div class="template-stage">Stage 4 · Gate 4 (with FRD)</div>
+            <div class="template-tags"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.68rem">Design</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Checklist items</h4>
+          <div class="template-fields">
+            <span class="template-field">BAPS Design System components used correctly</span><span class="template-field">WCAG 2.1 AA color contrast verified</span><span class="template-field">Typography scale followed</span><span class="template-field">Responsive breakpoints defined (mobile/tablet/desktop)</span><span class="template-field">All LFD screens elevated to HFD</span><span class="template-field">Interactive states (hover/focus/disabled/error)</span><span class="template-field">Figma file structured with named frames</span><span class="template-field">Handoff annotations for dev team</span><span class="template-field">SA / EAB reviewed for technical feasibility</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: Designer &nbsp;·&nbsp; Sign-off: SA + FPO</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="design" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fef3c7">⚙️</div>
+          <div class="template-meta">
+            <div class="template-name">Technical Design Document (TDD)</div>
+            <div class="template-stage">Stage 4 · Gate 4</div>
+            <div class="template-tags"><span class="pill" style="background:#fef3c7;color:#d97706;font-size:0.68rem">Design</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">Architecture overview &amp; diagram</span><span class="template-field">Component design &amp; responsibilities</span><span class="template-field">API contracts (endpoints, request/response, auth)</span><span class="template-field">Data models &amp; schema</span><span class="template-field">Integration design per dependency</span><span class="template-field">Security design (auth, encryption, access control)</span><span class="template-field">Performance design (caching, pagination, load)</span><span class="template-field">Infrastructure requirements</span><span class="template-field">Deployment architecture</span><span class="template-field">Third-party dependencies list</span><span class="template-field">POC results (if applicable)</span><span class="template-field">EAB sign-off block</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: SA / TL &nbsp;·&nbsp; Sign-off: EAB + IT RGC</div>
+      </div>
+
+      <!-- DELIVERY & QA -->
+      <div class="template-card" data-sg-cat="delivery" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">🧪</div>
+          <div class="template-meta">
+            <div class="template-name">Test Plan &amp; Test Cases</div>
+            <div class="template-stage">Stage 6 · Before Stage 7</div>
+            <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery &amp; QA</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Test Plan sections</h4>
+          <div class="template-fields">
+            <span class="template-field">Test scope &amp; objectives</span><span class="template-field">Test types (functional, regression, performance, security)</span><span class="template-field">Test environment details</span><span class="template-field">Entry &amp; exit criteria</span><span class="template-field">Defect severity classification (P0–P3)</span><span class="template-field">Pass / fail thresholds per severity</span>
+          </div>
+          <h4>Test Case columns</h4>
+          <div class="template-fields">
+            <span class="template-field">TC ID</span><span class="template-field">FRD reference</span><span class="template-field">Test scenario &amp; steps</span><span class="template-field">Test data</span><span class="template-field">Expected result</span><span class="template-field">Actual result</span><span class="template-field">Pass / Fail</span><span class="template-field">Defect ID (if fail)</span><span class="template-field">Tester &amp; date</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: QA &nbsp;·&nbsp; Reviewed by: IT RGC</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="delivery" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fee2e2">✅</div>
+          <div class="template-meta">
+            <div class="template-name">UAT Sign-off Form</div>
+            <div class="template-stage">Stage 7 · Gate 7</div>
+            <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery &amp; QA</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Total test cases executed</span><span class="template-field">% test cases passed (target ≥95%)</span><span class="template-field">Open P0 defects (must be zero)</span><span class="template-field">Open P1 defects (must be zero)</span><span class="template-field">Open P2 defects (documented risk acceptance)</span><span class="template-field">VAPT Round 1 status (Critical/High resolved)</span><span class="template-field">RTM coverage confirmation (100%)</span><span class="template-field">Pilot completion confirmation</span><span class="template-field">FPO sign-off</span><span class="template-field">IT RGC co-sign</span><span class="template-field">Sign-off date</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: FPO &nbsp;·&nbsp; Co-signed by: IT RGC</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="delivery" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">🚀</div>
+          <div class="template-meta">
+            <div class="template-name">Deployment Runbook</div>
+            <div class="template-stage">Stage 8 · Gate 8</div>
+            <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery &amp; QA</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">Pre-deployment checklist</span><span class="template-field">Deployment steps (numbered, with owner)</span><span class="template-field">Go / no-go checkpoints</span><span class="template-field">Rollback trigger criteria</span><span class="template-field">Rollback steps</span><span class="template-field">Post-deployment verification tests</span><span class="template-field">Stakeholder communication template</span><span class="template-field">Hypercare contact list</span><span class="template-field">Final VAPT certificate reference</span><span class="template-field">IT RGC + FPO go-live approval sign-off</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: IT RGC / TL &nbsp;·&nbsp; Approved by: IT RGC + FPO</div>
+      </div>
+
+      <!-- CLOSURE & OPS -->
+      <div class="template-card" data-sg-cat="closure" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#f0fdf4">🔄</div>
+          <div class="template-meta">
+            <div class="template-name">Retrospective Template</div>
+            <div class="template-stage">Stage 8 (delivery team) &amp; Stage 9 (business team)</div>
+            <div class="template-tags"><span class="pill" style="background:#f0fdf4;color:#16a34a;font-size:0.68rem">Closure</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">What went well</span><span class="template-field">What didn't go well</span><span class="template-field">What we'd do differently</span><span class="template-field">Process improvement action items (owner + date)</span><span class="template-field">Estimate accuracy reflection</span><span class="template-field">Volunteer capacity reflection</span><span class="template-field">Gate compliance reflection</span><span class="template-field">Facilitator &amp; attendees</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM (delivery) · FPO (business) &nbsp;·&nbsp; Filed with: IT PM Office</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="closure" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">📈</div>
+          <div class="template-meta">
+            <div class="template-name">Benefits Realization Report</div>
+            <div class="template-stage">Stage 9 · 60 days post go-live</div>
+            <div class="template-tags"><span class="pill" style="background:#f0fdf4;color:#16a34a;font-size:0.68rem">Closure</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">Project summary (dates, team, tier)</span><span class="template-field">Approved budget vs. actual cost</span><span class="template-field">Approved timeline vs. actual</span><span class="template-field">KPIs promised at Gate 1 (each listed)</span><span class="template-field">KPIs achieved at 60 days (each measured)</span><span class="template-field">Benefits realized: Full / Partial / Not achieved</span><span class="template-field">Support model confirmed (L1/L2/L3 owners)</span><span class="template-field">Hypercare exit date &amp; confirmation</span><span class="template-field">Top 3 lessons learned</span><span class="template-field">ITC sign-off block</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM + FPO &nbsp;·&nbsp; Approved by: ITC (formally closes project)</div>
+      </div>
+
+      <div class="template-card" data-sg-cat="closure" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">🔒</div>
+          <div class="template-meta">
+            <div class="template-name">Project Closure Checklist</div>
+            <div class="template-stage">Stage 9 · Gate 9</div>
+            <div class="template-tags"><span class="pill" style="background:#f0fdf4;color:#16a34a;font-size:0.68rem">Closure</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Checklist items</h4>
+          <div class="template-fields">
+            <span class="template-field">All open RAID items transitioned or closed</span><span class="template-field">Benefits Realization Report submitted &amp; ITC-approved</span><span class="template-field">Access revoked (all project team members)</span><span class="template-field">SharePoint project folder archived (read-only)</span><span class="template-field">ALM workspace archived</span><span class="template-field">L1/L2/L3 support owners confirmed and communicated</span><span class="template-field">Hypercare exit criteria met</span><span class="template-field">Lessons learned filed with IT PM Office</span><span class="template-field">License transfers / vendor transitions completed</span><span class="template-field">Final financial reconciliation</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: PM &nbsp;·&nbsp; Final sign-off: ITC</div>
+      </div>
+
+    </div><!-- /sg-template-grid -->
+  </div><!-- /panel-sg-templates -->
+
   <!-- ═══════════════════════ PTX POLICY PANEL ═══════════════════════ -->
   <div id="panel-ptx" class="panel">
 
@@ -3412,13 +3964,186 @@
 
   </div><!-- /panel-ptx-recommended -->
 
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- PTX — TEMPLATES                                                 -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <div id="panel-ptx-templates" class="panel">
+    <div class="hero">
+      <h2>PTX Policy — Templates Library</h2>
+      <p>All templates required to move a project through the PTX approval gates. Click any card to see what each template contains. Templates will be auto-generated by agent skills — coming soon.</p>
+    </div>
+
+    <div class="template-filter-bar">
+      <button class="tfilter-btn active" onclick="filterTemplates('ptx', 'all', this)">All (8)</button>
+      <button class="tfilter-btn" onclick="filterTemplates('ptx', 'intake', this)">Intake &amp; Governance</button>
+      <button class="tfilter-btn" onclick="filterTemplates('ptx', 'delivery', this)">Delivery &amp; Readiness</button>
+      <button class="tfilter-btn" onclick="filterTemplates('ptx', 'closure', this)">Closure</button>
+    </div>
+
+    <div class="template-grid" id="ptx-template-grid">
+
+      <div class="template-card" data-ptx-cat="intake" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">📋</div>
+          <div class="template-meta">
+            <div class="template-name">Project Questionnaire</div>
+            <div class="template-stage">Gate 4.1 — Permit to Start</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Intake</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields (§7)</h4>
+          <div class="template-fields">
+            <span class="template-field">Business value &amp; justification</span><span class="template-field">Expected benefits &amp; KPIs</span><span class="template-field">Impacted users &amp; departments</span><span class="template-field">Operational impact</span><span class="template-field">Data &amp; reporting needs</span><span class="template-field">Integration requirements</span><span class="template-field">Compliance &amp; security considerations</span><span class="template-field">Estimated risks &amp; timeline</span><span class="template-field">Project tier self-assessment (Lite/Standard/Major)</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: Department FPO &nbsp;·&nbsp; Confirmed by: IT PM</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="intake" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fef3c7">🏛️</div>
+          <div class="template-meta">
+            <div class="template-name">PTX Gate Decision Record</div>
+            <div class="template-stage">Every Gate (4.1 – 4.5)</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Project name &amp; tier (Lite/Standard/Major)</span><span class="template-field">Gate number (4.1–4.5)</span><span class="template-field">Submission date &amp; decision date</span><span class="template-field">Decision: Go / Kill / Hold / Redirect</span><span class="template-field">Evidence reviewed (checklist)</span><span class="template-field">Rationale</span><span class="template-field">Conditions (if Conditional Go) with owner + date</span><span class="template-field">Re-entry criteria (if Hold)</span><span class="template-field">ITC approver signatures</span><span class="template-field">Next gate target date</span><span class="template-field">Contingency balance at this gate</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: ITC Chair (T2/T3) · IT RGC (T1)</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="intake" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fee2e2">⚠️</div>
+          <div class="template-meta">
+            <div class="template-name">Change Request Form (PTX)</div>
+            <div class="template-stage">Post Gate 4.3 · Any stage</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">CR number &amp; date</span><span class="template-field">Change description</span><span class="template-field">Trigger reason</span><span class="template-field">Scope impact</span><span class="template-field">Cost impact vs. last approved baseline</span><span class="template-field">Cumulative cost variance to date</span><span class="template-field">Schedule impact</span><span class="template-field">Contingency remaining after this CR</span><span class="template-field">Tier reclassification needed? (Y/N)</span><span class="template-field">PM recommendation</span><span class="template-field">ITC decision (Approve / Reject / Defer)</span><span class="template-field">New approved baseline</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: IT PM &nbsp;·&nbsp; Approved by: ITC or IT RGC</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="intake" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">🔍</div>
+          <div class="template-meta">
+            <div class="template-name">Vendor Assessment Checklist</div>
+            <div class="template-stage">Gate 4.2 — when vendor / SaaS involved</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Intake</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Checklist items</h4>
+          <div class="template-fields">
+            <span class="template-field">Vendor name &amp; solution overview</span><span class="template-field">Alternatives evaluated (min. 2)</span><span class="template-field">Selection rationale</span><span class="template-field">Contract &amp; licensing review completed</span><span class="template-field">Renewal &amp; termination clause noted</span><span class="template-field">Data Processing Agreement (DPA) signed</span><span class="template-field">Security posture reviewed (SOC 2 / ISO 27001)</span><span class="template-field">Data portability &amp; exit plan documented</span><span class="template-field">Cross-border data transfer mechanism identified</span><span class="template-field">IT Cybersecurity sign-off obtained</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: IT PM &nbsp;·&nbsp; Sign-off: IT Cybersecurity + IT RGC</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="intake" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#f3e8ff">🧑‍💼</div>
+          <div class="template-meta">
+            <div class="template-name">Volunteer Capacity Plan (PTX)</div>
+            <div class="template-stage">Gate 4.3 — Permit to Build</div>
+            <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Intake</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Resource name &amp; role</span><span class="template-field">Confirmed hours / sprint</span><span class="template-field">Critical path flag</span><span class="template-field">Known BAPS event blackout periods</span><span class="template-field">Backup resource (if critical path)</span><span class="template-field">Sprint velocity assumption (target 70% of max)</span><span class="template-field">Dept SME windows confirmed</span><span class="template-field">Resource loss notification procedure</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: IT PM &nbsp;·&nbsp; Reviewed by: IT RGC</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="delivery" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#fee2e2">✅</div>
+          <div class="template-meta">
+            <div class="template-name">UAT Sign-off Form (PTX)</div>
+            <div class="template-stage">Gate 4.4 — Permit to Rollout</div>
+            <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Fields</h4>
+          <div class="template-fields">
+            <span class="template-field">Total test scenarios executed</span><span class="template-field">% passed (target ≥95%)</span><span class="template-field">Open defects by severity</span><span class="template-field">Cybersecurity validation confirmed</span><span class="template-field">Performance testing result vs. NFR targets</span><span class="template-field">Dept training completion confirmed</span><span class="template-field">Stakeholder comms sent</span><span class="template-field">L1 support owner trained &amp; confirmed</span><span class="template-field">Deployment plan reviewed</span><span class="template-field">Rollback plan in place</span><span class="template-field">Dept SME sign-off</span><span class="template-field">IT RGC co-sign</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: Dept SME &nbsp;·&nbsp; Co-signed by: IT RGC</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="delivery" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#eff6ff">⚡</div>
+          <div class="template-meta">
+            <div class="template-name">Emergency Fast-Path Package</div>
+            <div class="template-stage">§6 Emergency Track — combined Gates 4.1–4.3</div>
+            <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Required in single submission</h4>
+          <div class="template-fields">
+            <span class="template-field">Eligibility declaration (all 3 criteria met)</span><span class="template-field">Project questionnaire (condensed)</span><span class="template-field">Top 3 risks (pre-documented)</span><span class="template-field">Preliminary estimate with contingency</span><span class="template-field">Scope boundary statement</span><span class="template-field">Resource availability confirmation</span><span class="template-field">ITC Chair + IT RGC Lead approval</span><span class="template-field">Post-event retrospective commitment</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: IT PM &nbsp;·&nbsp; Approved by: ITC Chair + IT RGC Lead (48h)</div>
+      </div>
+
+      <div class="template-card" data-ptx-cat="closure" onclick="toggleTemplate(this)">
+        <div class="template-head">
+          <div class="template-icon" style="background:#dcfce7">📈</div>
+          <div class="template-meta">
+            <div class="template-name">Benefits Realization Review (PTX)</div>
+            <div class="template-stage">Gate 4.5 — Permit to Close · 60 days post go-live</div>
+            <div class="template-tags"><span class="pill" style="background:#f0fdf4;color:#16a34a;font-size:0.68rem">Closure</span></div>
+          </div>
+          <div class="template-arrow">▶</div>
+        </div>
+        <div class="template-body">
+          <h4>Sections</h4>
+          <div class="template-fields">
+            <span class="template-field">Project summary (dates, team, tier)</span><span class="template-field">Approved budget vs. actual cost &amp; variance</span><span class="template-field">Approved timeline vs. actual &amp; variance</span><span class="template-field">KPIs promised at Gate 4.1 (each listed)</span><span class="template-field">KPIs achieved at 60 days (each measured)</span><span class="template-field">Benefits: Full / Partial / Not achieved</span><span class="template-field">Hypercare exit confirmation</span><span class="template-field">L1/L2/L3 support owners active</span><span class="template-field">Top 3 lessons learned</span><span class="template-field">ITC sign-off (formally closes PTX record)</span>
+          </div>
+        </div>
+        <div class="template-owner">👤 Owner: IT PM + Dept SME &nbsp;·&nbsp; Approved by: ITC</div>
+      </div>
+
+    </div><!-- /ptx-template-grid -->
+  </div><!-- /panel-ptx-templates -->
+
 <script>
   // Track which section each panel belongs to
   const panelSection = {
     stages: 'stagegate', gaps: 'stagegate', pmfeedback: 'stagegate',
     industry: 'stagegate', glossary: 'stagegate',
-    'sg-industry-gaps': 'stagegate', 'sg-recommended': 'stagegate',
-    ptx: 'ptx', 'ptx-gaps': 'ptx', 'ptx-recommended': 'ptx'
+    'sg-industry-gaps': 'stagegate', 'sg-recommended': 'stagegate', 'sg-templates': 'stagegate',
+    ptx: 'ptx', 'ptx-gaps': 'ptx', 'ptx-recommended': 'ptx', 'ptx-templates': 'ptx'
   };
 
   function switchSection(section) {
@@ -3428,8 +4153,8 @@
     // Show correct subnav
     document.querySelectorAll('.subnav').forEach(s => s.style.display = 'none');
     document.getElementById('subnav-' + section).style.display = '';
-    // Show default panel for that section
-    const defaultPanel = section === 'ptx' ? 'ptx' : 'stages';
+    // Show default panel for that section (Recommended Policy is the front-facing default)
+    const defaultPanel = section === 'ptx' ? 'ptx-recommended' : 'sg-recommended';
     // Activate first subnav button
     document.querySelectorAll('#subnav-' + section + ' .nav-btn').forEach((b,i) => b.classList.toggle('active', i === 0));
     // Show panel
@@ -3473,6 +4198,23 @@
     document.getElementById(id).classList.toggle('open');
   }
 
+  function toggleTemplate(card) {
+    card.classList.toggle('open');
+  }
+
+  function filterTemplates(section, cat, btn) {
+    // Update filter buttons
+    const filterBar = btn.closest('.template-filter-bar');
+    filterBar.querySelectorAll('.tfilter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // Filter cards
+    const attr = 'data-' + section + '-cat';
+    const grid = section === 'sg' ? document.getElementById('sg-template-grid') : document.getElementById('ptx-template-grid');
+    grid.querySelectorAll('.template-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.getAttribute(attr) === cat) ? '' : 'none';
+    });
+  }
+
   function jumpToStage(n) {
     const card = document.getElementById('stage-' + n);
     card.classList.add('open');
@@ -3487,9 +4229,12 @@
     });
   }
 
-  // Open first stage by default
   document.addEventListener('DOMContentLoaded', () => {
+    // Open first stage card in the gates overview
     document.getElementById('stage-1').classList.add('open');
+    // Show Recommended Policy as the landing panel (front-facing)
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-sg-recommended').classList.add('active');
   });
 </script>
 </body>
