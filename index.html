@@ -833,17 +833,38 @@
       <div class="header-logo">IT</div>
       <div>
         <h1>BAPS IT Project Governance</h1>
-        <p>PTX Policy &amp; Stage Gate Process</p>
+        <p>Stage Gate Process &amp; PTX Authorization Policy</p>
       </div>
     </div>
   </div>
-  <div class="subnav" id="subnav-main">
+  <!-- Audience switcher -->
+  <div style="background:var(--primary);padding:0">
+    <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;gap:0">
+      <button id="aud-sg" onclick="switchAudience('sg')" style="background:rgba(255,255,255,0.18);color:white;border:none;padding:10px 24px;font-size:0.85rem;font-weight:700;cursor:pointer;border-bottom:3px solid white;transition:all 0.15s">
+        &#128196; Stage Gate — For Project Managers
+      </button>
+      <button id="aud-ptx" onclick="switchAudience('ptx')" style="background:none;color:rgba(255,255,255,0.65);border:none;padding:10px 24px;font-size:0.85rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.15s">
+        &#9878; PTX Policy — For ITC / Board
+      </button>
+    </div>
+  </div>
+
+  <!-- Stage Gate subnav (3 tabs) -->
+  <div class="subnav" id="subnav-sg">
     <div class="subnav-inner">
-      <button class="nav-btn active" id="navbtn-overview" onclick="showPanel('overview', this)">Overview</button>
-      <button class="nav-btn" id="navbtn-ptx" onclick="showPanel('ptx', this)">Current Policy</button>
+      <button class="nav-btn active" id="navbtn-overview" onclick="showPanel('overview', this)">How It Works</button>
+      <button class="nav-btn" id="navbtn-stages" onclick="showPanel('stages', this)">All 8 Stages</button>
+      <button class="nav-btn" id="navbtn-sg-templates" onclick="showPanel('sg-templates', this)">Templates</button>
+      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
+    </div>
+  </div>
+
+  <!-- PTX subnav (4 tabs) -->
+  <div class="subnav" id="subnav-ptx" style="display:none">
+    <div class="subnav-inner">
+      <button class="nav-btn active" id="navbtn-ptx" onclick="showPanel('ptx', this)">Current Policy</button>
       <button class="nav-btn" id="navbtn-ptx-gaps" onclick="showPanel('ptx-gaps', this)">Gap Analysis</button>
       <button class="nav-btn nav-recommended" id="navbtn-ptx-recommended" onclick="showPanel('ptx-recommended', this)">&#10003; Recommended</button>
-      <button class="nav-btn" id="navbtn-templates" onclick="showPanel('sg-templates', this)">Templates</button>
       <button class="nav-btn nav-print" onclick="window.print()">Print</button>
     </div>
   </div>
@@ -4304,14 +4325,44 @@
   </div><!-- /panel-ptx-templates -->
 
 <script>
-  // Panels that map to the unified "templates" tab
-  const templatePanels = new Set(['sg-templates','ptx-templates','templates']);
+  let currentAudience = 'sg';
+
+  function switchAudience(aud) {
+    currentAudience = aud;
+    // Update audience buttons
+    const sgBtn = document.getElementById('aud-sg');
+    const ptxBtn = document.getElementById('aud-ptx');
+    if (aud === 'sg') {
+      sgBtn.style.background = 'rgba(255,255,255,0.18)'; sgBtn.style.color = 'white'; sgBtn.style.borderBottomColor = 'white';
+      ptxBtn.style.background = 'none'; ptxBtn.style.color = 'rgba(255,255,255,0.65)'; ptxBtn.style.borderBottomColor = 'transparent';
+      document.getElementById('subnav-sg').style.display = '';
+      document.getElementById('subnav-ptx').style.display = 'none';
+      // Show default SG panel
+      showPanelInNav('overview', 'subnav-sg');
+    } else {
+      ptxBtn.style.background = 'rgba(255,255,255,0.18)'; ptxBtn.style.color = 'white'; ptxBtn.style.borderBottomColor = 'white';
+      sgBtn.style.background = 'none'; sgBtn.style.color = 'rgba(255,255,255,0.65)'; sgBtn.style.borderBottomColor = 'transparent';
+      document.getElementById('subnav-ptx').style.display = '';
+      document.getElementById('subnav-sg').style.display = 'none';
+      // Show default PTX panel
+      showPanelInNav('ptx', 'subnav-ptx');
+    }
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function showPanelInNav(name, navId) {
+    document.querySelectorAll('#' + navId + ' .nav-btn').forEach(b => b.classList.remove('active'));
+    const targetBtn = document.querySelector('#' + navId + ' [onclick*="' + name + '"]');
+    if (targetBtn) targetBtn.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    const el = document.getElementById('panel-' + name);
+    if (el) el.classList.add('active');
+  }
 
   function showPanel(name, btn) {
-    // Deactivate all nav buttons
-    document.querySelectorAll('#subnav-main .nav-btn').forEach(b => b.classList.remove('active'));
+    const navId = currentAudience === 'ptx' ? 'subnav-ptx' : 'subnav-sg';
+    document.querySelectorAll('#' + navId + ' .nav-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
-    // Show the panel
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     const el = document.getElementById('panel-' + name);
     if (el) el.classList.add('active');
