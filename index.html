@@ -70,21 +70,60 @@
   }
   header h1 { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.2; }
   header p { font-size: 0.72rem; color: var(--text-light); margin-top: 1px; }
-  .header-nav { display: flex; gap: 2px; flex-wrap: nowrap; overflow-x: auto; }
-  .nav-btn {
+  /* ── SECTION SWITCHER (top level) ── */
+  .header-nav { display: flex; gap: 4px; }
+  .section-btn {
     background: none;
-    border: none;
+    border: 1px solid transparent;
     color: var(--text-light);
-    padding: 6px 13px;
+    padding: 6px 14px;
     border-radius: 6px;
-    font-size: 0.82rem;
+    font-size: 0.83rem;
     cursor: pointer;
     transition: all 0.15s;
     font-weight: 500;
     white-space: nowrap;
   }
-  .nav-btn:hover { background: var(--gray-light); color: var(--text); }
-  .nav-btn.active { background: var(--blue-light); color: var(--primary); font-weight: 600; }
+  .section-btn:hover { background: var(--gray-light); color: var(--text); }
+  .section-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* ── SUB-NAV BAR (second level) ── */
+  .subnav {
+    border-top: 1px solid var(--border);
+    background: var(--gray-light);
+  }
+  .subnav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 40px;
+  }
+  .nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-weight: 500;
+    white-space: nowrap;
+    height: 30px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-btn:hover { background: var(--border); color: var(--text); }
+  .nav-btn.active { background: white; color: var(--primary); font-weight: 600; border: 1px solid var(--border); }
+  .nav-print { margin-left: auto; }
 
   /* ── LAYOUT ── */
   .container { max-width: 1200px; margin: 0 auto; padding: 28px 28px 60px; }
@@ -499,21 +538,33 @@
 <header>
   <div class="header-inner">
     <div class="header-title">
-      <div class="header-logo">SG</div>
+      <div class="header-logo">IT</div>
       <div>
         <h1>BAPS IT Policies &amp; Processes</h1>
         <p>IT governance documentation for BAPS Swaminarayan Sanstha</p>
       </div>
     </div>
     <nav class="header-nav">
-      <button class="nav-btn active" onclick="showPanel('stages')">Stage Gate</button>
-      <button class="nav-btn" onclick="showPanel('ptx')">PTX Policy</button>
-      <button class="nav-btn" onclick="showPanel('gaps')">Gap Analysis</button>
-      <button class="nav-btn" onclick="showPanel('pmfeedback')">PM Review</button>
-      <button class="nav-btn" onclick="showPanel('industry')">Industry Context</button>
-      <button class="nav-btn" onclick="showPanel('glossary')">Glossary</button>
-      <button class="nav-btn" onclick="window.print()">Print</button>
+      <button class="section-btn active" id="sbtn-stagegate" onclick="switchSection('stagegate')">Stage Gate Process</button>
+      <button class="section-btn" id="sbtn-ptx" onclick="switchSection('ptx')">PTX Policy</button>
     </nav>
+  </div>
+  <!-- Sub-nav bar -->
+  <div class="subnav" id="subnav-stagegate">
+    <div class="subnav-inner">
+      <button class="nav-btn active" onclick="showPanel('stages', this)">Overview</button>
+      <button class="nav-btn" onclick="showPanel('gaps', this)">Gap Analysis</button>
+      <button class="nav-btn" onclick="showPanel('pmfeedback', this)">PM Review</button>
+      <button class="nav-btn" onclick="showPanel('industry', this)">Industry Context</button>
+      <button class="nav-btn" onclick="showPanel('glossary', this)">Glossary</button>
+      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
+    </div>
+  </div>
+  <div class="subnav" id="subnav-ptx" style="display:none">
+    <div class="subnav-inner">
+      <button class="nav-btn active" onclick="showPanel('ptx', this)">Approval Gates</button>
+      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
+    </div>
   </div>
 </header>
 
@@ -1788,11 +1839,38 @@
 </div><!-- /container -->
 
 <script>
-  function showPanel(name) {
+  // Track which section each panel belongs to
+  const panelSection = {
+    stages: 'stagegate', gaps: 'stagegate', pmfeedback: 'stagegate',
+    industry: 'stagegate', glossary: 'stagegate',
+    ptx: 'ptx'
+  };
+
+  function switchSection(section) {
+    // Update top-level section buttons
+    document.querySelectorAll('.section-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('sbtn-' + section).classList.add('active');
+    // Show correct subnav
+    document.querySelectorAll('.subnav').forEach(s => s.style.display = 'none');
+    document.getElementById('subnav-' + section).style.display = '';
+    // Show default panel for that section
+    const defaultPanel = section === 'ptx' ? 'ptx' : 'stages';
+    // Activate first subnav button
+    document.querySelectorAll('#subnav-' + section + ' .nav-btn').forEach((b,i) => b.classList.toggle('active', i === 0));
+    // Show panel
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + defaultPanel).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function showPanel(name, btn) {
+    const section = panelSection[name] || 'stagegate';
+    // Update sub-nav buttons for this section only
+    document.querySelectorAll('#subnav-' + section + ' .nav-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    // Show panel
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.getElementById('panel-' + name).classList.add('active');
-    event.target.classList.add('active');
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
