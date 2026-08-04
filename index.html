@@ -49,9 +49,7 @@
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
   .header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 28px 0 calc(224px + 28px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -865,6 +863,7 @@
 
   @media (max-width: 900px) {
     .sidebar { display: none; }
+    .header-inner { padding: 0 16px; }
     .container { margin-left: 0; padding: 16px 16px 40px; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
     .gate-outcomes { grid-template-columns: 1fr; }
@@ -895,15 +894,7 @@
 
 <!-- ═══ SIDEBAR ═══ -->
 <nav class="sidebar">
-  <div class="sidebar-brand">
-    <div class="header-logo" style="width:30px;height:30px;font-size:11px;flex-shrink:0">IT</div>
-    <div class="sidebar-brand-text">
-      <div class="sidebar-brand-title">BAPS IT Governance</div>
-      <div class="sidebar-brand-sub">Project &amp; Policy Hub</div>
-    </div>
-  </div>
-
-  <div class="sidebar-section-label">&#128196; Stage Gate</div>
+  <div class="sidebar-section-label" style="padding-top:14px">&#128196; Stage Gate</div>
   <button class="sidebar-item active" id="sid-overview" onclick="showPanel('overview',this)">
     <i class="item-icon">⊞</i> How It Works
   </button>
