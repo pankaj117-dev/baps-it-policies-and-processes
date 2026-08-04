@@ -1028,7 +1028,7 @@
       </div>
       <div class="gap-card" style="border-left:4px solid var(--green)">
         <div style="font-weight:700;font-size:0.87rem;margin-bottom:6px">Benefits Realization</div>
-        <div style="font-size:0.81rem;color:var(--text-light)">60-day post go-live review comparing actual vs. promised KPIs. Required for Gate 4.5 (Permit to Close). Lessons fed back into process improvement annually.</div>
+        <div style="font-size:0.81rem;color:var(--text-light)">60-day post go-live review comparing actual vs. promised KPIs. Required for PTX-5 (Permit to Close). Lessons fed back into process improvement annually.</div>
       </div>
     </div>
 
@@ -2340,34 +2340,32 @@
         <p style="font-size:0.84rem;color:var(--text-light);margin-bottom:16px">Prevents the full 8-stage process from becoming a bottleneck for small requests, while ensuring major initiatives receive proportional scrutiny.</p>
         <div class="tier-grid">
           <div class="tier-card" style="background:#f0fdf4;border-color:#86efac">
-            <div class="tier-label" style="color:#16a34a">Tier 1 — Lite</div>
-            <div class="tier-title" style="font-size:0.88rem">3-Stage Fast Track</div>
-            <div class="tier-row"><strong>Cost:</strong> &lt; $5,000</div>
-            <div class="tier-row"><strong>Effort:</strong> &lt; 40 person-hours</div>
-            <div class="tier-row"><strong>Scope:</strong> Single system, no integration, no PII</div>
-            <div class="tier-row" style="margin-top:8px"><strong>Stages:</strong> Propose → Build → Close (3 stages)</div>
-            <div class="tier-row"><strong>Approver:</strong> IT RGC only — no ITC gate</div>
+            <div class="tier-label" style="color:#16a34a">Tier 3 — Lite</div>
+            <div class="tier-title" style="font-size:0.88rem">Single Combined Gate</div>
+            <div class="tier-row"><strong>Cost:</strong> Below $20,000</div>
+            <div class="tier-row"><strong>Effort:</strong> Below 50 working-days</div>
+            <div class="tier-row"><strong>Scope:</strong> No new integration, data classification, or vendor</div>
+            <div class="tier-row" style="margin-top:8px"><strong>Gate treatment:</strong> Single combined PTX gate</div>
+            <div class="tier-row"><strong>Approver:</strong> IT delivery lead — monthly summary to ITC</div>
             <div class="tier-row"><strong>Decision SLA:</strong> &le; 5 business days</div>
           </div>
           <div class="tier-card" style="background:#eff6ff;border-color:#93c5fd">
             <div class="tier-label" style="color:#3b82f6">Tier 2 — Standard</div>
-            <div class="tier-title" style="font-size:0.88rem">Full 8-Stage Process</div>
-            <div class="tier-row"><strong>Cost:</strong> $5,000 – $50,000</div>
-            <div class="tier-row"><strong>Effort:</strong> 40 – 500 person-hours</div>
-            <div class="tier-row"><strong>Scope:</strong> Single or multi-system, may include integrations</div>
-            <div class="tier-row" style="margin-top:8px"><strong>Stages:</strong> All 8 stages + Closure (9 total)</div>
-            <div class="tier-row"><strong>Approver:</strong> ITC at Stages 1, 2, and 9</div>
-            <div class="tier-row"><strong>Decision SLA:</strong> &le; 15 business days (Stage 1), &le; 10 days (other gates)</div>
+            <div class="tier-title" style="font-size:0.88rem">Full PTX Gate Sequence</div>
+            <div class="tier-row"><strong>Cost:</strong> Between Lite and Major thresholds</div>
+            <div class="tier-row"><strong>Scope:</strong> Any new integration, data classification, or vendor</div>
+            <div class="tier-row" style="margin-top:8px"><strong>Gate treatment:</strong> Full PTX-1 → PTX-5 sequence</div>
+            <div class="tier-row"><strong>Approver:</strong> ITC at all gates</div>
+            <div class="tier-row"><strong>Decision SLA:</strong> &le; 10 business days</div>
           </div>
           <div class="tier-card" style="background:#fef3c7;border-color:#fcd34d">
-            <div class="tier-label" style="color:#d97706">Tier 3 — Major</div>
-            <div class="tier-title" style="font-size:0.88rem">Full Process + Leadership</div>
-            <div class="tier-row"><strong>Cost:</strong> &gt; $50,000 or org-wide impact</div>
-            <div class="tier-row"><strong>Effort:</strong> &gt; 500 person-hours</div>
-            <div class="tier-row"><strong>Scope:</strong> Multi-department, new platform, or strategic initiative</div>
-            <div class="tier-row" style="margin-top:8px"><strong>Stages:</strong> All 9 stages + BAPS Inc. Leadership co-approval at Stage 1</div>
-            <div class="tier-row"><strong>Approver:</strong> ITC + BAPS Inc. Leadership (Stages 1 &amp; 2)</div>
-            <div class="tier-row"><strong>Decision SLA:</strong> &le; 20 business days (Stage 1), &le; 15 days (other gates)</div>
+            <div class="tier-label" style="color:#d97706">Tier 1 — Major</div>
+            <div class="tier-title" style="font-size:0.88rem">Full PTX + Leadership</div>
+            <div class="tier-row"><strong>Cost:</strong> Above $100,000</div>
+            <div class="tier-row"><strong>Scope:</strong> Sanstha-wide, new platform, or compliance exposure</div>
+            <div class="tier-row" style="margin-top:8px"><strong>Gate treatment:</strong> Full PTX sequence + BAPS Inc. Leadership endorsement at PTX-1 &amp; PTX-3</div>
+            <div class="tier-row"><strong>Approver:</strong> ITC endorsed by BAPS Inc. Leadership</div>
+            <div class="tier-row"><strong>Decision SLA:</strong> &le; 15 business days</div>
           </div>
         </div>
         <p style="font-size:0.8rem;color:var(--text-light);margin-top:10px">Tier assigned by IT PM at intake, confirmed by IT RGC. Any criterion pushing a project to a higher tier during execution triggers a reclassification Change Request.</p>
@@ -3124,7 +3122,7 @@
           <h4>Key fields</h4>
           <div class="template-fields"><span class="template-field">Project name &amp; sponsor</span><span class="template-field">Business problem statement</span><span class="template-field">Proposed solution</span><span class="template-field">Expected benefits &amp; KPIs</span><span class="template-field">Estimated cost (rough order of magnitude)</span><span class="template-field">Estimated volunteer hours</span><span class="template-field">Alignment to IT roadmap</span><span class="template-field">Risk level (preliminary)</span><span class="template-field">Urgency &amp; deadline</span><span class="template-field">Tier classification (Lite/Standard/Major)</span></div>
         </div>
-        <div class="template-owner">👤 Owner: Department · Approved by: ITC at Gate 4.1</div>
+        <div class="template-owner">👤 Owner: Department · Approved by: ITC at PTX-1</div>
       </div>
 
       <div class="template-card" data-sg-cat="governance" onclick="toggleTemplate(this)">
@@ -3175,7 +3173,7 @@
           <h4>Key fields</h4>
           <div class="template-fields"><span class="template-field">Vendor name &amp; contact</span><span class="template-field">RFP/RFQ reference</span><span class="template-field">Data handling &amp; privacy review</span><span class="template-field">Security questionnaire results</span><span class="template-field">Contract / MSA status</span><span class="template-field">Insurance &amp; compliance certs</span><span class="template-field">Reference checks completed</span><span class="template-field">IT approval signature</span></div>
         </div>
-        <div class="template-owner">👤 Owner: PM + IT Security · Reviewed at: Gate 4.2</div>
+        <div class="template-owner">👤 Owner: PM + IT Security · Reviewed at: PTX-2</div>
       </div>
 
       <div class="template-card" data-sg-cat="delivery" onclick="toggleTemplate(this)">
@@ -3192,7 +3190,7 @@
           <h4>Key fields</h4>
           <div class="template-fields"><span class="template-field">Test plan reference</span><span class="template-field">Test cases executed &amp; pass rate</span><span class="template-field">Critical defects outstanding</span><span class="template-field">Pilot group feedback summary</span><span class="template-field">Training completion status</span><span class="template-field">Department representative signature</span><span class="template-field">IT QA lead sign-off</span></div>
         </div>
-        <div class="template-owner">👤 Owner: QA Lead + Dept · Required for: Gate 4.4</div>
+        <div class="template-owner">👤 Owner: QA Lead + Dept · Required for: PTX-4</div>
       </div>
 
       <div class="template-card" data-sg-cat="delivery" onclick="toggleTemplate(this)">
@@ -3209,7 +3207,7 @@
           <h4>Key fields</h4>
           <div class="template-fields"><span class="template-field">VAPT scope &amp; date</span><span class="template-field">Critical/high findings count</span><span class="template-field">Remediation status</span><span class="template-field">Residual risk acceptance (IT Director)</span><span class="template-field">Penetration test vendor</span><span class="template-field">Certification reference number</span></div>
         </div>
-        <div class="template-owner">👤 Owner: IT Security · Required for: Gate 4.4</div>
+        <div class="template-owner">👤 Owner: IT Security · Required for: PTX-4</div>
       </div>
 
       <div class="template-card" data-sg-cat="closure" onclick="toggleTemplate(this)">
@@ -3226,7 +3224,7 @@
           <h4>Key fields</h4>
           <div class="template-fields"><span class="template-field">Original KPIs &amp; targets from business case</span><span class="template-field">Actual outcomes measured (60-day mark)</span><span class="template-field">Variance analysis &amp; explanations</span><span class="template-field">User adoption metrics</span><span class="template-field">Cost vs. budget final reconciliation</span><span class="template-field">Lessons learned reference</span><span class="template-field">ITC close-out signature</span></div>
         </div>
-        <div class="template-owner">👤 Owner: PM + Dept Sponsor · Required for: Gate 4.5</div>
+        <div class="template-owner">👤 Owner: PM + Dept Sponsor · Required for: PTX-5</div>
       </div>
 
       <div class="template-card" data-sg-cat="closure" onclick="toggleTemplate(this)">
@@ -3241,7 +3239,7 @@
         </div>
         <div class="template-body">
           <h4>Checklist items</h4>
-          <div class="template-fields"><span class="template-field">Hypercare exit confirmed</span><span class="template-field">Benefits Realization Report ITC-approved</span><span class="template-field">Lessons learned filed</span><span class="template-field">All access revoked</span><span class="template-field">Vendor/contract wrap-up</span><span class="template-field">Project SharePoint archived</span><span class="template-field">ITC Gate 4.5 Decision Record filed</span></div>
+          <div class="template-fields"><span class="template-field">Hypercare exit confirmed</span><span class="template-field">Benefits Realization Report ITC-approved</span><span class="template-field">Lessons learned filed</span><span class="template-field">All access revoked</span><span class="template-field">Vendor/contract wrap-up</span><span class="template-field">Project SharePoint archived</span><span class="template-field">ITC PTX-5 Decision Record filed</span></div>
         </div>
         <div class="template-owner">👤 Owner: PM · ITC Chair sign-off required</div>
       </div>
@@ -3863,7 +3861,8 @@
       <div class="gap-card" style="border-left:4px solid #dc2626">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <span style="background:#fef2f2;color:#dc2626;font-weight:700;font-size:0.72rem;padding:2px 7px;border-radius:4px">GAP A</span>
-          <span style="font-weight:700;font-size:0.88rem">No size tiering</span>
+          <span style="font-weight:700;font-size:0.88rem">No size tiering (v1.0)</span>
+          <span style="background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.7rem;padding:2px 7px;border-radius:4px;margin-left:auto">RESOLVED IN V0.3 §5</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">A small project and an org-wide platform both go through four gates with ITC review at each. Departments will route around it. The policy will be seen as too heavy for small work and will be quietly ignored for anything that feels minor.</p>
         <div style="margin-top:10px;background:#fef2f2;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#7f1d1d"><strong>Recommendation:</strong> Implement a 2–3 tier model: <strong>Lite</strong> (single combined gate, IT-approved, below a cost/effort threshold), <strong>Standard</strong> (full 4-gate PTX), and <strong>Major</strong> (full PTX + BAPS Inc. leadership co-approval).</div>
@@ -3872,7 +3871,8 @@
       <div class="gap-card" style="border-left:4px solid #dc2626">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <span style="background:#fef2f2;color:#dc2626;font-weight:700;font-size:0.72rem;padding:2px 7px;border-radius:4px">GAP B</span>
-          <span style="font-weight:700;font-size:0.88rem">ITC has no decision SLA</span>
+          <span style="font-weight:700;font-size:0.88rem">ITC has no decision SLA (v1.0)</span>
+          <span style="background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.7rem;padding:2px 7px;border-radius:4px;margin-left:auto">RESOLVED IN V0.3 §6</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">Departments have obligations at every gate; ITC has none. Without a committed turnaround time, "the policy is slowing us down" becomes the standing complaint — and it would be valid.</p>
         <div style="margin-top:10px;background:#fef2f2;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#7f1d1d"><strong>Recommendation:</strong> Define ITC meeting cadence, a decision turnaround (e.g. within one ITC cycle of a complete submission), and an auto-escalation if a decision slips past the SLA.</div>
@@ -3884,7 +3884,7 @@
           <span style="font-weight:700;font-size:0.88rem">Volunteer resourcing not acknowledged</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">The policy assumes assignable IT resources with predictable capacity. In practice a significant share of delivery capacity is likely volunteer. Nothing covers what happens when a resource becomes unavailable mid-build, or how capacity is realistically forecast at the Permit to Build gate.</p>
-        <div style="margin-top:10px;background:#fef2f2;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#7f1d1d"><strong>Recommendation:</strong> Add a volunteer capacity plan as a required artifact at Gate 4.3. Define minimum availability thresholds and contingency when key volunteers become unavailable.</div>
+        <div style="margin-top:10px;background:#fef2f2;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#7f1d1d"><strong>Recommendation:</strong> Add a volunteer capacity plan as a required artifact at PTX-3 (Permit to Build). Define minimum availability thresholds and contingency when key volunteers become unavailable.</div>
       </div>
 
       <div class="gap-card" style="border-left:4px solid #dc2626">
@@ -3893,7 +3893,7 @@
           <span style="font-weight:700;font-size:0.88rem">No emergency / event-driven fast path</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">§12 allows exceptions "approved by ITC" with no criteria or timeline. Festival and event deadlines are immovable and real. Without a defined compressed path, urgent work will simply bypass the policy — and once it happens once, it happens routinely.</p>
-        <div style="margin-top:10px;background:#fef2f2;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#7f1d1d"><strong>Recommendation:</strong> Define a formal emergency path with specific criteria (e.g. immovable event deadline ≤30 days, Tier 1/2 scope, pre-documented risks). Allow gates 1–4 to be combined in a 48-hour review. Gates 4.4 (Rollout) and 4.5 (Close) still required.</div>
+        <div style="margin-top:10px;background:#fef2f2;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#7f1d1d"><strong>Recommendation:</strong> Define a formal emergency path with specific criteria (e.g. immovable event deadline ≤30 days, Lite or Standard tier, pre-documented risks). Allow PTX-1 through PTX-3 to be combined in a single 48-hour ITC review. PTX-4 (Rollout) and PTX-5 (Close) still required — no skip.</div>
       </div>
     </div>
 
@@ -3913,7 +3913,8 @@
       <div class="gap-card" style="border-left:4px solid #d97706">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <span style="background:#fef3c7;color:#d97706;font-weight:700;font-size:0.72rem;padding:2px 7px;border-radius:4px">GAP D</span>
-          <span style="font-weight:700;font-size:0.88rem">Gate 4.2 and 4.3 naming overlap</span>
+          <span style="font-weight:700;font-size:0.88rem">PTX-2 and PTX-3 naming ambiguity (v1.0)</span>
+          <span style="background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.7rem;padding:2px 7px;border-radius:4px;margin-left:auto">RESOLVED IN V0.3</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">§4.1 grants approval to proceed to requirements. §4.2 is titled "Permit to Design, Estimate, and Plan" but its body describes requirements elicitation — then grants approval to proceed to design and planning. §4.3 then says IT produces the technical design (which §4.2 just authorized). The naming is effectively off by one.</p>
         <div style="margin-top:10px;background:#fef3c7;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#92400e"><strong>Recommendation:</strong> Either rename §4.2 to "Permit to Define Requirements" or explicitly move design work into §4.3's pre-work description to match the naming.</div>
@@ -3931,10 +3932,11 @@
       <div class="gap-card" style="border-left:4px solid #d97706">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <span style="background:#fef3c7;color:#d97706;font-weight:700;font-size:0.72rem;padding:2px 7px;border-radius:4px">GAP L</span>
-          <span style="font-weight:700;font-size:0.88rem">No benefits realization / Gate 4.5 missing</span>
+          <span style="font-weight:700;font-size:0.88rem">No benefits realization / PTX-5 missing (v1.0)</span>
+          <span style="background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.7rem;padding:2px 7px;border-radius:4px;margin-left:auto">RESOLVED IN V0.3</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">§7 requires business value and expected benefits at intake, but nothing ever checks whether they materialized. The feedback loop that makes future estimates better doesn't exist.</p>
-        <div style="margin-top:10px;background:#fef3c7;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#92400e"><strong>Recommendation:</strong> Add Gate 4.5 "Permit to Close" — a post-implementation review at 60–90 days, reported to ITC, checking actual vs. promised benefits before formally closing the project record.</div>
+        <div style="margin-top:10px;background:#dcfce7;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#166534"><strong>Addressed in v0.3:</strong> PTX-5 "Permit to Close" is now §6.5 of the Current Policy — a post-implementation review at 60–90 days, reported to ITC, closing the benefits feedback loop.</div>
       </div>
 
       <div class="gap-card" style="border-left:4px solid #d97706">
@@ -3949,10 +3951,11 @@
       <div class="gap-card" style="border-left:4px solid #d97706">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
           <span style="background:#fef3c7;color:#d97706;font-weight:700;font-size:0.72rem;padding:2px 7px;border-radius:4px">GAP R</span>
-          <span style="font-weight:700;font-size:0.88rem">Gate 4.4 rollout approval inconsistent with gates 4.1–4.3</span>
+          <span style="font-weight:700;font-size:0.88rem">PTX-4 rollout approval inconsistency (v1.0)</span>
+          <span style="background:#dcfce7;color:#16a34a;font-weight:700;font-size:0.7rem;padding:2px 7px;border-radius:4px;margin-left:auto">RESOLVED IN V0.3</span>
         </div>
         <p style="font-size:0.82rem;color:var(--text-light);line-height:1.6">ITC approves gates 4.1–4.3; §4.4 says rollout readiness comes jointly from IT RGC and the Department, with ITC absent. Deliberate or an oversight? This creates ambiguity about who has final authority for production deployment.</p>
-        <div style="margin-top:10px;background:#fef3c7;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#92400e"><strong>Recommendation:</strong> State explicitly whether ITC sign-off is required at Gate 4.4 or whether IT RGC + Department approval is intentionally the final authority for rollout.</div>
+        <div style="margin-top:10px;background:#dcfce7;border-radius:5px;padding:8px 12px;font-size:0.81rem;color:#166534"><strong>Addressed in v0.3:</strong> PTX-4 (§6.4) now explicitly states IT RGC + Department as joint approvers for rollout. ITC approval is additionally required if cost or schedule has moved beyond the §14 threshold.</div>
       </div>
 
     </div>
@@ -4084,36 +4087,36 @@
         <span>&#9312; Project Tiering Model <span style="background:#dcfce7;color:#16a34a;font-size:0.72rem;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px">NEW</span><span style="font-size:0.72rem;color:var(--text-light);font-weight:400;margin-left:10px">Gap A · Not in current policy — §4 applies the same 4-gate process to all projects regardless of size</span></span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:14px">All projects must be tiered at Gate 4.1 submission. The tier determines the approval path and required rigor.</p>
+        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:14px">All projects must be tiered at PTX-1 submission. The tier determines the approval path and required rigor. See §5 of Current Policy for authoritative thresholds.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
           <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--green);border-radius:var(--radius-sm);padding:14px">
-            <div style="font-weight:700;font-size:0.85rem;color:var(--green);margin-bottom:6px">Lite</div>
-            <div style="font-size:0.78rem;color:var(--text-light);margin-bottom:8px">Under $5,000 cost <em>and</em> under 40 volunteer hours total</div>
+            <div style="font-weight:700;font-size:0.85rem;color:var(--green);margin-bottom:6px">Tier 3 — Lite</div>
+            <div style="font-size:0.78rem;color:var(--text-light);margin-bottom:8px">Below $20,000 <em>and</em> below 50 working-days; no new integration, data classification or vendor</div>
             <ul style="font-size:0.78rem;color:var(--text-light);padding-left:14px;line-height:1.8">
-              <li>3-stage fast track (intake → build → rollout)</li>
-              <li>IT RGC approval only — no full ITC review</li>
+              <li>Single combined PTX gate</li>
+              <li>IT delivery lead approval — no full ITC review</li>
               <li>Simplified questionnaire</li>
-              <li>No formal Gate 4.2 or 4.3</li>
+              <li>No formal PTX-2 or PTX-3</li>
             </ul>
           </div>
           <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid var(--primary);border-radius:var(--radius-sm);padding:14px">
-            <div style="font-weight:700;font-size:0.85rem;color:var(--primary);margin-bottom:6px">Standard</div>
-            <div style="font-size:0.78rem;color:var(--text-light);margin-bottom:8px">$5,000–$50,000 <em>or</em> 40–200 volunteer hours</div>
+            <div style="font-weight:700;font-size:0.85rem;color:var(--primary);margin-bottom:6px">Tier 2 — Standard</div>
+            <div style="font-size:0.78rem;color:var(--text-light);margin-bottom:8px">Between Lite and Major, <em>or</em> any new integration, data classification, or vendor</div>
             <ul style="font-size:0.78rem;color:var(--text-light);padding-left:14px;line-height:1.8">
-              <li>Full 4-gate PTX process (4.1–4.4) + Gate 4.5</li>
+              <li>Full PTX gate sequence (PTX-1 through PTX-5)</li>
               <li>ITC approval at all gates</li>
               <li>Full questionnaire required</li>
               <li>RACI and volunteer capacity plan required</li>
             </ul>
           </div>
           <div style="background:var(--white);border:1px solid var(--border);border-top:3px solid #d97706;border-radius:var(--radius-sm);padding:14px">
-            <div style="font-weight:700;font-size:0.85rem;color:#d97706;margin-bottom:6px">Major</div>
-            <div style="font-size:0.78rem;color:var(--text-light);margin-bottom:8px">Over $50,000 <em>or</em> org-wide impact <em>or</em> over 200 hours</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#d97706;margin-bottom:6px">Tier 1 — Major</div>
+            <div style="font-size:0.78rem;color:var(--text-light);margin-bottom:8px">Above $100,000 <em>or</em> Sanstha-wide impact <em>or</em> new platform <em>or</em> compliance exposure</div>
             <ul style="font-size:0.78rem;color:var(--text-light);padding-left:14px;line-height:1.8">
-              <li>Full PTX + BAPS Inc. Leadership co-approval</li>
+              <li>Full PTX + BAPS Inc. Leadership endorsement at PTX-1 &amp; PTX-3</li>
               <li>ITC approval at all gates</li>
               <li>Formal architecture review required</li>
-              <li>External security assessment at Gate 4.4</li>
+              <li>External security assessment at PTX-4</li>
             </ul>
           </div>
         </div>
@@ -4173,8 +4176,8 @@
             <div style="font-size:0.8rem;color:var(--text-light);line-height:1.7;background:#fef2f2;border-radius:5px;padding:10px">Gate 4.1 → proceed to <em>requirements</em><br>Gate 4.2 "Permit to Design" → body describes <em>requirements</em> work → then approve to <em>design</em><br>Gate 4.3 "Permit to Build" → body describes <em>design</em> → then approve to <em>build</em></div>
           </div>
           <div>
-            <div style="font-weight:700;font-size:0.82rem;color:var(--green);margin-bottom:8px">Recommended (aligned)</div>
-            <div style="font-size:0.8rem;color:var(--text-light);line-height:1.7;background:#dcfce7;border-radius:5px;padding:10px">Gate 4.1 → Permit to Start (begin requirements)<br>Gate 4.2 → <strong>Permit to Design</strong> (requirements complete → begin design)<br>Gate 4.3 → <strong>Permit to Build</strong> (design complete → begin development)<br>Gate 4.4 → Permit to Rollout<br>Gate 4.5 → Permit to Close <span style="background:#dcfce7;color:#16a34a;font-size:0.7rem;font-weight:700;padding:1px 5px;border-radius:3px">NEW</span></div>
+            <div style="font-weight:700;font-size:0.82rem;color:var(--green);margin-bottom:8px">Adopted in v0.3 (aligned)</div>
+            <div style="font-size:0.8rem;color:var(--text-light);line-height:1.7;background:#dcfce7;border-radius:5px;padding:10px">PTX-1 → Permit to Start (begin requirements)<br>PTX-2 → <strong>Permit to Design, Estimate &amp; Plan</strong> (requirements complete → begin design)<br>PTX-3 → <strong>Permit to Build</strong> (design complete → begin development)<br>PTX-4 → Permit to Rollout<br>PTX-5 → Permit to Close</div>
           </div>
         </div>
       </div>
@@ -4227,10 +4230,10 @@
           <div>
             <div style="font-weight:700;font-size:0.82rem;margin-bottom:6px">What the fast path does:</div>
             <ul style="font-size:0.81rem;color:var(--text-light);line-height:1.8;padding-left:14px">
-              <li>Gates 4.1–4.3 combined into a single 48-hour ITC review</li>
+              <li>PTX-1 through PTX-3 combined into a single 48-hour ITC review</li>
               <li>Approved by: IT Director + ITC Chair</li>
-              <li>Gate 4.4 (Rollout) still required — no skip</li>
-              <li>Gate 4.5 (Close) still required — no skip</li>
+              <li>PTX-4 (Rollout) still required — no skip</li>
+              <li>PTX-5 (Close) still required — no skip</li>
               <li>Post-launch full lessons review mandatory</li>
             </ul>
           </div>
@@ -4241,10 +4244,10 @@
     <!-- Gate 4.5 -->
     <div class="policy-section" id="rec-ptx-7">
       <div class="policy-section-header" onclick="togglePolicySection('rec-ptx-7')">
-        <span>&#9318; Gate 4.5 — Permit to Close (Benefits Realization) <span style="background:#dcfce7;color:#16a34a;font-size:0.72rem;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px">NEW</span><span style="font-size:0.72rem;color:var(--text-light);font-weight:400;margin-left:10px">Gap L · Not in current policy — §7 requires benefits at intake but nothing ever checks if they materialized</span></span><span class="policy-toggle">▾</span>
+        <span>&#9318; PTX-5 — Permit to Close (Benefits Realization) <span style="background:#dcfce7;color:#16a34a;font-size:0.72rem;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px">ADOPTED IN V0.3</span><span style="font-size:0.72rem;color:var(--text-light);font-weight:400;margin-left:10px">Gap L · Now §6.5 of Current Policy — §7 requires benefits at intake and PTX-5 closes the loop</span></span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:12px">No project is formally closed until Gate 4.5 is passed — typically 60–90 days post go-live. This creates the feedback loop that improves future estimates and validates that promised value was delivered.</p>
+        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:12px">No project is formally closed until PTX-5 is passed — typically 60–90 days post go-live. This creates the feedback loop that improves future estimates and validates that promised value was delivered.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
           <div>
             <div style="font-weight:700;font-size:0.82rem;margin-bottom:6px">Required artifacts:</div>
@@ -4257,7 +4260,7 @@
             </ul>
           </div>
           <div>
-            <div style="font-weight:700;font-size:0.82rem;margin-bottom:6px">ITC at Gate 4.5:</div>
+            <div style="font-weight:700;font-size:0.82rem;margin-bottom:6px">ITC at PTX-5:</div>
             <ul style="font-size:0.81rem;color:var(--text-light);line-height:1.8;padding-left:14px">
               <li>Reviews Benefits Realization Report</li>
               <li>Formally closes the project record</li>
@@ -4275,7 +4278,7 @@
         <span>&#9319; Volunteer Capacity Planning <span style="background:#dcfce7;color:#16a34a;font-size:0.72rem;font-weight:700;padding:1px 6px;border-radius:3px;margin-left:6px">NEW</span><span style="font-size:0.72rem;color:var(--text-light);font-weight:400;margin-left:10px">Gap N · Not in current policy — §4.3 assumes assignable IT resources; volunteer reality is never acknowledged</span></span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:12px">The policy must acknowledge that a significant share of IT delivery capacity is volunteer-based. A Volunteer Capacity Plan is a required Gate 4.3 artifact.</p>
+        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:12px">The policy must acknowledge that a significant share of IT delivery capacity is volunteer-based. A Volunteer Capacity Plan is a required PTX-3 (Permit to Build) artifact.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div class="gap-card">
             <div style="font-weight:700;font-size:0.82rem;margin-bottom:5px">Capacity Plan must include:</div>
@@ -4318,16 +4321,16 @@
             </tr></thead>
             <tbody>
               <tr><td>Submit business case + questionnaire</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td></td><td style="text-align:center;font-weight:700">A</td><td style="text-align:center">I</td></tr>
-              <tr><td>Gate 4.1 — Permit to Start approval</td><td style="text-align:center">I</td><td></td><td style="text-align:center">C</td><td></td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td style="text-align:center">C</td></tr>
+              <tr><td>PTX-1 — Permit to Start approval</td><td style="text-align:center">I</td><td></td><td style="text-align:center">C</td><td></td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td style="text-align:center">C</td></tr>
               <tr><td>Requirements elicitation &amp; BRD</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td style="text-align:center">A</td><td></td></tr>
-              <tr><td>Gate 4.2 — Permit to Design approval</td><td style="text-align:center">I</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td></td></tr>
+              <tr><td>PTX-2 — Permit to Design, Estimate &amp; Plan approval</td><td style="text-align:center">I</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td></td></tr>
               <tr><td>Technical design + resource plan</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td></td><td style="text-align:center">A</td><td></td></tr>
-              <tr><td>Gate 4.3 — Permit to Build approval</td><td style="text-align:center">I</td><td></td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td></td></tr>
+              <tr><td>PTX-3 — Permit to Build approval</td><td style="text-align:center">I</td><td></td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td></td></tr>
               <tr><td>UAT execution &amp; sign-off</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td></td><td style="text-align:center">A</td><td></td></tr>
-              <tr><td>Gate 4.4 — Permit to Rollout</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td></td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">A</td><td></td></tr>
+              <tr><td>PTX-4 — Permit to Rollout</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td></td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">A</td><td></td></tr>
               <tr><td>L1 support (post-launch)</td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td></td><td></td><td style="text-align:center">C</td><td style="text-align:center">A</td><td></td><td></td></tr>
               <tr><td>L2/L3 support (post-launch)</td><td style="text-align:center">C</td><td></td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R/A</td><td style="text-align:center">A</td><td></td><td></td></tr>
-              <tr><td>Gate 4.5 — Permit to Close</td><td style="text-align:center">C</td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center;color:var(--primary);font-weight:700">A</td><td></td></tr>
+              <tr><td>PTX-5 — Permit to Close</td><td style="text-align:center">C</td><td></td><td style="text-align:center;color:var(--primary);font-weight:700">R</td><td style="text-align:center">C</td><td style="text-align:center">C</td><td style="text-align:center;color:var(--primary);font-weight:700">A</td><td></td></tr>
             </tbody>
           </table>
           <p style="font-size:0.72rem;color:var(--text-light);margin-top:6px">R = Responsible · A = Accountable · C = Consulted · I = Informed</p>
@@ -4344,7 +4347,7 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div class="gap-card" style="border-left:4px solid var(--primary)">
             <div style="font-weight:700;font-size:0.84rem;margin-bottom:5px">Vendor / Third-Party <span style="background:#dcfce7;color:#16a34a;font-size:0.7rem;font-weight:700;padding:1px 5px;border-radius:3px">NEW</span></div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Gate 4.2 must include a vendor checklist covering: vendor selection, contract/licensing review, data processing agreement, security assessment, and data-portability/exit terms. Required for all SaaS and vendor-delivered projects.</p>
+            <p style="font-size:0.81rem;color:var(--text-light)">PTX-2 (Permit to Design, Estimate &amp; Plan) must include a vendor checklist covering: vendor selection, contract/licensing review, data processing agreement, security assessment, and data-portability/exit terms. Required for all SaaS and vendor-delivered projects.</p>
           </div>
           <div class="gap-card" style="border-left:4px solid var(--primary)">
             <div style="font-weight:700;font-size:0.84rem;margin-bottom:5px">Change Control Thresholds <span style="background:#fef3c7;color:#d97706;font-size:0.7rem;font-weight:700;padding:1px 5px;border-radius:3px">UPDATED</span></div>
@@ -4356,7 +4359,7 @@
           </div>
           <div class="gap-card" style="border-left:4px solid var(--primary)">
             <div style="font-weight:700;font-size:0.84rem;margin-bottom:5px">Policy KPIs &amp; Review Cadence <span style="background:#dcfce7;color:#16a34a;font-size:0.7rem;font-weight:700;padding:1px 5px;border-radius:3px">NEW</span></div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Tracked quarterly: gate cycle time per tier, estimate accuracy (actual vs. approved at Gate 4.3), change request volume, % projects delivered to approved cost. Policy reviewed annually by ITC with lessons from Gate 4.5 reports.</p>
+            <p style="font-size:0.81rem;color:var(--text-light)">Tracked quarterly: gate cycle time per tier, estimate accuracy (actual vs. approved at PTX-3), change request volume, % projects delivered to approved cost. Policy reviewed annually by ITC with lessons from PTX-5 reports.</p>
           </div>
         </div>
       </div>
@@ -4388,7 +4391,7 @@
           <div class="template-icon" style="background:#eff6ff">📋</div>
           <div class="template-meta">
             <div class="template-name">Project Questionnaire</div>
-            <div class="template-stage">Gate 4.1 — Permit to Start</div>
+            <div class="template-stage">PTX-1 — Permit to Start</div>
             <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Intake</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4407,7 +4410,7 @@
           <div class="template-icon" style="background:#fef3c7">🏛️</div>
           <div class="template-meta">
             <div class="template-name">PTX Gate Decision Record</div>
-            <div class="template-stage">Every Gate (4.1 – 4.5)</div>
+            <div class="template-stage">Every Gate (PTX-1 through PTX-5)</div>
             <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4415,7 +4418,7 @@
         <div class="template-body">
           <h4>Fields</h4>
           <div class="template-fields">
-            <span class="template-field">Project name &amp; tier (Lite/Standard/Major)</span><span class="template-field">Gate number (4.1–4.5)</span><span class="template-field">Submission date &amp; decision date</span><span class="template-field">Decision: Go / Kill / Hold / Redirect</span><span class="template-field">Evidence reviewed (checklist)</span><span class="template-field">Rationale</span><span class="template-field">Conditions (if Conditional Go) with owner + date</span><span class="template-field">Re-entry criteria (if Hold)</span><span class="template-field">ITC approver signatures</span><span class="template-field">Next gate target date</span><span class="template-field">Contingency balance at this gate</span>
+            <span class="template-field">Project name &amp; tier (Lite/Standard/Major)</span><span class="template-field">Gate number (PTX-1 through PTX-5)</span><span class="template-field">Submission date &amp; decision date</span><span class="template-field">Decision: Go / Kill / Hold / Redirect</span><span class="template-field">Evidence reviewed (checklist)</span><span class="template-field">Rationale</span><span class="template-field">Conditions (if Conditional Go) with owner + date</span><span class="template-field">Re-entry criteria (if Hold)</span><span class="template-field">ITC approver signatures</span><span class="template-field">Next gate target date</span><span class="template-field">Contingency balance at this gate</span>
           </div>
         </div>
         <div class="template-owner">👤 Owner: ITC Chair (T2/T3) · IT RGC (T1)</div>
@@ -4426,7 +4429,7 @@
           <div class="template-icon" style="background:#fee2e2">⚠️</div>
           <div class="template-meta">
             <div class="template-name">Change Request Form (PTX)</div>
-            <div class="template-stage">Post Gate 4.3 · Any stage</div>
+            <div class="template-stage">Post PTX-3 · Any stage</div>
             <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Governance</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4445,7 +4448,7 @@
           <div class="template-icon" style="background:#dcfce7">🔍</div>
           <div class="template-meta">
             <div class="template-name">Vendor Assessment Checklist</div>
-            <div class="template-stage">Gate 4.2 — when vendor / SaaS involved</div>
+            <div class="template-stage">PTX-2 — when vendor / SaaS involved</div>
             <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Intake</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4464,7 +4467,7 @@
           <div class="template-icon" style="background:#f3e8ff">🧑‍💼</div>
           <div class="template-meta">
             <div class="template-name">Volunteer Capacity Plan (PTX)</div>
-            <div class="template-stage">Gate 4.3 — Permit to Build</div>
+            <div class="template-stage">PTX-3 — Permit to Build</div>
             <div class="template-tags"><span class="pill" style="background:#eff6ff;color:var(--primary);font-size:0.68rem">Intake</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4483,7 +4486,7 @@
           <div class="template-icon" style="background:#fee2e2">✅</div>
           <div class="template-meta">
             <div class="template-name">UAT Sign-off Form (PTX)</div>
-            <div class="template-stage">Gate 4.4 — Permit to Rollout</div>
+            <div class="template-stage">PTX-4 — Permit to Rollout</div>
             <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4502,7 +4505,7 @@
           <div class="template-icon" style="background:#eff6ff">⚡</div>
           <div class="template-meta">
             <div class="template-name">Emergency Fast-Path Package</div>
-            <div class="template-stage">§6 Emergency Track — combined Gates 4.1–4.3</div>
+            <div class="template-stage">Emergency Track — PTX-1 through PTX-3 combined</div>
             <div class="template-tags"><span class="pill" style="background:#fee2e2;color:#dc2626;font-size:0.68rem">Delivery</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4521,7 +4524,7 @@
           <div class="template-icon" style="background:#dcfce7">📈</div>
           <div class="template-meta">
             <div class="template-name">Benefits Realization Review (PTX)</div>
-            <div class="template-stage">Gate 4.5 — Permit to Close · 60 days post go-live</div>
+            <div class="template-stage">PTX-5 — Permit to Close · 60 days post go-live</div>
             <div class="template-tags"><span class="pill" style="background:#f0fdf4;color:#16a34a;font-size:0.68rem">Closure</span></div>
           </div>
           <div class="template-arrow">▶</div>
@@ -4529,7 +4532,7 @@
         <div class="template-body">
           <h4>Sections</h4>
           <div class="template-fields">
-            <span class="template-field">Project summary (dates, team, tier)</span><span class="template-field">Approved budget vs. actual cost &amp; variance</span><span class="template-field">Approved timeline vs. actual &amp; variance</span><span class="template-field">KPIs promised at Gate 4.1 (each listed)</span><span class="template-field">KPIs achieved at 60 days (each measured)</span><span class="template-field">Benefits: Full / Partial / Not achieved</span><span class="template-field">Hypercare exit confirmation</span><span class="template-field">L1/L2/L3 support owners active</span><span class="template-field">Top 3 lessons learned</span><span class="template-field">ITC sign-off (formally closes PTX record)</span>
+            <span class="template-field">Project summary (dates, team, tier)</span><span class="template-field">Approved budget vs. actual cost &amp; variance</span><span class="template-field">Approved timeline vs. actual &amp; variance</span><span class="template-field">KPIs promised at PTX-1 (each listed)</span><span class="template-field">KPIs achieved at 60 days (each measured)</span><span class="template-field">Benefits: Full / Partial / Not achieved</span><span class="template-field">Hypercare exit confirmation</span><span class="template-field">L1/L2/L3 support owners active</span><span class="template-field">Top 3 lessons learned</span><span class="template-field">ITC sign-off (formally closes PTX record)</span>
           </div>
         </div>
         <div class="template-owner">👤 Owner: IT PM + Dept SME &nbsp;·&nbsp; Approved by: ITC</div>
