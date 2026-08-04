@@ -3258,7 +3258,7 @@
 
     <div class="hero">
       <h2>PTX Policy — IT Project Intake &amp; Governance</h2>
-      <p>Source: <strong>BAPS_PTX_Policy_Memo.docx</strong> — "IT Project Intake and Governance Enhancement Policy Memo." Issued by the BAPS Information Technology Committee (ITC) to Department Leads, Department SMEs, IT RGC, BAs, PMs, and IT Teams. <strong>Status: Draft v1.0 · Effective June 15, 2026.</strong></p>
+      <p>Source: <strong>BAPS_PTX_Policy_Memo_v2.docx</strong> — "IT Project Intake and Governance Process and Policy." Issued by the BAPS Information Technology Committee (ITC). <strong>Status: Draft v0.3 · Effective date TBD (pending ITC confirmation).</strong> Consolidates review rounds from Dharmaketu Swami (Jul 26) and Satyanishth Swami (Aug 1).</p>
     </div>
 
     <!-- Gate pipeline visual -->
@@ -3324,343 +3324,517 @@
 
     </div>
 
+    <!-- Open decisions banner -->
+    <div style="background:#fef9c3;border:1px solid #fbbf24;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:0.83rem">
+      <strong style="color:#92400e">10 open decisions pending ITC confirmation</strong> before this policy can be published — see Section 21 (Appendix E). Key items: effective date, SLA values, tier thresholds, ITC composition &amp; quorum.
+    </div>
+
     <!-- Section 1: Purpose -->
+    <!-- §1 Purpose -->
     <div class="policy-section open" id="ptx-s1">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s1')">
         <span>1. Purpose</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p>As BAPS Swaminarayan Sanstha continues to expand, the demand for IT application development, system enhancements, automation, reporting, integrations, and digital solutions is steadily increasing. This growing demand necessitates the formalization and strengthening of the IT project intake and PTX processes to ensure that all requests are consistently evaluated, appropriately prioritized, and executed with clear governance, accountability, and alignment of resources.</p>
-        <p style="margin-top:10px">This memo establishes an enhanced governance policy for IT Application Project Intake and the PTX process. Its objective is to reinforce the existing framework, improve project planning and execution, enable consistent and transparent decision-making, and safeguard the interests of BAPS Swaminarayan Sanstha through effective oversight, prioritization, cost management, and accountability.</p>
-        <p style="margin-top:10px">The PTX process introduces defined approval gates that a project must pass through as it progresses from proposal to requirements, design, development, and rollout. These control points ensure alignment with business value, available capacity, risk considerations, budget expectations, and Sanstha-wide priorities.</p>
-        <div style="background:var(--blue-light);border-radius:6px;padding:10px 14px;margin-top:12px;font-size:0.83rem;color:var(--primary)"><strong>Definition:</strong> PTX (Permit to Execute) refers to the formal authorization required to proceed to the next approved stage of a project.</div>
+        <p>As BAPS Swaminarayan Sanstha continues to expand, demand for IT application development, system enhancements, automation, reporting, integrations and digital solutions continues to grow. This policy formalises how that demand is received, evaluated, prioritised, funded, delivered and accepted.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px">
+          <div style="background:var(--blue-light);border-radius:6px;padding:10px 12px;font-size:0.82rem"><strong>Consistent evaluation</strong> — every request assessed against Sanstha-wide capacity, benefit, budget and risk.</div>
+          <div style="background:var(--blue-light);border-radius:6px;padding:10px 12px;font-size:0.82rem"><strong>Clear approval gates (PTX)</strong> — work only proceeds after review and approval at each gate.</div>
+          <div style="background:var(--blue-light);border-radius:6px;padding:10px 12px;font-size:0.82rem"><strong>Unambiguous roles</strong> — decision responsibilities and escalation paths clear for Departments and IT.</div>
+          <div style="background:var(--blue-light);border-radius:6px;padding:10px 12px;font-size:0.82rem"><strong>Accountable timelines</strong> — delays measured and published transparently against all parties.</div>
+        </div>
+        <div style="background:#eff6ff;border-left:4px solid #3b82f6;border-radius:6px;padding:10px 14px;margin-top:14px;font-size:0.83rem;color:var(--primary)"><strong>PTX (Permit to Execute)</strong> — formal authorization required to proceed to the next stage of a project. A permit authorizes the project's next stage only; it is not approval of the project as a whole.</div>
       </div>
     </div>
 
     <!-- Section 2: Scope -->
+    <!-- §2 Scope -->
     <div class="policy-section" id="ptx-s2">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s2')">
-        <span>2. Scope — What this policy applies to</span><span class="policy-toggle">▾</span>
+        <span>2. Scope</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
           <div>
             <div style="font-weight:700;font-size:0.83rem;margin-bottom:8px;color:var(--primary)">IN SCOPE</div>
-            <ul style="font-size:0.83rem;color:var(--text-light);line-height:1.8;padding-left:16px">
-              <li>New IT application development projects</li>
-              <li>New system requests</li>
-              <li>Major enhancements to existing systems</li>
-              <li>New phases or major features of existing projects</li>
-              <li>Critical enhancement requests from Departments</li>
-              <li>Project change requests impacting approved scope, timeline, cost, resources, or delivery commitments</li>
-              <li>Production rollout readiness for IT application projects</li>
+            <ul style="font-size:0.83rem;color:var(--text-light);line-height:1.9;padding-left:16px">
+              <li>New custom IT system requests</li>
+              <li>New phase (major enhancements) of an existing IT system</li>
+              <li>Critical/Urgent enhancement requests</li>
+              <li>Project-scope change requests affecting approved scope, timeline, cost, resources or delivery commitments</li>
+              <li>Vendor-delivered or vendor-hosted solutions (selection, contracting and exit)</li>
             </ul>
           </div>
           <div>
             <div style="font-weight:700;font-size:0.83rem;margin-bottom:8px;color:#dc2626">OUT OF SCOPE</div>
-            <p style="font-size:0.83rem;color:var(--text-light);line-height:1.6">Production-related issues including bugs, incidents, service disruptions, or system outages. These continue to be managed under established IT RGC production support and incident management procedures.</p>
+            <ul style="font-size:0.83rem;color:var(--text-light);line-height:1.9;padding-left:16px">
+              <li>Defects, incidents, service disruptions and outages — remain with IT RGC production support</li>
+            </ul>
+            <div style="background:#fef2f2;border-radius:6px;padding:8px 10px;font-size:0.8rem;margin-top:8px;color:#7f1d1d">Where a production issue is later determined to require an enhancement beyond a bug fix, it transfers into this policy at the appropriate gate (see §13 Conflict Resolution).</div>
           </div>
+        </div>
+        <div style="background:#f0fdf4;border-left:4px solid #16a34a;border-radius:6px;padding:10px 14px;font-size:0.82rem">
+          <strong>In-flight projects:</strong> Projects not yet in build join at their next natural gate. Projects in build adopt §§11–14 immediately. Projects in UAT or hypercare complete under existing arrangements.
         </div>
       </div>
     </div>
 
-    <!-- Section 3: Governance Principles -->
+    <!-- §3 Definitions -->
     <div class="policy-section" id="ptx-s3">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s3')">
-        <span>3. Governance Principles</span><span class="policy-toggle">▾</span>
+        <span>3. Definitions</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-          <div class="gap-card" style="border-left:4px solid var(--primary)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">IT owns delivery</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">All resources — development, architecture, BA, PM, testing, cybersecurity, infrastructure, and deployment — are managed by IT (including Infrastructure) where applicable.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid var(--primary)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">Departments own the business</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Business direction, SME input, requirement prioritization, UAT support, training readiness, and business sign-off. Departments do <em>not</em> manage IT resources or direct technical work.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid #d97706">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">Cybersecurity throughout</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Cybersecurity controls must be included at every stage: design, build, testing, and rollout readiness.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid var(--green)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">Clear roles &amp; escalation</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">This policy creates clear decision points and escalation paths while protecting the Sanstha from uncontrolled scope, unclear ownership, unapproved cost increases, and delivery risks.</p>
-          </div>
-        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem">
+          <thead><tr style="background:var(--bg)"><th style="padding:7px 10px;text-align:left;border-bottom:2px solid var(--border)">Term</th><th style="padding:7px 10px;text-align:left;border-bottom:2px solid var(--border)">Definition</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">PTX (Permit to Execute)</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Formal authorization to proceed to the next stage. Each gate authorizes one stage only.</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">ITC</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">BAPS Information Technology Board Committee — project intake, prioritization, PTX approvals, budget and change control.</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">IT RGC</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">IT Run &amp; Governance Council — strategy, architecture, production support, incident management, release management, cybersecurity.</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">BAPS Inc. Leadership</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Approves strategic priorities, major investments, and decisions beyond ITC authority.</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">BA / PM</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Business Analyst (requirements) / Project Manager (delivery, reporting).</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Department SME</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Named individual — departmental process expert and requirement decision partner for the project.</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Baseline</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Signed-off requirements, approved UIUX prototypes, approved cost, approved timeline, and all approved change requests — taken together.</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">MVP</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Minimum Viable Product — agreed minimum scope signed off before development begins.</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">POC</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Proof of Concept — time-boxed technical trial where risk or solution uncertainty is high.</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Attributable Delay</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Time lost against an agreed date, recorded against the responsible party (Department, IT, ITC, etc.).</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Contingency</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Estimating allowance for residual uncertainty at a gate. A ceiling, not an entitlement.</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Hypercare</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Post-deployment period of elevated support by the delivery team before transition to production support.</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">P0–P3 (Priority)</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Queue position of planned work — set by ITC. Not the same as incident severity (S0).</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">S0 (Severity 0)</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Live production incident classification — owned by IT RGC, not by this policy.</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Section 4: PTX Approval Gates -->
-    <div class="policy-section open" id="ptx-s4">
+    <!-- §4 Governance Principles -->
+    <div class="policy-section" id="ptx-s4">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s4')">
-        <span>4. PTX Approval Gates (Core Policy)</span><span class="policy-toggle">▾</span>
+        <span>4. Governance Principles</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:16px">All applicable projects must adhere to the PTX staged approval process. Progression to each subsequent stage is contingent upon completion of required reviews and receipt of formal approvals.</p>
-
-        <!-- Gate 4.1 -->
-        <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <div style="background:var(--primary);color:white;font-weight:800;font-size:0.85rem;padding:5px 12px;border-radius:6px;white-space:nowrap">Gate 4.1</div>
-            <div style="font-weight:700;font-size:0.95rem">Permit to Start</div>
-            <div style="margin-left:auto;font-size:0.72rem;background:var(--blue-light);color:var(--primary);padding:3px 8px;border-radius:4px">Contingency: ~40%</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:0.82rem">
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">Department submits:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>Business need &amp; high-level requirements</li>
-                <li>Expected value &amp; target user base</li>
-                <li>Level of urgency &amp; key dependencies</li>
-                <li>Completed project questionnaire (§7)</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">IT provides:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>Preliminary high-level estimate (timeline &amp; cost)</li>
-                <li>Estimate may carry ~40% contingency</li>
-              </ul>
-              <div style="font-weight:700;color:var(--text);margin-top:8px;margin-bottom:4px">ITC decision:</div>
-              <p style="color:var(--text-light)">Conceptual approval to proceed to requirements definition phase (in consultation with BAPS Inc. leadership as appropriate)</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gate 4.2 -->
-        <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <div style="background:var(--primary);color:white;font-weight:800;font-size:0.85rem;padding:5px 12px;border-radius:6px;white-space:nowrap">Gate 4.2</div>
-            <div style="font-weight:700;font-size:0.95rem">Permit to Design, Estimate &amp; Plan</div>
-            <div style="margin-left:auto;font-size:0.72rem;background:var(--blue-light);color:var(--primary);padding:3px 8px;border-radius:4px">Contingency: ~20%</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:0.82rem">
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">During this phase:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>IT assigns BA, PM, and technical resources</li>
-                <li>BA collaborates with Dept SME(s) to elicit &amp; document detailed requirements</li>
-                <li>Assessment of: business process impact, data classification, user access controls, cybersecurity requirements, reporting needs, integration points, support model, infrastructure needs, operational readiness</li>
-                <li>POC conducted if elevated risk or uncertainty</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">Gate criteria:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>Requirements documentation completed &amp; formally signed off</li>
-                <li>Refined estimate with ~20% contingency</li>
-              </ul>
-              <div style="font-weight:700;color:var(--text);margin-top:8px;margin-bottom:4px">ITC reviews:</div>
-              <p style="color:var(--text-light)">Finalized scope, documented requirements, business value, updated estimates, risks, and dependencies → <strong>Approval to proceed to design &amp; planning phase</strong></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gate 4.3 -->
-        <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--primary);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <div style="background:var(--primary);color:white;font-weight:800;font-size:0.85rem;padding:5px 12px;border-radius:6px;white-space:nowrap">Gate 4.3</div>
-            <div style="font-weight:700;font-size:0.95rem">Permit to Build</div>
-            <div style="margin-left:auto;font-size:0.72rem;background:var(--blue-light);color:var(--primary);padding:3px 8px;border-radius:4px">Contingency: ~10%</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:0.82rem">
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">IT prepares:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>Technical design document</li>
-                <li>Delivery plan &amp; resource plan</li>
-                <li>Cost estimate (~10% contingency)</li>
-                <li>Project timeline</li>
-                <li>Comprehensive risk &amp; dependency assessment</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">ITC reviews:</div>
-              <p style="color:var(--text-light);margin-bottom:8px">Technical design, project plan, cost estimate, defined scope, and overall readiness → <strong>Authorization to commence development</strong></p>
-              <div style="background:#fef3c7;border-radius:4px;padding:6px 10px;font-size:0.78rem;color:#d97706"><strong>Rule:</strong> Development activities may commence <em>only</em> after formal Permit to Build approval has been granted.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gate 4.4 -->
-        <div style="background:var(--white);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:var(--radius-sm);padding:16px">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <div style="background:var(--green);color:white;font-weight:800;font-size:0.85rem;padding:5px 12px;border-radius:6px;white-space:nowrap">Gate 4.4</div>
-            <div style="font-weight:700;font-size:0.95rem">Permit to Rollout</div>
-            <div style="margin-left:auto;font-size:0.72rem;background:#dcfce7;color:var(--green);padding:3px 8px;border-radius:4px">Approver: IT RGC + Department</div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:0.82rem">
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">IT &amp; Infrastructure must complete:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>All build activities</li>
-                <li>System testing</li>
-                <li>Cybersecurity validation</li>
-                <li>Performance testing (where applicable)</li>
-                <li>Deployment planning</li>
-                <li>Infrastructure readiness</li>
-                <li>Support preparation</li>
-              </ul>
-            </div>
-            <div>
-              <div style="font-weight:700;color:var(--text);margin-bottom:4px">Department must complete:</div>
-              <ul style="color:var(--text-light);line-height:1.8;padding-left:16px">
-                <li>User Acceptance Testing (UAT) + sign-off</li>
-                <li>Business readiness validation</li>
-                <li>Training completed</li>
-                <li>Stakeholder communications prepared</li>
-              </ul>
-              <div style="font-weight:700;color:var(--text);margin-top:8px;margin-bottom:4px">Post-deployment:</div>
-              <p style="color:var(--text-light)">IT provides hypercare support, then transitions to production support group for ongoing maintenance.</p>
-            </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="background:var(--bg);border-radius:6px;padding:12px;font-size:0.82rem"><strong style="display:block;margin-bottom:4px">4.1 IT owns delivery</strong>All resources — development, architecture, BA, PM, testing, cybersecurity, infrastructure, deployment — are managed by IT. Departments do not manage IT resources or direct technical activity.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:12px;font-size:0.82rem"><strong style="display:block;margin-bottom:4px">4.2 Departments own the business</strong>Business direction, SME input, requirement prioritization, UAT, training readiness and business sign-off. Departments provide L1 user support post go-live.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:12px;font-size:0.82rem"><strong style="display:block;margin-bottom:4px">4.3 Cybersecurity throughout</strong>Data security, data classification, data compliance, privacy, access control, DR, DLP and downtime impact assessed at every stage — not deferred to a final review. Cross-border obligations identified at requirements stage.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:12px;font-size:0.82rem"><strong style="display:block;margin-bottom:4px">4.4 Resource capacity &amp; continuity</strong>Estimates state assumed resource availability. Named backup required for each critical role at PTX-3. Resource loss escalated by PM within [5] days; ITC decision within [10] days.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:12px;font-size:0.82rem;grid-column:1/-1"><strong style="display:block;margin-bottom:6px">4.5 Support model (post go-live)</strong>
+            <table style="width:100%;border-collapse:collapse">
+              <tr style="background:#e0f2fe"><td style="padding:5px 8px;font-weight:600;font-size:0.8rem">L1 — Business/user support</td><td style="padding:5px 8px;font-size:0.8rem">How-to, process guidance, access requests</td><td style="padding:5px 8px;font-weight:600;font-size:0.8rem;color:#0369a1">Department</td></tr>
+              <tr><td style="padding:5px 8px;font-weight:600;font-size:0.8rem">L2 — Functional support</td><td style="padding:5px 8px;font-size:0.8rem">Config, data corrections, report queries</td><td style="padding:5px 8px;font-weight:600;font-size:0.8rem;color:#0369a1">Dept + IT production support</td></tr>
+              <tr style="background:#e0f2fe"><td style="padding:5px 8px;font-weight:600;font-size:0.8rem">L3 — Technical support</td><td style="padding:5px 8px;font-size:0.8rem">Code defects, integration failures, security incidents</td><td style="padding:5px 8px;font-weight:600;font-size:0.8rem;color:#0369a1">IT</td></tr>
+              <tr><td style="padding:5px 8px;font-weight:600;font-size:0.8rem">Hypercare</td><td style="padding:5px 8px;font-size:0.8rem">Delivery team elevated support — [22] business days post go-live</td><td style="padding:5px 8px;font-weight:600;font-size:0.8rem;color:#0369a1">Delivery team → IT production support</td></tr>
+            </table>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Section 5: Project Execution Method -->
+    <!-- §5 Classification & Tiers -->
     <div class="policy-section" id="ptx-s5">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s5')">
-        <span>5. Project Execution Method</span><span class="policy-toggle">▾</span>
+        <span>5. Project Classification &amp; Governance Tiers</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <ul style="font-size:0.83rem;color:var(--text-light);line-height:1.9;padding-left:16px">
-          <li>All requirements must be clearly documented, reviewed, and formally approved <em>before</em> development commences — establishing the agreed Minimum Viable Product (MVP) scope.</li>
-          <li>Agile development methodologies may be used but must include controls to prevent unmanaged scope expansion.</li>
-          <li>Any additional requirement that impacts timeline, cost, resources, or the approved scope must go through the formal project change request procedure.</li>
-          <li>Additional requirements must either follow change management governance or be deferred to subsequent project phases.</li>
-        </ul>
+        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:14px">Governance effort is proportionate to project size and risk. Tier is assigned by ITC at intake and may be revised if the estimate changes. A project may not be split to qualify for a lower tier.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:18px">
+          <thead><tr style="background:var(--primary);color:white"><th style="padding:8px 10px;text-align:left">Tier</th><th style="padding:8px 10px;text-align:left">Threshold</th><th style="padding:8px 10px;text-align:left">Gate treatment</th><th style="padding:8px 10px;text-align:left">Approver</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700">Tier 3 — Lite</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Below [USD 20K] &amp; below [50] working-days; no new integration, data classification or vendor</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Single combined gate</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">IT delivery lead (monthly summary to ITC)</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700">Tier 2 — Standard</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Between Lite and Major thresholds, OR any new integration, data classification or vendor</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Full PTX gate sequence (§6)</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">ITC</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700">Tier 1 — Major</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Above [USD 100K], OR Sanstha-wide impact, OR new platform, OR material compliance exposure</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Full PTX sequence + BAPS Inc. Leadership endorsement at PTX-1 and PTX-3</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">ITC endorsed by BAPS Inc. Leadership</td></tr>
+          </tbody>
+        </table>
+        <div style="font-weight:700;font-size:0.85rem;margin-bottom:10px">5.2 Priority Classification (set by ITC only)</div>
+        <table style="width:100%;border-collapse:collapse;font-size:0.82rem;margin-bottom:14px">
+          <thead><tr style="background:var(--bg)"><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Priority</th><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Meaning</th><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">What it confers</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700;color:#dc2626">P0</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Sanstha-wide critical — compliance, security, service continuity or fixed immovable date</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Front of queue; resources reassigned; ITC gate decision within [3] days; SLAs halved; gates may run in parallel</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700;color:#d97706">P1</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">High business value or firm date in current cycle</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Scheduled current cycle ahead of P2/P3</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700;color:#16a34a">P2</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Standard planned work</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Scheduled by capacity in the normal queue</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:700;color:var(--text-light)">P3</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Desirable, no date pressure</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Backlog; reviewed each planning cycle</td></tr>
+          </tbody>
+        </table>
+        <div style="background:#fef9c3;border-radius:6px;padding:9px 12px;font-size:0.81rem;color:#78350f"><strong>P0 vs S0:</strong> Priority (P0–P3) describes queue position for planned work — set by ITC. Severity (S0) describes live production incidents — owned by IT RGC. They are not interchangeable.</div>
       </div>
     </div>
 
-    <!-- Section 6: SME Requirements -->
-    <div class="policy-section" id="ptx-s6">
+    <!-- §6 PTX Approval Gates -->
+    <div class="policy-section open" id="ptx-s6">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s6')">
-        <span>6. Department SME Requirement</span><span class="policy-toggle">▾</span>
+        <span>6. PTX Approval Gates</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:12px">Departments must designate Subject Matter Expert(s) (SMEs) as business representatives and decision partners. SMEs are <strong>not</strong> responsible for managing IT resources or directing technical development.</p>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-          <div class="gap-card"><div style="font-weight:700;font-size:0.8rem;margin-bottom:4px">Business Knowledge</div><p style="font-size:0.78rem;color:var(--text-light)">Provide business process knowledge and clarify/validate requirements</p></div>
-          <div class="gap-card"><div style="font-weight:700;font-size:0.8rem;margin-bottom:4px">Prioritization</div><p style="font-size:0.78rem;color:var(--text-light)">Support MVP vs. future-phase decisions</p></div>
-          <div class="gap-card"><div style="font-weight:700;font-size:0.8rem;margin-bottom:4px">UAT</div><p style="font-size:0.78rem;color:var(--text-light)">Support UAT planning and execution, coordinate feedback</p></div>
-          <div class="gap-card"><div style="font-weight:700;font-size:0.8rem;margin-bottom:4px">Training</div><p style="font-size:0.78rem;color:var(--text-light)">Support training and stakeholder communication</p></div>
-          <div class="gap-card"><div style="font-weight:700;font-size:0.8rem;margin-bottom:4px">Business Sign-Off</div><p style="font-size:0.78rem;color:var(--text-light)">Confirm business readiness and formally sign off</p></div>
-          <div class="gap-card"><div style="font-weight:700;font-size:0.8rem;margin-bottom:4px">Liaison</div><p style="font-size:0.78rem;color:var(--text-light)">Primary spokesperson and decision partner working with BA &amp; PM</p></div>
+        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:14px">All Tier 1 and Tier 2 projects follow this gate sequence. Development may not commence before PTX-3. Production deployment may not occur before PTX-4.</p>
+        <div style="display:grid;gap:12px">
+          <div style="border:1px solid #bfdbfe;border-left:5px solid #3b82f6;border-radius:8px;padding:14px 16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+              <span style="background:#3b82f6;color:white;font-size:0.7rem;font-weight:800;padding:3px 9px;border-radius:12px">PTX-1</span>
+              <strong>Permit to Start</strong>
+              <span style="margin-left:auto;font-size:0.75rem;color:#3b82f6;font-weight:700">Contingency: up to 40%</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.82rem">
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Work before the gate</strong>Department submits proposal with: business need, high-level requirements, expected benefit (measurable), target user base, urgency justification, dependencies, nominated SME(s). IT provides preliminary estimate (up to 40% contingency).</div>
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Gate decision</strong>ITC grants conceptual approval to proceed to requirements, defers, or returns for justification. ITC assigns tier and priority at this gate.<br><br><span style="color:#6d28d9;font-weight:700">Tier 1: also requires BAPS Inc. Leadership endorsement.</span></div>
+            </div>
+          </div>
+          <div style="border:1px solid #ddd6fe;border-left:5px solid #8b5cf6;border-radius:8px;padding:14px 16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+              <span style="background:#8b5cf6;color:white;font-size:0.7rem;font-weight:800;padding:3px 9px;border-radius:12px">PTX-2</span>
+              <strong>Permit to Design, Estimate &amp; Plan</strong>
+              <span style="margin-left:auto;font-size:0.75rem;color:#8b5cf6;font-weight:700">Contingency: up to 20%</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.82rem">
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Work before the gate</strong>IT assigns BA, PM and technical resources. BA works with SME(s) to elicit and document requirements (§7 workshops). Joint assessment of: business process, data classification, DLP, privacy, cybersecurity, integrations, DR, support model. POC conducted if high risk or uncertainty. Requirements formally signed off by Department Lead, SME(s) and selected users of each user type.</div>
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Gate decision</strong>ITC reviews finalized scope, signed-off requirements, business value, updated estimate, risks and dependencies. If revised cost or timeline exceeds PTX-1 baseline + full contingency, the project returns to PTX-1 (§8.3).</div>
+            </div>
+          </div>
+          <div style="border:1px solid #fde68a;border-left:5px solid #d97706;border-radius:8px;padding:14px 16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+              <span style="background:#d97706;color:white;font-size:0.7rem;font-weight:800;padding:3px 9px;border-radius:12px">PTX-3</span>
+              <strong>Permit to Build</strong>
+              <span style="margin-left:auto;font-size:0.75rem;color:#d97706;font-weight:700">Contingency: up to 10%</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.82rem">
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Work before the gate</strong>IT produces: technical design, UIUX prototypes, delivery plan, resource plan with named backups, test strategy, firm cost estimate, project timeline with agreed milestones, comprehensive risk &amp; dependency assessment.</div>
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Gate decision</strong>ITC reviews technical design, project plan, cost estimate, defined scope and readiness. ITC also sets the <strong>change request cost cap</strong> at this gate. Development may only commence after PTX-3 is formally granted.<br><br><span style="color:#6d28d9;font-weight:700">Tier 1: BAPS Inc. Leadership endorsement also required.</span></div>
+            </div>
+          </div>
+          <div style="border:1px solid #bbf7d0;border-left:5px solid #16a34a;border-radius:8px;padding:14px 16px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+              <span style="background:#16a34a;color:white;font-size:0.7rem;font-weight:800;padding:3px 9px;border-radius:12px">PTX-4</span>
+              <strong>Permit to Rollout</strong>
+              <span style="margin-left:auto;font-size:0.75rem;color:#16a34a;font-weight:700">Approver: IT RGC + Department (ITC notified)</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.82rem">
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">IT &amp; Infrastructure complete</strong>All build activity, system &amp; integration testing, cybersecurity validation, performance testing, deployment planning, rollback plan, infrastructure readiness, run book and handover documentation.</div>
+              <div><strong style="display:block;margin-bottom:4px;color:var(--text-light);font-size:0.75rem;text-transform:uppercase">Department completes</strong>UAT and formal acceptance (§12), business readiness, training, stakeholder communications. ITC also approves if cost or schedule has moved beyond §14 threshold.</div>
+            </div>
+          </div>
+          <div style="border:1px solid #bbf7d0;border-left:5px solid #16a34a;border-radius:8px;padding:14px 16px;background:#f0fdf4">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+              <span style="background:#16a34a;color:white;font-size:0.7rem;font-weight:800;padding:3px 9px;border-radius:12px">PTX-5</span>
+              <strong>Permit to Close</strong>
+              <span style="margin-left:auto;font-size:0.75rem;color:#16a34a;font-weight:700">60–90 days post go-live</span>
+            </div>
+            <div style="font-size:0.82rem">PM presents closure report covering: actual vs approved cost and duration, benefits realization vs PTX-1 measures, scope delivered vs MVP, attributable delay summary, hypercare defects and support transition status, lessons learned. ITC formally closes the project or directs follow-up action.</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Section 7: Project Questionnaire -->
+    <!-- §7 Requirement Workshops -->
     <div class="policy-section" id="ptx-s7">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s7')">
-        <span>7. Project Questionnaire Requirement</span><span class="policy-toggle">▾</span>
+        <span>7. Requirement Workshops</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:10px">All projects (new applications/platforms or new phases/major features of existing ones) must include a completed questionnaire before ITC review. Required fields:</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">📋 Business value and justification</div>
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">📈 Expected benefits</div>
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">👥 Impacted users and operational impact</div>
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">📊 Data and reporting needs</div>
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">🔗 Integration needs</div>
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">🔒 Compliance and security considerations</div>
-          <div style="font-size:0.81rem;background:var(--gray-light);border-radius:5px;padding:7px 10px">⚠️ Risks and timeline</div>
+        <div style="background:#fef9c3;border-left:4px solid #f59e0b;border-radius:6px;padding:10px 14px;font-size:0.82rem;margin-bottom:14px;color:#78350f"><strong>A requirement workshop is not a brainstorming or discovery session.</strong> Departments must form their own position — resolving internal disagreements — before the workshop. Workshop time is for explanation and clarification, not for the Department deciding what it wants.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.82rem">
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px">Scheduling (§7.2)</strong>All workshops scheduled as a series at the start of requirements stage. BA circulates agenda [3] days before each session. Department confirms SME attendance [2] days before.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px">SME Preparation (§7.3)</strong>SME arrives able to explain: current-state process, desired future-state, business rules and edge cases, sample forms/data, volumes and peak periods, internal position where options exist, and which items are MVP vs future phase.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px">Outcomes (§7.4)</strong>BA publishes minutes and requirements within [2] days. SME confirms or corrects within [2] days — no response = confirmed. Open questions tracked in requirements log under §11 SLAs.</div>
+          <div style="background:#fef2f2;border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px;color:#dc2626">Unprepared workshop (§7.5)</strong>If SME is absent or unprepared such that the session cannot proceed, BA ends and reschedules. Time recorded as Attributable Delay against the Department. Two consecutive occurrences escalated to Department Lead and ITC.</div>
         </div>
       </div>
     </div>
 
-    <!-- Section 8: P0 Classification -->
+    <!-- §8 Estimation & Budget -->
     <div class="policy-section" id="ptx-s8">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s8')">
-        <span>8. P0 &amp; Critical Enhancement Classification</span><span class="policy-toggle">▾</span>
+        <span>8. Estimation, Contingency &amp; Budget Governance</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <div style="background:#fef3c7;border-radius:6px;padding:10px 14px;font-size:0.83rem;margin-bottom:12px;color:#92400e"><strong>Key rule:</strong> Classification as Priority 0 (P0) is determined <em>solely</em> at ITC's discretion. A request being urgent or important to one Department does not automatically qualify it as P0.</div>
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:8px">ITC evaluates:</p>
-        <ul style="font-size:0.83rem;color:var(--text-light);line-height:1.8;padding-left:16px">
-          <li>Sanstha-wide impact</li>
-          <li>Business criticality</li>
-          <li>User impact</li>
-          <li>Operational dependencies</li>
-          <li>Compliance or security risks</li>
-          <li>Service continuity</li>
-          <li>Available IT capacity</li>
-          <li>Alignment with BAPS priorities</li>
-        </ul>
-        <p style="font-size:0.83rem;color:var(--text-light);margin-top:8px">Defects, incidents, bugs, and production outages are excluded — these are governed by IT RGC under established incident and production management procedures.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
+          <div style="border:1px solid #bfdbfe;border-radius:8px;padding:12px;text-align:center"><div style="font-size:1.5rem;font-weight:800;color:#3b82f6">40%</div><div style="font-size:0.78rem;color:var(--text-light)">max contingency at PTX-1<br><em>Order-of-magnitude</em></div></div>
+          <div style="border:1px solid #ddd6fe;border-radius:8px;padding:12px;text-align:center"><div style="font-size:1.5rem;font-weight:800;color:#8b5cf6">20%</div><div style="font-size:0.78rem;color:var(--text-light)">max contingency at PTX-2<br><em>Refined estimate</em></div></div>
+          <div style="border:1px solid #fde68a;border-radius:8px;padding:12px;text-align:center"><div style="font-size:1.5rem;font-weight:800;color:#d97706">10%</div><div style="font-size:0.78rem;color:var(--text-light)">max contingency at PTX-3<br><em>Firm estimate</em></div></div>
+        </div>
+        <div style="font-size:0.82rem;display:grid;gap:8px">
+          <div style="background:var(--bg);border-radius:6px;padding:10px 12px"><strong>Contingency is a ceiling, not an entitlement</strong> — held at project level; not available to fund additional scope. Additional scope = change request. Drawdown exceeding [50%] of contingency escalated to ITC. Unused contingency released at PTX-5.</div>
+          <div style="background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:10px 12px"><strong>Breach of approved envelope (§8.3)</strong> — if revised cost or timeline at conclusion of requirements or design stage exceeds baseline + full contingency, the project returns to PTX-1. PM issues variance notice within [5] days. All further spend suspended pending ITC decision.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:10px 12px"><strong>Funding (§8.4)</strong> — source (Department, central IT, or combined) identified at PTX-1 and confirmed at PTX-3. Projects crossing a financial year must state the split by year.</div>
+        </div>
       </div>
     </div>
 
-    <!-- Section 9-10: Change Requests -->
+    <!-- §9 Project Execution -->
     <div class="policy-section" id="ptx-s9">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s9')">
-        <span>9 &amp; 10. Project Change Request Governance</span><span class="policy-toggle">▾</span>
+        <span>9. Project Execution Method</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <p style="font-size:0.83rem;color:var(--text-light);margin-bottom:12px">A project change request is required when any of the following occurs after formal approval at a PTX gate:</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
-          <div style="font-size:0.81rem;background:#fef3c7;border-radius:5px;padding:8px 12px;border-left:3px solid #d97706">Scope changes — additions or reductions to approved MVP</div>
-          <div style="font-size:0.81rem;background:#fef3c7;border-radius:5px;padding:8px 12px;border-left:3px solid #d97706">Cost increase or decrease beyond ±5% of approved baseline</div>
-          <div style="font-size:0.81rem;background:#fef3c7;border-radius:5px;padding:8px 12px;border-left:3px solid #d97706">Timeline change of more than the approved buffer</div>
-          <div style="font-size:0.81rem;background:#fef3c7;border-radius:5px;padding:8px 12px;border-left:3px solid #d97706">Resource changes materially impacting delivery</div>
-          <div style="font-size:0.81rem;background:#fef3c7;border-radius:5px;padding:8px 12px;border-left:3px solid #d97706">Delivery commitment changes</div>
-          <div style="font-size:0.81rem;background:#fef3c7;border-radius:5px;padding:8px 12px;border-left:3px solid #d97706">Technical design changes materially affecting architecture</div>
-        </div>
-        <p style="font-size:0.83rem;color:var(--text-light)">ITC has authority to approve, modify, hold, or return change requests. PM is responsible for proactive risk escalation as part of ongoing project status reporting.</p>
+        <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:12px">All requirements must be documented, reviewed and formally signed off before development begins. Agile delivery methods may be used but must include controls to prevent unmanaged scope expansion. Any requirement affecting timeline, cost, resources or approved scope must be a formal change request (§14) or deferred to a future phase. <em>Iteration within an agreed requirement is expected; new requirements introduced through iteration are not.</em></p>
+        <div style="background:var(--bg);border-radius:6px;padding:11px 13px;font-size:0.82rem"><strong>Demonstration sessions (§9.1)</strong> — at minimum at the end of each sprint or milestone, with dates set at PTX-3. SME attendance mandatory. SME confirms or lists specific discrepancies within [3] days (no response = confirmed). Deviation from baseline = defect. Something new or different = change request under §14.</div>
       </div>
     </div>
 
-    <!-- Section 11: Roles -->
+    <!-- §10 Department SME Requirements -->
+    <div class="policy-section" id="ptx-s10">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s10')">
+        <span>10. Department SME Requirements</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:12px">Each Department designates named SME(s) as its business representative and decision partner. SMEs do not manage IT resources or direct technical development.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:0.82rem">
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:6px">SME Responsibilities (§10.1)</strong>
+            <ul style="padding-left:14px;line-height:1.9;color:var(--text-light)">
+              <li>Provide business process knowledge across all affected user levels</li>
+              <li>Prepare for and attend workshops (§7)</li>
+              <li>Clarify and validate requirements within SLAs (§11)</li>
+              <li>Support MVP vs future-phase prioritization</li>
+              <li>Attend demonstrations and confirm delivered work</li>
+              <li>Plan and execute UAT; coordinate UAT users</li>
+              <li>Consolidate Departmental feedback into a single position</li>
+              <li>Confirm business readiness and provide acceptance sign-off</li>
+            </ul>
+          </div>
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:6px">SME Availability Commitment (§10.2)</strong>Department confirms named SME(s) and time commitment by stage at PTX-1.<br><br>If a named SME becomes unavailable, the Department nominates a replacement within <strong>[5] business days</strong>.<br><br><span style="color:#dc2626;font-weight:600">Time lost to an unfilled SME position is an Attributable Delay against the Department.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §11 SLAs & Delay Attribution -->
     <div class="policy-section" id="ptx-s11">
       <div class="policy-section-header" onclick="togglePolicySection('ptx-s11')">
-        <span>11. Roles &amp; Responsibilities</span><span class="policy-toggle">▾</span>
+        <span>11. Response SLAs, Decision-Making &amp; Delay Attribution</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div class="gap-card" style="border-left:4px solid var(--primary)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">Department &amp; SME</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Business direction, requirements, SME designation, UAT, training, readiness sign-off, and stakeholder communications.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid var(--primary)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">Business Analyst (BA)</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Elicits, analyzes, and documents requirements; facilitates between IT and business; manages requirement traceability.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid var(--primary)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">Project Manager (PM)</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Manages delivery execution, project status reporting, risk/issue escalation, cost and timeline variance reporting to ITC.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid var(--primary)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">IT &amp; IT Infrastructure</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">All technical delivery: architecture, development, cybersecurity, infrastructure, testing, deployment, and post-launch hypercare.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid #d97706">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">IT RGC</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Governance, assurance, and reporting. Co-approves Gate 4.4 (Rollout). IT and IT Infrastructure retain accountability for delivery execution.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid #d97706">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">ITC</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Governance oversight and approval: prioritization, P0 classification, PTX stage approvals, budget review, and change request decisions. Escalates to BAPS Inc. leadership as needed.</p>
-          </div>
-          <div class="gap-card" style="border-left:4px solid var(--green)">
-            <div style="font-weight:700;font-size:0.84rem;margin-bottom:6px">BAPS Inc. Leadership</div>
-            <p style="font-size:0.81rem;color:var(--text-light)">Approves strategic priorities, major investments, project concepts, budget considerations, and escalated decisions.</p>
-          </div>
+        <div style="background:#eff6ff;border-radius:6px;padding:9px 12px;font-size:0.81rem;margin-bottom:14px;color:var(--primary)">Delivery timelines depend on every party meeting its commitments — not only IT. Delay recording is a factual measurement for planning and transparency, not a disciplinary mechanism.</div>
+        <table style="width:100%;border-collapse:collapse;font-size:0.81rem;margin-bottom:14px">
+          <thead><tr style="background:var(--primary);color:white"><th style="padding:7px 10px;text-align:left">Event</th><th style="padding:7px 10px;text-align:left">Party</th><th style="padding:7px 10px;text-align:center">SLA</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Requirement clarification — non-blocking</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Department SME</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[2] days</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Requirement clarification — blocking</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Department SME</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[1] day</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Requirement priority decision (MVP vs future)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">SME + Dept Lead</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[3] days</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirmation of workshop minutes</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Department SME</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[2] days</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Demonstration review confirmation</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Department SME</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[3] days</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">UAT defect retest confirmation</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">SME / UAT user</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[2] days</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">UAT acceptance sign-off</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Dept Lead + SME</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[5] days</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Design or estimate after requirements sign-off</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">IT</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[10] days</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Defect triage during UAT</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">IT</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[2] days</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Environment provisioning</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">IT Infrastructure</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[5] days</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Gate decision after complete submission</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">Next cycle, max [10] days ([3] for P0)</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Change request decision</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[10] days ([5] for P0)</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Escalation response</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC Chair</td><td style="padding:6px 10px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">[5] days</td></tr>
+          </tbody>
+        </table>
+        <div style="background:var(--bg);border-radius:6px;padding:10px 12px;font-size:0.81rem"><strong>Delay attribution (§11.4)</strong> — when a due date is missed, PM records elapsed working days against the responsible party. Published fortnightly to project stakeholders; monthly to ITC. ITC reviews delay trends quarterly.</div>
+      </div>
+    </div>
+
+    <!-- §12 Testing, UAT & Acceptance -->
+    <div class="policy-section" id="ptx-s12">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s12')">
+        <span>12. Testing, UAT &amp; Acceptance</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;gap:10px;font-size:0.82rem">
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px">Responsibility (§12.1)</strong>Department SME(s) and nominated UAT users test against the signed-off requirements and approved UIUX prototypes — representing all user types. IT is responsible for system, integration, security and performance testing before UAT opens, for the UAT environment, test data, defect triage and UAT support.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px">UAT exit criteria (§12.2)</strong>All Severity 1 &amp; 2 defects resolved and retested. Severity 3 &amp; 4 agreed with a disposition (fix now / fix in hypercare / defer). UAT plan agreed at PTX-3; scenarios trace to signed-off requirements.</div>
+          <div style="background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:5px;color:#dc2626">Formal acceptance sign-off (§12.3) — required for PTX-4</strong>"By signing, the Department confirms that it has tested the delivered system against the documented and signed-off requirements and approved UIUX prototypes; that the delivered solution meets those agreed requirements and expectations; that any outstanding defects have been reviewed and their disposition agreed; and that the release is validated and fit to be deployed to production."<br><br>Withholding acceptance must cite a specific requirement in the baseline. Withholding for reasons not in the baseline = change request, not a delivery failure.</div>
         </div>
       </div>
     </div>
 
-    <!-- Section 12-13: Compliance & Summary -->
-    <div class="policy-section" id="ptx-s12">
-      <div class="policy-section-header" onclick="togglePolicySection('ptx-s12')">
-        <span>12 &amp; 13. Policy Compliance &amp; Summary</span><span class="policy-toggle">▾</span>
+    <!-- §13 Conflict Resolution -->
+    <div class="policy-section" id="ptx-s13">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s13')">
+        <span>13. Conflict Resolution &amp; Interpretation</span><span class="policy-toggle">▾</span>
       </div>
       <div class="policy-section-body">
-        <div style="background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:10px 14px;font-size:0.83rem;margin-bottom:12px;color:#7f1d1d"><strong>Non-compliance:</strong> Projects that do not complete required PTX gates may be paused, deferred, returned for clarification, or reprioritized. Exceptions require formal ITC review and approval.</div>
-        <p style="font-size:0.83rem;color:var(--text-light)">This policy strengthens the intake and execution framework by introducing clearly defined approval gates, improved SME collaboration, robust change control, consistent P0 classification, and heightened service resiliency awareness. Departments own business expertise and approvals; IT and Infrastructure own delivery and technical execution; ITC provides governance oversight and decision-making authority.</p>
+        <div style="background:#eff6ff;border-radius:6px;padding:9px 12px;font-size:0.81rem;margin-bottom:12px"><strong>Single source of truth:</strong> all disputes resolved by reference to the baseline (signed-off requirements + approved UIUX prototypes + all approved change requests). Verbal understandings and unrecorded discussions are not a basis for any claim.</div>
+        <table style="width:100%;border-collapse:collapse;font-size:0.81rem">
+          <thead><tr style="background:var(--bg)"><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Determination</th><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Test</th><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Treatment</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Defect</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Behaviour deviates from signed-off requirement or approved prototype</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Corrected by IT at no additional cost</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Expected behaviour</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Behaviour matches the documented requirement, even if undesirable</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Not a defect — any change is a change request or future-phase item</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Requirement gap</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Baseline is silent, contradictory or ambiguous</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Joint review BA + SME + PM within [3] days; if extra effort required, becomes a change request</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">In scope</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Explicitly in signed-off requirements, prototypes, or an approved CR</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Delivered within current project</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid var(--border);font-weight:600">Out of scope</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Not in the baseline, or explicitly recorded as future-phase</td><td style="padding:7px 10px;border-bottom:1px solid var(--border)">Change request (§14) or deferred to a future phase</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px;font-size:0.81rem;color:var(--text-light)">Unresolved after [3] days → Dept Lead + IT delivery lead. Still unresolved after [5] days → ITC (final). All determinations recorded in the Requirements Decision Log.</div>
       </div>
     </div>
+
+    <!-- §14 Change Request Governance -->
+    <div class="policy-section" id="ptx-s14">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s14')">
+        <span>14. Change Request Governance</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:12px">Every change undergoes formal impact analysis (scope, timeline, cost, resources, testing, security, training, deployment) before any decision or execution. Change requests are logged whether or not approved.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.81rem;margin-bottom:12px">
+          <thead><tr style="background:var(--primary);color:white"><th style="padding:7px 10px;text-align:left">Category</th><th style="padding:7px 10px;text-align:left">Definition</th><th style="padding:7px 10px;text-align:left">Authority</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:600">Minor / no impact</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">No effect on approved scope, timeline, cost or resources</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">IT delivery lead; logged and reported fortnightly</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:600">Within cap &amp; below threshold</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Cumulative cost within CR cost cap and below variance threshold</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">PM + SME; reported to ITC monthly</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:600">Above threshold or above cap</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Cost variance &gt;5% of approved cost or &gt;[USD 5K]; schedule slip &gt;[10%] or &gt;[10] days; or any CR exceeding the cost cap</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC (Tier 1: + BAPS Inc. Leadership)</td></tr>
+          </tbody>
+        </table>
+        <div style="background:#fef9c3;border-radius:6px;padding:9px 12px;font-size:0.81rem;color:#78350f"><strong>CR cost cap (§14.3)</strong> — ITC sets a project-level change request cost cap at PTX-3. Cap consumption reported every status report to ITC.</div>
+      </div>
+    </div>
+
+    <!-- §15 Project Questionnaire -->
+    <div class="policy-section" id="ptx-s15">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s15')">
+        <span>15. Project Questionnaire (PTX-1 submission)</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:10px">Every project must submit a completed questionnaire before ITC review at PTX-1. Tier 3 (Lite) may use the short form.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.82rem">
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Business value and justification</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Expected benefits with measurable criteria (checked at PTX-5)</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Impacted users, user counts by type, operational impact</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Data and reporting needs; data classification</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Integration needs and dependencies</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Compliance, privacy and security considerations including cross-border data handling</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Urgency claim — specific justification required</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Known risks, indicative timeline, fixed external dates</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Nominated SME(s) and confirmed availability</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Proposed funding source</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §16 Service Resiliency -->
+    <div class="policy-section" id="ptx-s16">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s16')">
+        <span>16. Service Resiliency</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="background:#fef9c3;border-left:4px solid #f59e0b;border-radius:6px;padding:10px 14px;font-size:0.82rem;margin-bottom:12px">IT RGC remains the governing authority for S0 outages. For S0: the primary focus is continuity of the <em>overall</em> business service — not just an individual application.</div>
+        <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:10px">Assessed at PTX-2 and validated at PTX-4:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.82rem">
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Applications and their recovery objectives (RTO/RPO)</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Data integrations and feeds</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Vendors and contracted recovery commitments</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Support teams and on-call coverage</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Users and the operational impact of unavailability</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Manual fallback processes</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Communication and escalation paths</div>
+          <div style="background:var(--bg);border-radius:5px;padding:8px 10px">Business continuity procedures</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §17 Escalation, Appeals & Exceptions -->
+    <div class="policy-section" id="ptx-s17">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s17')">
+        <span>17. Escalation, Appeals &amp; Exceptions</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="font-size:0.82rem;display:grid;gap:10px">
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:4px">Escalation path (§17.1)</strong>BA / SME &rarr; PM &rarr; Department Lead + IT delivery lead &rarr; ITC &rarr; BAPS Inc. Leadership. Each level responds within [5] business days.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:4px">Departmental appeal (§17.2)</strong>Written appeal to ITC Chair within [10] days of decision. ITC Chair responds within [10] days. If still dissatisfied &rarr; BAPS Inc. Leadership (final). Appeal does not suspend the original decision.</div>
+          <div style="background:var(--bg);border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:4px">Exceptions (§17.3)</strong>Any exception requires: what is waived, why, risk accepted, compensating control. Approved by ITC; recorded in exception register (quarterly review). Time-limited — expire at project closure unless renewed.</div>
+          <div style="background:#f0fdf4;border-left:4px solid #16a34a;border-radius:6px;padding:11px 13px"><strong style="display:block;margin-bottom:4px">Emergency / date-driven path (§17.4)</strong>For genuine emergencies or immovable external dates (festival, regulatory deadline): Dept Lead + IT delivery lead jointly request from ITC Chair. Approval within [2] business days. Gates compressed and may run in parallel — <strong>none is skipped</strong>. Requirements sign-off, security validation and acceptance sign-off are never waived. Ratified by full ITC at next meeting.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §18 RACI -->
+    <div class="policy-section" id="ptx-s18">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s18')">
+        <span>18. Roles &amp; Responsibilities — RACI by Gate</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.81rem;color:var(--text-light);margin-bottom:10px">R = Responsible &middot; A = Accountable &middot; C = Consulted &middot; I = Informed</p>
+        <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:0.78rem">
+          <thead><tr style="background:var(--primary);color:white"><th style="padding:6px 8px;text-align:left;min-width:180px">Activity</th><th style="padding:6px 8px;text-align:center">Dept</th><th style="padding:6px 8px;text-align:center">SME</th><th style="padding:6px 8px;text-align:center">IT</th><th style="padding:6px 8px;text-align:center">IT Infra</th><th style="padding:6px 8px;text-align:center">BA/PM</th><th style="padding:6px 8px;text-align:center">IT RGC</th><th style="padding:6px 8px;text-align:center">ITC</th></tr></thead>
+          <tbody>
+            <tr style="background:#eff6ff"><td colspan="8" style="padding:5px 8px;font-weight:700;font-size:0.77rem;color:#3b82f6">PTX-1 — Permit to Start</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Submit proposal &amp; questionnaire</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Preliminary estimate</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">PTX-1 decision, tier &amp; priority</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td></tr>
+            <tr style="background:#eff6ff"><td colspan="8" style="padding:5px 8px;font-weight:700;font-size:0.77rem;color:#8b5cf6">PTX-2 — Permit to Design, Estimate &amp; Plan</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Prepare &amp; explain requirements</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Document requirements</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Security, data &amp; resiliency assessment</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Requirements sign-off</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">PTX-2 decision</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td></tr>
+            <tr style="background:#eff6ff"><td colspan="8" style="padding:5px 8px;font-weight:700;font-size:0.77rem;color:#d97706">PTX-3 — Permit to Build</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Technical design &amp; UIUX prototypes</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:5px 8px;border-bottom:1px solid var(--border)">PTX-3 decision &amp; CR cost cap</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">Development &amp; unit testing</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:#eff6ff"><td colspan="8" style="padding:5px 8px;font-weight:700;font-size:0.77rem;color:#16a34a">PTX-4 — Permit to Rollout</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">UAT execution</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:5px 8px;border-bottom:1px solid var(--border)">UAT acceptance sign-off</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">PTX-4 rollout readiness decision</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td></tr>
+            <tr style="background:#eff6ff"><td colspan="8" style="padding:5px 8px;font-weight:700;font-size:0.77rem;color:#16a34a">PTX-5 — Permit to Close</td></tr>
+            <tr><td style="padding:5px 8px;border-bottom:1px solid var(--border)">PTX-5 closure &amp; benefits review</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">I</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A/R</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center">C</td><td style="padding:5px 8px;border-bottom:1px solid var(--border);text-align:center;font-weight:700">A</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- §19 Policy Compliance -->
+    <div class="policy-section" id="ptx-s19">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s19')">
+        <span>19. Policy Compliance</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <div style="display:grid;gap:8px;font-size:0.82rem">
+          <div style="background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:9px 12px;color:#7f1d1d">Projects that do not complete required PTX gates may be paused, deferred, returned for clarification or reprioritised.</div>
+          <div style="background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:9px 12px;color:#7f1d1d">Projects forecast to overrun a stage by more than [10] business days must be reported to ITC at the point the overrun becomes foreseeable — not after it occurs.</div>
+          <div style="background:#fef2f2;border-left:4px solid #dc2626;border-radius:6px;padding:9px 12px;color:#7f1d1d">Work commenced without the applicable permit is stopped by the IT delivery lead and reported to ITC. Cost already incurred requires retrospective ITC ratification.</div>
+          <div style="background:#fef9c3;border-left:4px solid #f59e0b;border-radius:6px;padding:9px 12px;color:#78350f">Repeated non-compliance by a Department or IT team is reported to ITC quarterly and may result in that Department's requests being sequenced behind compliant work.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §20 Metrics -->
+    <div class="policy-section" id="ptx-s20">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s20')">
+        <span>20. Metrics &amp; Continuous Improvement</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:10px">ITC monitors these measures quarterly and publishes them to Department Leads and IT. Policy reviewed annually or sooner at ITC discretion.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:0.81rem">
+          <thead><tr style="background:var(--bg)"><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Measure</th><th style="padding:7px 10px;border-bottom:2px solid var(--border);text-align:left">Purpose</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Gate cycle time — submission to decision, by gate</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Whether governance itself is a bottleneck</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">SLA compliance rate by party (Dept, IT, IT Infra, ITC)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Whether commitments are being met across the board</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Cumulative attributable delay days by party</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Where time is actually being lost</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Estimate accuracy — actual vs PTX-3 approved cost &amp; schedule</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Whether estimating is improving</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Change request volume &amp; value as % of approved cost</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Whether requirements are defined well enough up front</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Defects found in UAT and in hypercare</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Delivery quality and adequacy of testing</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Benefits realisation confirmed at PTX-5</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Whether the value case is holding true</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Number of exceptions and emergency-path invocations</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Whether the standard process is workable</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- §21 Open Decisions (Appendix E) -->
+    <div class="policy-section" id="ptx-s21">
+      <div class="policy-section-header" onclick="togglePolicySection('ptx-s21')">
+        <span>21. Open Decisions Required Before Publication</span><span class="policy-toggle">▾</span>
+      </div>
+      <div class="policy-section-body">
+        <table style="width:100%;border-collapse:collapse;font-size:0.81rem">
+          <thead><tr style="background:#fef9c3"><th style="padding:7px 10px;border-bottom:2px solid #f59e0b;text-align:left">#</th><th style="padding:7px 10px;border-bottom:2px solid #f59e0b;text-align:left">Decision Required</th><th style="padding:7px 10px;border-bottom:2px solid #f59e0b;text-align:left">Owner</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">1</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm whether ITC retains authority to decline a change request (struck through in v1.0 with no attribution — reinstated here pending confirmation)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">2</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Clarify the "????" comment against IT Infrastructure role in the previous draft</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Satyanishth Swami</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">3</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm all bracketed SLA values, day counts, percentages and monetary thresholds throughout</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">4</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Set the effective date and confirm in-flight project transition treatment (§2)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">5</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm governance tier thresholds (§5.1)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC with BAPS Inc. Leadership</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">6</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm whether ITC participates in PTX-4 decision or is notified only (§6)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC and IT RGC</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">7</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm the funding model — Department budget, central IT, or split (§8.4)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">BAPS Inc. Leadership</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">8</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Assign owners and due dates for every supporting artefact (proposal template, questionnaire, CR form, etc.)</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC Chair</td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">9</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm ITC composition, quorum, decision rule (majority or consensus), and delegation when members are unavailable</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td></tr>
+            <tr style="background:var(--bg)"><td style="padding:6px 10px;border-bottom:1px solid var(--border);font-weight:700">10</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">Confirm the ITC meeting cadence on which the gate decision SLA depends</td><td style="padding:6px 10px;border-bottom:1px solid var(--border)">ITC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
 
   </div><!-- /panel-ptx -->
 
