@@ -70,66 +70,116 @@
   }
   header h1 { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.2; }
   header p { font-size: 0.72rem; color: var(--text-light); margin-top: 1px; }
-  /* ── SECTION SWITCHER (top level) ── */
-
-  /* ── SUB-NAV BAR (second level) ── */
-  .subnav {
-    border-top: 2px solid var(--primary);
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 58px;
+    left: 0;
+    width: 224px;
+    height: calc(100vh - 58px);
+    overflow-y: auto;
     background: var(--white);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  }
-  .subnav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 28px;
+    border-right: 1px solid var(--border);
+    z-index: 50;
     display: flex;
-    align-items: stretch;
-    gap: 0;
-    height: 44px;
-    overflow-x: auto;
+    flex-direction: column;
   }
-  .nav-btn {
-    background: none;
-    border: none;
-    border-bottom: 3px solid transparent;
-    color: var(--text-light);
-    padding: 0 16px;
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: all 0.15s;
-    font-weight: 500;
-    white-space: nowrap;
-    height: 100%;
+  .sidebar-brand {
+    padding: 14px 16px 11px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    margin-bottom: -2px;
+    gap: 10px;
   }
-  .nav-btn:hover { color: var(--primary); background: var(--blue-light); }
-  .nav-btn.active {
-    color: var(--primary);
+  .sidebar-brand-text { flex: 1; min-width: 0; }
+  .sidebar-brand-title { font-size: 0.8rem; font-weight: 700; color: var(--text); line-height: 1.25; }
+  .sidebar-brand-sub { font-size: 0.66rem; color: var(--text-light); margin-top: 1px; }
+  .sidebar-section-label {
+    font-size: 0.6rem;
     font-weight: 700;
-    border-bottom: 3px solid var(--primary);
-    background: none;
-  }
-  .nav-btn.nav-recommended {
-    color: var(--green);
-    font-weight: 600;
-  }
-  .nav-btn.nav-recommended.active {
-    color: var(--green);
-    border-bottom-color: var(--green);
-  }
-  .nav-btn.nav-recommended:hover { background: #f0fdf4; }
-  .nav-divider {
-    width: 1px;
-    background: var(--border);
-    margin: 10px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    padding: 13px 16px 4px;
     flex-shrink: 0;
   }
-  .nav-print { margin-left: auto; color: var(--text-light); font-size: 0.78rem; }
+  .sidebar-subsection-label {
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #c3cad5;
+    padding: 7px 16px 2px;
+    flex-shrink: 0;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    border: none;
+    border-left: 3px solid transparent;
+    transition: all 0.12s;
+    user-select: none;
+    width: 100%;
+    text-align: left;
+    background: none;
+    line-height: 1.35;
+    flex-shrink: 0;
+  }
+  .sidebar-item:hover { background: var(--gray-light); color: var(--text); }
+  .sidebar-item.active {
+    background: var(--blue-light);
+    color: var(--primary);
+    font-weight: 600;
+    border-left-color: var(--primary);
+  }
+  .sidebar-item.nav-recommended { color: #16a34a; }
+  .sidebar-item.nav-recommended:hover { background: #f0fdf4; }
+  .sidebar-item.nav-recommended.active {
+    background: #dcfce7;
+    color: #15803d;
+    border-left-color: #16a34a;
+  }
+  .sidebar-item .item-icon {
+    font-style: normal;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    opacity: 0.7;
+    width: 16px;
+    text-align: center;
+  }
+  .sidebar-divider { height: 1px; background: var(--border); margin: 6px 0; flex-shrink: 0; }
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 10px 12px;
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .sidebar-print-btn {
+    width: 100%;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.12s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .sidebar-print-btn:hover { background: var(--gray-light); color: var(--text); }
 
   /* ── LAYOUT ── */
-  .container { max-width: 1200px; margin: 0 auto; padding: 28px 28px 60px; }
+  .container { margin-left: 224px; padding: 28px 32px 60px; }
 
   /* ── PANELS ── */
   .panel { display: none; }
@@ -813,15 +863,19 @@
     .stats-row { display: none; }
   }
 
-  @media (max-width: 700px) {
-    .header-inner { padding: 0 16px; }
-    .container { padding: 16px 16px 40px; }
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .container { margin-left: 0; padding: 16px 16px 40px; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
     .gate-outcomes { grid-template-columns: 1fr; }
     .exit-points { grid-template-columns: 1fr; }
     .compare-grid { grid-template-columns: 1fr; }
     .pipeline-stage { min-width: 72px; }
     .pipeline-stage:not(:last-child)::after { display: none; }
+  }
+  @media print {
+    .sidebar { display: none !important; }
+    .container { margin-left: 0 !important; }
   }
 </style>
 </head>
@@ -837,38 +891,69 @@
       </div>
     </div>
   </div>
-  <!-- Audience switcher -->
-  <div style="background:var(--primary);padding:0">
-    <div style="max-width:1200px;margin:0 auto;padding:0 28px;display:flex;gap:0">
-      <button id="aud-sg" onclick="switchAudience('sg')" style="background:rgba(255,255,255,0.18);color:white;border:none;padding:10px 24px;font-size:0.85rem;font-weight:700;cursor:pointer;border-bottom:3px solid white;transition:all 0.15s">
-        &#128196; Stage Gate — For Project Managers
-      </button>
-      <button id="aud-ptx" onclick="switchAudience('ptx')" style="background:none;color:rgba(255,255,255,0.65);border:none;padding:10px 24px;font-size:0.85rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:all 0.15s">
-        &#9878; PTX Policy — For ITC / Board
-      </button>
-    </div>
-  </div>
-
-  <!-- Stage Gate subnav (3 tabs) -->
-  <div class="subnav" id="subnav-sg">
-    <div class="subnav-inner">
-      <button class="nav-btn active" id="navbtn-overview" onclick="showPanel('overview', this)">How It Works</button>
-      <button class="nav-btn" id="navbtn-stages" onclick="showPanel('stages', this)">All 8 Stages</button>
-      <button class="nav-btn" id="navbtn-sg-templates" onclick="showPanel('sg-templates', this)">Templates</button>
-      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
-    </div>
-  </div>
-
-  <!-- PTX subnav (4 tabs) -->
-  <div class="subnav" id="subnav-ptx" style="display:none">
-    <div class="subnav-inner">
-      <button class="nav-btn active" id="navbtn-ptx" onclick="showPanel('ptx', this)">Current Policy</button>
-      <button class="nav-btn" id="navbtn-ptx-gaps" onclick="showPanel('ptx-gaps', this)">Gap Analysis</button>
-      <button class="nav-btn nav-recommended" id="navbtn-ptx-recommended" onclick="showPanel('ptx-recommended', this)">&#10003; Recommended</button>
-      <button class="nav-btn nav-print" onclick="window.print()">Print</button>
-    </div>
-  </div>
 </header>
+
+<!-- ═══ SIDEBAR ═══ -->
+<nav class="sidebar">
+  <div class="sidebar-brand">
+    <div class="header-logo" style="width:30px;height:30px;font-size:11px;flex-shrink:0">IT</div>
+    <div class="sidebar-brand-text">
+      <div class="sidebar-brand-title">BAPS IT Governance</div>
+      <div class="sidebar-brand-sub">Project &amp; Policy Hub</div>
+    </div>
+  </div>
+
+  <div class="sidebar-section-label">&#128196; Stage Gate</div>
+  <button class="sidebar-item active" id="sid-overview" onclick="showPanel('overview',this)">
+    <i class="item-icon">⊞</i> How It Works
+  </button>
+  <button class="sidebar-item" id="sid-stages" onclick="showPanel('stages',this)">
+    <i class="item-icon">☑</i> All 8 Stages
+  </button>
+  <button class="sidebar-item" id="sid-sg-templates" onclick="showPanel('sg-templates',this)">
+    <i class="item-icon">📋</i> Templates
+  </button>
+
+  <div class="sidebar-subsection-label">Analysis</div>
+  <button class="sidebar-item" id="sid-gaps" onclick="showPanel('gaps',this)">
+    <i class="item-icon">🔍</i> Gap Analysis
+  </button>
+  <button class="sidebar-item" id="sid-pmfeedback" onclick="showPanel('pmfeedback',this)">
+    <i class="item-icon">💬</i> PM Feedback
+  </button>
+  <button class="sidebar-item" id="sid-industry" onclick="showPanel('industry',this)">
+    <i class="item-icon">🏭</i> Industry Comparison
+  </button>
+  <button class="sidebar-item" id="sid-glossary" onclick="showPanel('glossary',this)">
+    <i class="item-icon">📖</i> Glossary
+  </button>
+  <button class="sidebar-item" id="sid-sg-industry-gaps" onclick="showPanel('sg-industry-gaps',this)">
+    <i class="item-icon">⚡</i> Industry Gaps
+  </button>
+  <button class="sidebar-item nav-recommended" id="sid-sg-recommended" onclick="showPanel('sg-recommended',this)">
+    <i class="item-icon">✓</i> Recommended Changes
+  </button>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-section-label">&#9878; PTX Policy</div>
+  <button class="sidebar-item" id="sid-ptx" onclick="showPanel('ptx',this)">
+    <i class="item-icon">📑</i> Current Policy
+  </button>
+  <button class="sidebar-item" id="sid-ptx-gaps" onclick="showPanel('ptx-gaps',this)">
+    <i class="item-icon">🔍</i> Gap Analysis
+  </button>
+  <button class="sidebar-item nav-recommended" id="sid-ptx-recommended" onclick="showPanel('ptx-recommended',this)">
+    <i class="item-icon">✓</i> Recommended
+  </button>
+  <button class="sidebar-item" id="sid-ptx-templates" onclick="showPanel('ptx-templates',this)">
+    <i class="item-icon">📋</i> Templates
+  </button>
+
+  <div class="sidebar-footer">
+    <button class="sidebar-print-btn" onclick="window.print()">🖨 Print / Export</button>
+  </div>
+</nav>
 
 <div class="container">
 
@@ -884,8 +969,8 @@
 
     <!-- How they connect diagram -->
     <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px">How the Stage Gate Stages &amp; PTX Authorization Gates Fit Together</h3>
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:28px;overflow-x:auto">
-      <div style="display:flex;align-items:stretch;gap:0;min-width:700px">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:28px">
+      <div style="display:flex;align-items:stretch;gap:0;flex-wrap:nowrap">
 
         <!-- Stage 1-2 -->
         <div style="flex:1;border-radius:8px;background:#eff6ff;border:1px solid #93c5fd;padding:12px 10px;text-align:center">
@@ -4542,48 +4627,20 @@
   </div><!-- /panel-ptx-templates -->
 
 <script>
-  let currentAudience = 'sg';
-
-  function switchAudience(aud) {
-    currentAudience = aud;
-    // Update audience buttons
-    const sgBtn = document.getElementById('aud-sg');
-    const ptxBtn = document.getElementById('aud-ptx');
-    if (aud === 'sg') {
-      sgBtn.style.background = 'rgba(255,255,255,0.18)'; sgBtn.style.color = 'white'; sgBtn.style.borderBottomColor = 'white';
-      ptxBtn.style.background = 'none'; ptxBtn.style.color = 'rgba(255,255,255,0.65)'; ptxBtn.style.borderBottomColor = 'transparent';
-      document.getElementById('subnav-sg').style.display = '';
-      document.getElementById('subnav-ptx').style.display = 'none';
-      // Show default SG panel
-      showPanelInNav('overview', 'subnav-sg');
-    } else {
-      ptxBtn.style.background = 'rgba(255,255,255,0.18)'; ptxBtn.style.color = 'white'; ptxBtn.style.borderBottomColor = 'white';
-      sgBtn.style.background = 'none'; sgBtn.style.color = 'rgba(255,255,255,0.65)'; sgBtn.style.borderBottomColor = 'transparent';
-      document.getElementById('subnav-ptx').style.display = '';
-      document.getElementById('subnav-sg').style.display = 'none';
-      // Show default PTX panel
-      showPanelInNav('ptx', 'subnav-ptx');
-    }
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
-
-  function showPanelInNav(name, navId) {
-    document.querySelectorAll('#' + navId + ' .nav-btn').forEach(b => b.classList.remove('active'));
-    const targetBtn = document.querySelector('#' + navId + ' [onclick*="' + name + '"]');
-    if (targetBtn) targetBtn.classList.add('active');
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    const el = document.getElementById('panel-' + name);
-    if (el) el.classList.add('active');
-  }
-
   function showPanel(name, btn) {
-    const navId = currentAudience === 'ptx' ? 'subnav-ptx' : 'subnav-sg';
-    document.querySelectorAll('#' + navId + ' .nav-btn').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
+    // Deactivate all sidebar items, activate the clicked one
+    document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+    if (btn) {
+      btn.classList.add('active');
+    } else {
+      const sid = document.getElementById('sid-' + name);
+      if (sid) sid.classList.add('active');
+    }
+    // Swap panels
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     const el = document.getElementById('panel-' + name);
     if (el) el.classList.add('active');
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function toggleStage(n) {
@@ -4642,15 +4699,15 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Open first stage card in the gates overview
+    // Open first stage card
     const s1 = document.getElementById('stage-1');
     if (s1) s1.classList.add('open');
-    // Show unified Policy Overview as the landing panel
+    // Land on the overview panel with sidebar item active
     document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
     document.getElementById('panel-overview').classList.add('active');
-    // Activate first subnav button
-    const firstBtn = document.querySelector('#subnav-main .nav-btn');
-    if (firstBtn) { document.querySelectorAll('#subnav-main .nav-btn').forEach(b => b.classList.remove('active')); firstBtn.classList.add('active'); }
+    document.querySelectorAll('.sidebar-item').forEach(b => b.classList.remove('active'));
+    const overviewBtn = document.getElementById('sid-overview');
+    if (overviewBtn) overviewBtn.classList.add('active');
   });
 </script>
 </body>
